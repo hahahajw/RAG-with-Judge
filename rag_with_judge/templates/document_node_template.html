@@ -1,0 +1,19 @@
+<div class="node-container level-{{level}}" id="document-{{node_id}}">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> {{content_preview}}</p>
+        <div class="metadata">
+            <p>得分: {{score}} | 深度: {{recursion_depth}}</p>
+            <p>判断理由: {{reason}}</p>
+        </div>
+        <div class="document-content">
+            <pre>{{document_content}}</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>{{metadata}}</pre>
+        </div>
+    </div>
+    {{child_html}}
+</div>

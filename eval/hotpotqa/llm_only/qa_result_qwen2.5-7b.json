@@ -1,0 +1,502 @@
+[
+    {
+        "question": "How long did the career span of the actor who starred with Mickey Rooney and Marilyn Maxwell in Off Limits?",
+        "ground_truth": "nearly 80 years",
+        "prediction": "1930-1977"
+    },
+    {
+        "question": "What Hong Kong actor born in 1980 will star in \"Heart and Greed\"?",
+        "ground_truth": "Bosco Wong Chung-chak",
+        "prediction": "Louis Koo"
+    },
+    {
+        "question": "What is the name of the presidential memorial in Washington, D.C that connects to an artificial island?",
+        "ground_truth": "Jefferson Memorial",
+        "prediction": "John F. Kennedy Memorial Island"
+    },
+    {
+        "question": "How many episodes were in the season of \"Rick and Morty\" that featured an episode called \"The Ricks Must Be Crazy\"?",
+        "ground_truth": "ten",
+        "prediction": "4"
+    },
+    {
+        "question": "In what year was Kasper Schmeichel's father born?",
+        "ground_truth": "1963",
+        "prediction": "1966"
+    },
+    {
+        "question": "In the animal kingdom what type of sexuality is described as sexual behavior toward both male and females?",
+        "ground_truth": "bisexual",
+        "prediction": "Bisexual"
+    },
+    {
+        "question": "What nationality was Oliver Reed's character in the film Royal Flash?",
+        "ground_truth": "Prussian",
+        "prediction": "British"
+    },
+    {
+        "question": "What cuisine is described as a cultural blending of Mediterranean influences (such as those created by Italian and Spanish populations)?",
+        "ground_truth": "Argentine cuisine",
+        "prediction": "Meze"
+    },
+    {
+        "question": "Which canal is located farther east, Champlain Canal or Warren County Canal?",
+        "ground_truth": "Champlain Canal",
+        "prediction": "Champlain Canal"
+    },
+    {
+        "question": "Who was the running mate of the man about whose candidacy the 2016 book Insane Clown President: Dispatches from the 2016 Circus documents?",
+        "ground_truth": "Mike Pence",
+        "prediction": "Mike Pence"
+    },
+    {
+        "question": "New Jersey politicians Linda Stender and Leonard Lance were born within a year of each other beginning in which year?",
+        "ground_truth": "1952",
+        "prediction": "1958"
+    },
+    {
+        "question": "Where was the movement that August Brancart published literature from centerd?",
+        "ground_truth": "Western Europe",
+        "prediction": "Belgium"
+    },
+    {
+        "question": "How much change in elevation is there at the site of the 1999 FIA GT Hockenheim 500km?",
+        "ground_truth": "very little",
+        "prediction": "32 meters"
+    },
+    {
+        "question": "In which Sottish Region is the castle in which] Sir Roger de Kirkpatrick was born ?  ",
+        "ground_truth": "Dumfries and Galloway,",
+        "prediction": "Kirkcudbrightshire"
+    },
+    {
+        "question": "What relationship does Fred Gehrke have to the 23rd overall pick in the 2010 Major League Baseball Draft?",
+        "ground_truth": "great-grandfather",
+        "prediction": "Fred Gehrke was the General Manager of the San Francisco Giants when they made the 23rd overall pick in the 2010 MLB Draft."
+    },
+    {
+        "question": "What record did the Super Bowl XXXIV champions finish the regular-season with in 1999?",
+        "ground_truth": "a record of 13–3",
+        "prediction": "13-3"
+    },
+    {
+        "question": "Spider9 was founded in 2011 by the head of which subsidiary of Wanxiang Group?",
+        "ground_truth": "A123 Systems, LLC",
+        "prediction": "Fengshan Battery"
+    },
+    {
+        "question": "John Stoltenberg is the managing editor of the magazine that focuses on what?",
+        "ground_truth": "aging issues",
+        "prediction": "feminism and gender studies"
+    },
+    {
+        "question": "What kind of song did Alexander Grant produce for Eminem?",
+        "ground_truth": "a midtempo hip hop ballad",
+        "prediction": "rap song"
+    },
+    {
+        "question": "An American who is a German literature translator and did a thesis on an Austrian prodigy born in 1874 taught at which university?",
+        "ground_truth": "University of Vienna",
+        "prediction": "University of California, Berkeley"
+    },
+    {
+        "question": "From which country is the largest known example of European Iron Age silver work?",
+        "ground_truth": "Switzerland",
+        "prediction": "Germany"
+    },
+    {
+        "question": "Is Rick Husband Amarillo International Airport or Grand Forks International Airport closer to the town it is near?",
+        "ground_truth": "Grand Forks International Airport",
+        "prediction": "Rick Husband Amarillo International Airport is closer to the town it is near."
+    },
+    {
+        "question": "The Greatest Event in Television History aired on the channel that was founded by whom?",
+        "ground_truth": "Betty Cohen",
+        "prediction": "Ted Turner"
+    },
+    {
+        "question": "The Lowry Hotel is named after an artist, many of whose drawings and paintings depict what town?",
+        "ground_truth": "Pendlebury, Lancashire",
+        "prediction": "Salford"
+    },
+    {
+        "question": "ICI House is now named after the company that provides what type of item?",
+        "ground_truth": "explosives",
+        "prediction": "ICI House is now named after the company that provides paint products."
+    },
+    {
+        "question": "What professionn does Stanley Kwan and Ken Hughes have in common?",
+        "ground_truth": "director",
+        "prediction": "film director"
+    },
+    {
+        "question": "The school in which the Wilmslow Show is held is designated as what?",
+        "ground_truth": "Centre of Excellence",
+        "prediction": "Church of England School"
+    },
+    {
+        "question": "The musician who did \"Khalaara\" was born on what date?",
+        "ground_truth": "15 March 1983",
+        "prediction": "1988-02-13"
+    },
+    {
+        "question": "How many times has the author of Negotiating with the Dead been shortlisted for the Booker Prize ?",
+        "ground_truth": "five times",
+        "prediction": "3"
+    },
+    {
+        "question": "The 1st Virginia Regiment saw action at a battle that led to the departure of what Royal Governor?",
+        "ground_truth": "Royal Governor Lord Dunmore",
+        "prediction": "Lord Dunmore"
+    },
+    {
+        "question": "What breed of dog are the Basset Bleu de Gascogne and the Beagle?",
+        "ground_truth": "The Beagle is a breed of small hound",
+        "prediction": "Hound breeds"
+    },
+    {
+        "question": "Which opera has more acts, Don Quichotte or Tosca?",
+        "ground_truth": "Don Quichotte",
+        "prediction": "Tosca"
+    },
+    {
+        "question": " Hans Florian Zimmer composed The original music score for  Pacific Heights, since the 19080's how many films has he composed music for?",
+        "ground_truth": "over 150 films",
+        "prediction": "Over 150 films"
+    },
+    {
+        "question": "What Kenya-based company owns the Tusker beer brand?",
+        "ground_truth": "East African Breweries Limited",
+        "prediction": "East African Breweries plc"
+    },
+    {
+        "question": "Who was born first, Nellee Hooper or Baz Luhrmann?",
+        "ground_truth": "\"Baz\" Luhrmann",
+        "prediction": "Nellee Hooper"
+    },
+    {
+        "question": "Who is younger, Keisuke Kuwata or Moya Brennan?",
+        "ground_truth": "Keisuke Kuwata",
+        "prediction": "Moya Brennan"
+    },
+    {
+        "question": "Which of the starting pitchers for Team USA in the Baseball at the 2000 Summer Olympics was not born August 29, 1977?",
+        "ground_truth": "Ben Sheets",
+        "prediction": "Chris Oxspring"
+    },
+    {
+        "question": "When was the rock band to which Pre-Creedence name was changed active? ",
+        "ground_truth": "1960s and early 1970s",
+        "prediction": "1958 to 1967"
+    },
+    {
+        "question": "What other teams played in the same division that Chad Clements played in?",
+        "ground_truth": "Los Angeles Xtreme, San Francisco Demons and Memphis Maniax",
+        "prediction": "Denver Broncos, Kansas City Chiefs, Oakland Raiders, San Diego Chargers"
+    },
+    {
+        "question": "Atlanta Zero Mile Post is located within a historic area opened in what year ?",
+        "ground_truth": "1969",
+        "prediction": "1925"
+    },
+    {
+        "question": "What Cantonese slang term can mean both \"ghost man\" and to refer to Westerners?",
+        "ground_truth": "Gweilo",
+        "prediction": "鬼佬"
+    },
+    {
+        "question": "What location is shared by both Great Neck School District and Saddle Rock Elementary School?",
+        "ground_truth": "New York, United States",
+        "prediction": "Great Neck, New York"
+    },
+    {
+        "question": "Jim Sharman and Ava DuVernay both share what title concerning their actions leading actors in film or stage?",
+        "ground_truth": "director",
+        "prediction": "Director"
+    },
+    {
+        "question": "High School Confidential, an eight part documentary followed twelve high school teenagers from a high school in Overland Park, Kansas that ranked what in the 2009 Newsweek ranking of the top 1,500 high schools in the United States?",
+        "ground_truth": "#364",
+        "prediction": "446"
+    },
+    {
+        "question": "When was the younger brother of Ervin Randle born?",
+        "ground_truth": "December 12, 1967",
+        "prediction": "1983"
+    },
+    {
+        "question": "What team did Kenny Brown manage following the departure of Dean Holdsworth?",
+        "ground_truth": "Chelmsford",
+        "prediction": "Brentford FC"
+    },
+    {
+        "question": "The Waterloo Vase has been used as a garden ornament at whose residence and administrative headquarters?",
+        "ground_truth": "reigning monarch of the United Kingdom",
+        "prediction": "Blenheim Palace"
+    },
+    {
+        "question": "Vincas Kudirka is the author of both the music and lyrics of a national anthem which has how many words?",
+        "ground_truth": "fifty-word",
+        "prediction": "20"
+    },
+    {
+        "question": "What is the origin of the name of the neighbourhood in which the building at 359 Broadway is located ?",
+        "ground_truth": "a syllabic abbreviation from \"Triangle Below Canal Street",
+        "prediction": "The name of the neighborhood where the building at 359 Broadway is located is SoHo, short for South of Houston Street."
+    },
+    {
+        "question": "Are Denzel Washington and David Hewlett both actors?",
+        "ground_truth": "yes",
+        "prediction": "Yes"
+    },
+    {
+        "question": "Tony Leung Ka-fai is a four time winner of the award that has been on offer since what month?",
+        "ground_truth": "December 1993",
+        "prediction": "June"
+    },
+    {
+        "question": "Swingin' Down Yonder is the first full-length, 12-inch album recorded by a singer known by what nickname?",
+        "ground_truth": "\"King of Cool\"",
+        "prediction": "Sugarloaf City"
+    },
+    {
+        "question": "Which star of \"Chalet Girl\" also appeared in \"The Treasure Seekers\"?",
+        "ground_truth": "Felicity Rose Hadley Jones",
+        "prediction": "Claire Richieri"
+    },
+    {
+        "question": "When did the the Antonine who was known as the third of the five good emperors live?",
+        "ground_truth": "24 January 76 – 10 July 138",
+        "prediction": "130-192 AD"
+    },
+    {
+        "question": "Beyond the Edge was a docudrama about the mountaineer that was part of the Everest expedition led by whom?",
+        "ground_truth": "John Hunt",
+        "prediction": "Jon Krakauer"
+    },
+    {
+        "question": "Which year and which conference was the 14th season for this conference as part of the NCAA Division that the Colorado Buffaloes played in with a record of 2-6 in conference play?",
+        "ground_truth": "2009 Big 12 Conference",
+        "prediction": "1950 Pac-8 Conference"
+    },
+    {
+        "question": "When is the football club which Stan Spinks played for founded",
+        "ground_truth": "in 1902",
+        "prediction": "1878"
+    },
+    {
+        "question": "Theme Park Inc is a video game that created what sequel in North America in 1999?",
+        "ground_truth": "Sim Theme Park",
+        "prediction": "Tyco Tyres"
+    },
+    {
+        "question": "Which band has more members Band of Skulls or Live ?",
+        "ground_truth": "Live",
+        "prediction": "Live has more members than Band of Skulls."
+    },
+    {
+        "question": "Which film was was made first The Young Black Stallion or Wild Hearts Can't Be Broken?",
+        "ground_truth": "Wild Hearts Can’t Be Broken",
+        "prediction": "The Young Black Stallion"
+    },
+    {
+        "question": "Which artist is a lyricist, Eric Bloom or Otep Shamaya?",
+        "ground_truth": "Eric Bloom",
+        "prediction": "Otep Shamaya"
+    },
+    {
+        "question": "Which German project recorded a song that featured vocals by a duo from Silverdale, England?",
+        "ground_truth": "Enigma",
+        "prediction": "Einstürzende Neubauten"
+    },
+    {
+        "question": "Which building was completed first the W. R. Grace Building or 10 Hudson Yards?",
+        "ground_truth": "W. R. Grace Building",
+        "prediction": "W. R. Grace Building"
+    },
+    {
+        "question": "Which actress, who debuted in Friday Night Lights also starred in The River Why?",
+        "ground_truth": "Amber Laura Heard",
+        "prediction": "Lindsay Lohan"
+    },
+    {
+        "question": "What river does Waterloo Bridge and London Eye have in common?",
+        "ground_truth": "Thames",
+        "prediction": "Thames River"
+    },
+    {
+        "question": "Are Jim Lindberg and Alison Moyet singers of the same nationality?",
+        "ground_truth": "no",
+        "prediction": "No"
+    },
+    {
+        "question": "Erica Packer was the second wife of what Australian businessman?",
+        "ground_truth": "James Packer",
+        "prediction": "Len Ainsworth"
+    },
+    {
+        "question": "Which singer has been in more music bands, Michael Crafter or Martin Degville?",
+        "ground_truth": "Michael Crafter",
+        "prediction": "Martin Degville"
+    },
+    {
+        "question": "Why did Rudolf Hess stop serving Hitler in 1941?",
+        "ground_truth": "report Hess's illegal May 1941 flight to Scotland",
+        "prediction": "Rudolf Hess resigned from his position as Hitler's deputy in April 1941 to pursue what he believed was a peace mission to Scotland."
+    },
+    {
+        "question": "Which university did the third pick by the Philadelphia 76ers in the 2014 NBA draft attend before he was drafted?",
+        "ground_truth": "University of Kansas",
+        "prediction": "Duke University"
+    },
+    {
+        "question": "According to the 2011 census what is the population of the city where Royal Wahingdoh F.C. are based ?",
+        "ground_truth": "143,007",
+        "prediction": "263,423"
+    },
+    {
+        "question": "How many people did the South Korean spree killer which NICS Improvement Amendments Act of 2007 enabaled to buy firearm killed in 2007",
+        "ground_truth": "32 people",
+        "prediction": "38"
+    },
+    {
+        "question": "Margaret Clifford, Countess of Derby was the daughter the Earl who was seated at which castle from 1310 to 1676?",
+        "ground_truth": "Skipton Castle",
+        "prediction": "温莎城堡"
+    },
+    {
+        "question": "Who was born first, Grigory Margulis or Leonid Levin?",
+        "ground_truth": "Gregori Aleksandrovich Margulis",
+        "prediction": "Grigory Margulis"
+    },
+    {
+        "question": "Alexander Kerensky was defeated and destroyed by the Bolsheviks in the course of a civil war that ended when ?",
+        "ground_truth": "October 1922",
+        "prediction": "October 1922"
+    },
+    {
+        "question": "Over what time period was the motion picture studio which produced Marvel One-Shots known as \"Marvel Films\"?",
+        "ground_truth": "from 1993 to 1996",
+        "prediction": "2013-2014"
+    },
+    {
+        "question": "In what year was the British actress who starred in a film adaptation of a series of eight children's books written by P. L. Travers born?",
+        "ground_truth": "9 November 1955",
+        "prediction": "1907"
+    },
+    {
+        "question": "What party campaigned for the Irish Home Rule Movement?",
+        "ground_truth": "The Home Rule League",
+        "prediction": "Nationalist Party"
+    },
+    {
+        "question": "What film studio produced both National Treasure and The Computer Wore Tennis Shoes?",
+        "ground_truth": "Walt Disney Pictures",
+        "prediction": "DreamWorks Pictures"
+    },
+    {
+        "question": "The Prussian General Carl von Clausewitz is associated with what type of realism?",
+        "ground_truth": "Modern thinkers associated with classical realism are Carl von Clausewitz",
+        "prediction": "Classical Realism"
+    },
+    {
+        "question": "Which number-one single is Michael Steele responsible for?",
+        "ground_truth": "\"Walk Like an Egyptian\"",
+        "prediction": "Wannabe by Spice Girls"
+    },
+    {
+        "question": "The 2014 Baylor Bears football games were played at the stadium whose name was changed during what month?",
+        "ground_truth": "December 2013",
+        "prediction": "September"
+    },
+    {
+        "question": "Are Horace Ové and A. Edward Sutherland both photographers?",
+        "ground_truth": "no",
+        "prediction": "No"
+    },
+    {
+        "question": "How many total staff (including part-time, flexible, and fixed contract staff) does the broadcaster, who released HyperNormalisation, employ?",
+        "ground_truth": "35,402",
+        "prediction": "1500"
+    },
+    {
+        "question": "Are Harry Everett Smith and Vladimir Danilevich both from Russia?",
+        "ground_truth": "no",
+        "prediction": "No."
+    },
+    {
+        "question": "Do both Lancaster Cathedral and Peel Cathedral belong to the Catholic religion?",
+        "ground_truth": "yes",
+        "prediction": "No."
+    },
+    {
+        "question": "In what county is the community, to which the character Everett Turner is travelling to in the book \"Away West\", located?",
+        "ground_truth": "Graham County, Kansas",
+        "prediction": "San Joaquin County"
+    },
+    {
+        "question": "Which of the people featured on Wall of Fame is the daughter of Bernie Ecclestone?",
+        "ground_truth": "Tamara Ecclestone",
+        "prediction": "Cinzia Ecclestone"
+    },
+    {
+        "question": "The 2004 romantic drama film based on Shake'spears play of the same name was produced by whom?",
+        "ground_truth": "Julia Verdin",
+        "prediction": "DreamWorks Pictures"
+    },
+    {
+        "question": "Who choreographed one who is said to be the last muse for the choreographer and starred in the Nutcracker?",
+        "ground_truth": "George Balanchine",
+        "prediction": "Misty Copeland"
+    },
+    {
+        "question": "Who is older Craig Nicholls or Norman Blake ?",
+        "ground_truth": "Norman Blake",
+        "prediction": "Norman Blake"
+    },
+    {
+        "question": "Eduard Schweizer teaches at a German university with over how many students? ",
+        "ground_truth": "26,000",
+        "prediction": "30000"
+    },
+    {
+        "question": "What did Felix Salten originally title his most famous work?",
+        "ground_truth": "Bambi: Eine Lebensgeschichte aus dem Walde",
+        "prediction": "Bambi: A Life in the Woods"
+    },
+    {
+        "question": "What is the nationality of the man who finished third in the 2016 Pau Grand Prix?",
+        "ground_truth": "British",
+        "prediction": "French"
+    },
+    {
+        "question": "Who wrote the music for Billy Elliot the Musical and had at least one song on the \"Billboard\" Hot 100 for 31 consecutive years?",
+        "ground_truth": "Elton John",
+        "prediction": "Elton John"
+    },
+    {
+        "question": "What is the man who Hofstadter's law is named after's profession?",
+        "ground_truth": "professor of cognitive science",
+        "prediction": "jurist"
+    },
+    {
+        "question": "James Davidson reported on which infamous American serial killers?",
+        "ground_truth": "the Harpe brothers",
+        "prediction": "Ted Bundy and John Wayne Gacy"
+    },
+    {
+        "question": "Is Karjiang a mountain and Sherpi Kangri a mountain peak?",
+        "ground_truth": "yes",
+        "prediction": "Yes"
+    },
+    {
+        "question": "Nguyễn Văn Trỗi tried to assassinate a future ambassador from which US state ?",
+        "ground_truth": "Massachusetts",
+        "prediction": "Louisiana"
+    },
+    {
+        "question": "Nicholas Medforth-Mills is a grandson to a king who was born on what day and year?",
+        "ground_truth": "25 October 1921",
+        "prediction": "Nicholas Medforth-Mills's grandfather, King George VI, was born on December 14, 1895."
+    }
+]

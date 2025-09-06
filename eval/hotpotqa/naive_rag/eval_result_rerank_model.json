@@ -1,0 +1,2558 @@
+[
+    {
+        "question": "How long did the career span of the actor who starred with Mickey Rooney and Marilyn Maxwell in Off Limits?",
+        "ground_truth": "nearly 80 years",
+        "prediction": "I cannot answer this question.",
+        "thread_id": "0",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "What Hong Kong actor born in 1980 will star in \"Heart and Greed\"?",
+        "ground_truth": "Bosco Wong Chung-chak",
+        "prediction": "Bosco Wong Chung-chak",
+        "thread_id": "1",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "What is the name of the presidential memorial in Washington, D.C that connects to an artificial island?",
+        "ground_truth": "Jefferson Memorial",
+        "prediction": "Jefferson Memorial",
+        "thread_id": "2",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "How many episodes were in the season of \"Rick and Morty\" that featured an episode called \"The Ricks Must Be Crazy\"?",
+        "ground_truth": "ten",
+        "prediction": "10",
+        "thread_id": "3",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "In what year was Kasper Schmeichel's father born?",
+        "ground_truth": "1963",
+        "prediction": "1963",
+        "thread_id": "4",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "In the animal kingdom what type of sexuality is described as sexual behavior toward both male and females?",
+        "ground_truth": "bisexual",
+        "prediction": "Bisexuality",
+        "thread_id": "5",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "What nationality was Oliver Reed's character in the film Royal Flash?",
+        "ground_truth": "Prussian",
+        "prediction": "German",
+        "thread_id": "6",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "What cuisine is described as a cultural blending of Mediterranean influences (such as those created by Italian and Spanish populations)?",
+        "ground_truth": "Argentine cuisine",
+        "prediction": "Argentine cuisine",
+        "thread_id": "7",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Which canal is located farther east, Champlain Canal or Warren County Canal?",
+        "ground_truth": "Champlain Canal",
+        "prediction": "Champlain Canal",
+        "thread_id": "8",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Who was the running mate of the man about whose candidacy the 2016 book Insane Clown President: Dispatches from the 2016 Circus documents?",
+        "ground_truth": "Mike Pence",
+        "prediction": "Mike Pence",
+        "thread_id": "9",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "New Jersey politicians Linda Stender and Leonard Lance were born within a year of each other beginning in which year?",
+        "ground_truth": "1952",
+        "prediction": "1951",
+        "thread_id": "10",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "Where was the movement that August Brancart published literature from centerd?",
+        "ground_truth": "Western Europe",
+        "prediction": "Western Europe",
+        "thread_id": "11",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "How much change in elevation is there at the site of the 1999 FIA GT Hockenheim 500km?",
+        "ground_truth": "very little",
+        "prediction": "very little change in elevation",
+        "thread_id": "12",
+        "em": 0.0,
+        "f1": [
+            0.5,
+            0.3333333333333333,
+            1.0
+        ]
+    },
+    {
+        "question": "In which Sottish Region is the castle in which] Sir Roger de Kirkpatrick was born ?  ",
+        "ground_truth": "Dumfries and Galloway,",
+        "prediction": "Dumfries and Galloway",
+        "thread_id": "13",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "What relationship does Fred Gehrke have to the 23rd overall pick in the 2010 Major League Baseball Draft?",
+        "ground_truth": "great-grandfather",
+        "prediction": "I cannot answer this question.",
+        "thread_id": "14",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "What record did the Super Bowl XXXIV champions finish the regular-season with in 1999?",
+        "ground_truth": "a record of 13–3",
+        "prediction": "13–3",
+        "thread_id": "15",
+        "em": 0.0,
+        "f1": [
+            0.6666666666666666,
+            1.0,
+            0.5
+        ]
+    },
+    {
+        "question": "Spider9 was founded in 2011 by the head of which subsidiary of Wanxiang Group?",
+        "ground_truth": "A123 Systems, LLC",
+        "prediction": "A123 Systems",
+        "thread_id": "16",
+        "em": 0.0,
+        "f1": [
+            0.8,
+            1.0,
+            0.6666666666666666
+        ]
+    },
+    {
+        "question": "John Stoltenberg is the managing editor of the magazine that focuses on what?",
+        "ground_truth": "aging issues",
+        "prediction": "I cannot answer this question.",
+        "thread_id": "17",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "What kind of song did Alexander Grant produce for Eminem?",
+        "ground_truth": "a midtempo hip hop ballad",
+        "prediction": "\"Love the Way You Lie\" featuring Rihanna",
+        "thread_id": "18",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "An American who is a German literature translator and did a thesis on an Austrian prodigy born in 1874 taught at which university?",
+        "ground_truth": "University of Vienna",
+        "prediction": "University of Vienna",
+        "thread_id": "19",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "From which country is the largest known example of European Iron Age silver work?",
+        "ground_truth": "Switzerland",
+        "prediction": "Denmark",
+        "thread_id": "20",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "Is Rick Husband Amarillo International Airport or Grand Forks International Airport closer to the town it is near?",
+        "ground_truth": "Grand Forks International Airport",
+        "prediction": "Rick Husband Amarillo International Airport is closer to the town it is near.",
+        "thread_id": "21",
+        "em": 0.0,
+        "f1": [
+            0.3333333333333333,
+            0.25,
+            0.5
+        ]
+    },
+    {
+        "question": "The Greatest Event in Television History aired on the channel that was founded by whom?",
+        "ground_truth": "Betty Cohen",
+        "prediction": "Betty Cohen",
+        "thread_id": "22",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "The Lowry Hotel is named after an artist, many of whose drawings and paintings depict what town?",
+        "ground_truth": "Pendlebury, Lancashire",
+        "prediction": "Pendlebury",
+        "thread_id": "23",
+        "em": 0.0,
+        "f1": [
+            0.6666666666666666,
+            1.0,
+            0.5
+        ]
+    },
+    {
+        "question": "ICI House is now named after the company that provides what type of item?",
+        "ground_truth": "explosives",
+        "prediction": "chemical products",
+        "thread_id": "24",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "What professionn does Stanley Kwan and Ken Hughes have in common?",
+        "ground_truth": "director",
+        "prediction": "film director",
+        "thread_id": "25",
+        "em": 0.0,
+        "f1": [
+            0.6666666666666666,
+            0.5,
+            1.0
+        ]
+    },
+    {
+        "question": "The school in which the Wilmslow Show is held is designated as what?",
+        "ground_truth": "Centre of Excellence",
+        "prediction": "Centre of Excellence",
+        "thread_id": "26",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "The musician who did \"Khalaara\" was born on what date?",
+        "ground_truth": "15 March 1983",
+        "prediction": "August 29, 1966",
+        "thread_id": "27",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "How many times has the author of Negotiating with the Dead been shortlisted for the Booker Prize ?",
+        "ground_truth": "five times",
+        "prediction": "five times",
+        "thread_id": "28",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "The 1st Virginia Regiment saw action at a battle that led to the departure of what Royal Governor?",
+        "ground_truth": "Royal Governor Lord Dunmore",
+        "prediction": "Lord Dunmore",
+        "thread_id": "29",
+        "em": 0.0,
+        "f1": [
+            0.6666666666666666,
+            1.0,
+            0.5
+        ]
+    },
+    {
+        "question": "What breed of dog are the Basset Bleu de Gascogne and the Beagle?",
+        "ground_truth": "The Beagle is a breed of small hound",
+        "prediction": "hound type",
+        "thread_id": "30",
+        "em": 0.0,
+        "f1": [
+            0.3333333333333333,
+            0.5,
+            0.25
+        ]
+    },
+    {
+        "question": "Which opera has more acts, Don Quichotte or Tosca?",
+        "ground_truth": "Don Quichotte",
+        "prediction": "Don Quichotte",
+        "thread_id": "31",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": " Hans Florian Zimmer composed The original music score for  Pacific Heights, since the 19080's how many films has he composed music for?",
+        "ground_truth": "over 150 films",
+        "prediction": "Over 150 films.",
+        "thread_id": "32",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "What Kenya-based company owns the Tusker beer brand?",
+        "ground_truth": "East African Breweries Limited",
+        "prediction": "East African Breweries Limited",
+        "thread_id": "33",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Who was born first, Nellee Hooper or Baz Luhrmann?",
+        "ground_truth": "\"Baz\" Luhrmann",
+        "prediction": "Baz Luhrmann was born first.",
+        "thread_id": "34",
+        "em": 0.0,
+        "f1": [
+            0.6666666666666666,
+            0.5,
+            1.0
+        ]
+    },
+    {
+        "question": "Who is younger, Keisuke Kuwata or Moya Brennan?",
+        "ground_truth": "Keisuke Kuwata",
+        "prediction": "Keisuke Kuwata is younger.",
+        "thread_id": "35",
+        "em": 0.0,
+        "f1": [
+            0.8,
+            0.6666666666666666,
+            1.0
+        ]
+    },
+    {
+        "question": "Which of the starting pitchers for Team USA in the Baseball at the 2000 Summer Olympics was not born August 29, 1977?",
+        "ground_truth": "Ben Sheets",
+        "prediction": "Roy Oswalt",
+        "thread_id": "36",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "When was the rock band to which Pre-Creedence name was changed active? ",
+        "ground_truth": "1960s and early 1970s",
+        "prediction": "late 1960s and early 1970s",
+        "thread_id": "37",
+        "em": 0.0,
+        "f1": [
+            0.8571428571428571,
+            0.75,
+            1.0
+        ]
+    },
+    {
+        "question": "What other teams played in the same division that Chad Clements played in?",
+        "ground_truth": "Los Angeles Xtreme, San Francisco Demons and Memphis Maniax",
+        "prediction": "I cannot answer this question.",
+        "thread_id": "38",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "Atlanta Zero Mile Post is located within a historic area opened in what year ?",
+        "ground_truth": "1969",
+        "prediction": "1895",
+        "thread_id": "39",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "What Cantonese slang term can mean both \"ghost man\" and to refer to Westerners?",
+        "ground_truth": "Gweilo",
+        "prediction": "Gweilo",
+        "thread_id": "40",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "What location is shared by both Great Neck School District and Saddle Rock Elementary School?",
+        "ground_truth": "New York, United States",
+        "prediction": "Great Neck, New York, USA",
+        "thread_id": "41",
+        "em": 0.0,
+        "f1": [
+            0.4444444444444445,
+            0.4,
+            0.5
+        ]
+    },
+    {
+        "question": "Jim Sharman and Ava DuVernay both share what title concerning their actions leading actors in film or stage?",
+        "ground_truth": "director",
+        "prediction": "director",
+        "thread_id": "42",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "High School Confidential, an eight part documentary followed twelve high school teenagers from a high school in Overland Park, Kansas that ranked what in the 2009 Newsweek ranking of the top 1,500 high schools in the United States?",
+        "ground_truth": "#364",
+        "prediction": "364",
+        "thread_id": "43",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "When was the younger brother of Ervin Randle born?",
+        "ground_truth": "December 12, 1967",
+        "prediction": "December 12, 1967",
+        "thread_id": "44",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "What team did Kenny Brown manage following the departure of Dean Holdsworth?",
+        "ground_truth": "Chelmsford",
+        "prediction": "Chelmsford City",
+        "thread_id": "45",
+        "em": 0.0,
+        "f1": [
+            0.6666666666666666,
+            0.5,
+            1.0
+        ]
+    },
+    {
+        "question": "The Waterloo Vase has been used as a garden ornament at whose residence and administrative headquarters?",
+        "ground_truth": "reigning monarch of the United Kingdom",
+        "prediction": "Buckingham Palace",
+        "thread_id": "46",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "Vincas Kudirka is the author of both the music and lyrics of a national anthem which has how many words?",
+        "ground_truth": "fifty-word",
+        "prediction": "50",
+        "thread_id": "47",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "What is the origin of the name of the neighbourhood in which the building at 359 Broadway is located ?",
+        "ground_truth": "a syllabic abbreviation from \"Triangle Below Canal Street",
+        "prediction": "The name of the neighborhood in which the building at 359 Broadway is located originates from \"Triangle Below Canal Street,\" abbreviated as Tribeca.",
+        "thread_id": "48",
+        "em": 0.0,
+        "f1": [
+            0.35294117647058826,
+            0.25,
+            0.6
+        ]
+    },
+    {
+        "question": "Are Denzel Washington and David Hewlett both actors?",
+        "ground_truth": "yes",
+        "prediction": "Yes.",
+        "thread_id": "49",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Tony Leung Ka-fai is a four time winner of the award that has been on offer since what month?",
+        "ground_truth": "December 1993",
+        "prediction": "I cannot answer this question.",
+        "thread_id": "50",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "Swingin' Down Yonder is the first full-length, 12-inch album recorded by a singer known by what nickname?",
+        "ground_truth": "\"King of Cool\"",
+        "prediction": "Dean Martin",
+        "thread_id": "51",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "Which star of \"Chalet Girl\" also appeared in \"The Treasure Seekers\"?",
+        "ground_truth": "Felicity Rose Hadley Jones",
+        "prediction": "Felicity Jones",
+        "thread_id": "52",
+        "em": 0.0,
+        "f1": [
+            0.6666666666666666,
+            1.0,
+            0.5
+        ]
+    },
+    {
+        "question": "When did the the Antonine who was known as the third of the five good emperors live?",
+        "ground_truth": "24 January 76 – 10 July 138",
+        "prediction": "24 January 76 – 10 July 138",
+        "thread_id": "53",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Beyond the Edge was a docudrama about the mountaineer that was part of the Everest expedition led by whom?",
+        "ground_truth": "John Hunt",
+        "prediction": "John Hunt",
+        "thread_id": "54",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Which year and which conference was the 14th season for this conference as part of the NCAA Division that the Colorado Buffaloes played in with a record of 2-6 in conference play?",
+        "ground_truth": "2009 Big 12 Conference",
+        "prediction": "",
+        "thread_id": "55",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "When is the football club which Stan Spinks played for founded",
+        "ground_truth": "in 1902",
+        "prediction": "1902",
+        "thread_id": "56",
+        "em": 0.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Theme Park Inc is a video game that created what sequel in North America in 1999?",
+        "ground_truth": "Sim Theme Park",
+        "prediction": "Sim Theme Park",
+        "thread_id": "57",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Which band has more members Band of Skulls or Live ?",
+        "ground_truth": "Live",
+        "prediction": "Live has more members than Band of Skulls.",
+        "thread_id": "58",
+        "em": 0.0,
+        "f1": [
+            0.4,
+            0.25,
+            1.0
+        ]
+    },
+    {
+        "question": "Which film was was made first The Young Black Stallion or Wild Hearts Can't Be Broken?",
+        "ground_truth": "Wild Hearts Can’t Be Broken",
+        "prediction": "Wild Hearts Can't Be Broken",
+        "thread_id": "59",
+        "em": 0.0,
+        "f1": [
+            0.75,
+            0.75,
+            0.75
+        ]
+    },
+    {
+        "question": "Which artist is a lyricist, Eric Bloom or Otep Shamaya?",
+        "ground_truth": "Eric Bloom",
+        "prediction": "Eric Bloom",
+        "thread_id": "60",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Eric Bloom (born December 1, 1944) is an American singer, songwriter and musician. He is best known as a vocalist, and \"stun guitar\" player for the long-running band Blue Öyster Cult, with work on over 20 albums. Much of his lyrical content relates to his lifelong interest in science fiction.",
+            "Otep Shamaya is the lead vocalist of the nu metal band Otep.",
+            "\"Black Blade\" is a song by American rock band Blue Öyster Cult. The lyrics were written by Eric Bloom and British science fiction writer Michael Moorcock from the viewpoint of Elric, Moorcock's most famous character. Elric wields a sentient, soul-sucking sword named Stormbringer. Aside from a set of cryptic, blood-red runes on the blade, the sword is black, hence the name \"Black Blade\". The music was jointly composed by Eric Bloom, lead singer of Blue Öyster Cult"
+        ],
+        "supporting_facts": [
+            "Eric Bloom (born December 1, 1944) is an American singer, songwriter and musician.",
+            "Otep Shamaya is the lead vocalist of the nu metal band Otep."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Which German project recorded a song that featured vocals by a duo from Silverdale, England?",
+        "ground_truth": "Enigma",
+        "prediction": "Enigma recorded a song that featured vocals by Aquilo, a duo from Silverdale, England.",
+        "thread_id": "61",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "\"Amen\" is a song by German musical project Enigma, featuring vocals by English dream-pop duo Aquilo. It was released as the second single from Enigma's eighth studio album, \"The Fall of a Rebel Angel\" on November 18, 2016.",
+            "Aquilo is an alternative musical duo from Silverdale, Lancashire, England, consisting of Tom Higham and Ben Fletcher. They began gaining recognition in 2013 for their singles such as \"Calling Me\" and \"You There\", in addition to their five EPs.",
+            "\"Endless Summer\" is a song by German singer Oceana Mahlmann, from her second album \"My House\" (2012), serving as the lead single. It was the official UEFA Euro 2012 theme song. The song uses a sample of the electro track \"Blaue Moschee\" by German project Die Vögel."
+        ],
+        "supporting_facts": [
+            "\"Amen\" is a song by German musical project Enigma, featuring vocals by English dream-pop duo Aquilo.",
+            "Aquilo is an alternative musical duo from Silverdale, Lancashire, England, consisting of Tom Higham and Ben Fletcher."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.19999999999999998,
+            0.1111111111111111,
+            1.0
+        ]
+    },
+    {
+        "question": "Which building was completed first the W. R. Grace Building or 10 Hudson Yards?",
+        "ground_truth": "W. R. Grace Building",
+        "prediction": "W. R. Grace Building",
+        "thread_id": "62",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "The W. R. Grace Building is a skyscraper in Manhattan, New York City. The building was designed principally by Gordon Bunshaft, and completed in 1974. The building was commissioned by the W.R. Grace Company, and was also used by the Deloitte & Touche, LLP.",
+            "10 Hudson Yards is an office building that was completed in 2016 in Manhattan's West Side. Located near Hell's Kitchen, Chelsea and the Penn Station area, the building is a part of the Hudson Yards urban renewal project, a plan to redevelop the Metropolitan Transportation Authority's West Side Yard. Coach, Inc. is the anchor tenant. During planning, the tower was known as the South Tower or Tower C.",
+            "15 Hudson Yards is a residential building currently under construction on Manhattan's West Side. Located in Chelsea near Hell's Kitchen Penn Station area, the building is a part of the Hudson Yards project, a plan to redevelop the Metropolitan Transportation Authority's West Side Yards. The tower started construction on December 4, 2014."
+        ],
+        "supporting_facts": [
+            "The W. R. Grace Building is a skyscraper in Manhattan, New York City.",
+            "10 Hudson Yards is an office building that was completed in 2016 in Manhattan's West Side."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Which actress, who debuted in Friday Night Lights also starred in The River Why?",
+        "ground_truth": "Amber Laura Heard",
+        "prediction": "Amber Heard",
+        "thread_id": "63",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "The River Why is a 2010 American independent drama film directed by Matthew Leutwyler. It is an adaptation of the 1983 Sierra Club novel of the same name by David James Duncan and stars Zach Gilford, William Hurt and Amber Heard. Showtime broadcast the film in August 2011 and was later screened in the United States as benefit for fish and river conservation groups. The film was released on Blu-ray and DVD on November 8",
+            ", 2013. She has worked on the NBC drama series \"Friday Night Lights\". She was nominated for a Writers Guild of America Award for Best New Series at the February 2007 ceremony for her work on the first season of \"Friday Night Lights\". She was nominated for the WGA Award for Best Dramatic Series the following year at the February 2008 ceremony for her work on the second season of \"Friday Night Lights\". Heldens was nominated for Best Dramatic Series a second time at the February 2009 ceremony for",
+            ", 2013. She has worked on the NBC drama series \"Friday Night Lights\". She was nominated for a Writers Guild of America Award for Best New Series at the February 2007 ceremony for her work on the first season of \"Friday Night Lights\". She was nominated for the WGA Award for Best Dramatic Series the following year at the February 2008 ceremony for her work on the second season of \"Friday Night Lights\". Heldens was nominated for Best Dramatic Series a second time at the February 2009 ceremony for"
+        ],
+        "supporting_facts": [
+            "The River Why is a 2010 American independent drama film directed by Matthew Leutwyler.",
+            " It is an adaptation of the 1983 Sierra Club novel of the same name by David James Duncan and stars Zach Gilford, William Hurt and Amber Heard.",
+            "Amber Laura Heard (born April 22, 1986) is an American actress.",
+            " She made her film debut in 2004 in the sports drama \"Friday Night Lights\"."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.8,
+            1.0,
+            0.6666666666666666
+        ]
+    },
+    {
+        "question": "What river does Waterloo Bridge and London Eye have in common?",
+        "ground_truth": "Thames",
+        "prediction": "River Thames",
+        "thread_id": "64",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Waterloo Bridge ( ) is a road and foot traffic bridge crossing the River Thames in London, between Blackfriars Bridge and Hungerford Bridge. Its name commemorates the victory of the British, the Dutch and the Prussians at the Battle of Waterloo in 1815. Thanks to its location at a strategic bend in the river, the views from the bridge (of Westminster, the South Bank and the London Eye to the west",
+            "The London Eye is a giant Ferris wheel on the South Bank of the River Thames in London. As of January 2015, it has been advertised as the Coca-Cola London Eye.",
+            "The London Eye Pier (or Waterloo Millennium Pier) is directly in front of the London Eye Ferris wheel on the South Bank of the River Thames in Central London, England."
+        ],
+        "supporting_facts": [
+            "Waterloo Bridge ( ) is a road and foot traffic bridge crossing the River Thames in London, between Blackfriars Bridge and Hungerford Bridge.",
+            "The London Eye is a giant Ferris wheel on the South Bank of the River Thames in London."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.6666666666666666,
+            0.5,
+            1.0
+        ]
+    },
+    {
+        "question": "Are Jim Lindberg and Alison Moyet singers of the same nationality?",
+        "ground_truth": "no",
+        "prediction": "No.",
+        "thread_id": "65",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "James William Lindberg (born July 26, 1965) is an American singer and guitarist. Active since the 1980s, when he played in local bands in his early career, Lindberg is best known for being the frontman and songwriter of the influential punk rock band Pennywise, where he had remained as a member from 1988 and 2009 before he rejoined in 2012. He also fronts and plays guitar in The Black Pacific, who released a debut album in 2010.",
+            "Geneviève Alison Jane Moyet ( ; born 18 June 1961) is an English singer, songwriter and performer noted for her bluesy contralto voice. She came to prominence as half of the duo Yazoo, but has since mainly worked as a solo artist.",
+            "The Best of Alison Moyet is a compilation album by British singer-songwriter Alison Moyet, released in 2009. Moyet's first compilation album since 2001's \"The Essential\", \"The Best of\" contains twenty tracks, with selections from her seven solo albums."
+        ],
+        "supporting_facts": [
+            "James William Lindberg (born July 26, 1965) is an American singer and guitarist.",
+            "Geneviève Alison Jane Moyet ( ; born 18 June 1961) is an English singer, songwriter and performer noted for her bluesy contralto voice."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Erica Packer was the second wife of what Australian businessman?",
+        "ground_truth": "James Packer",
+        "prediction": "James Packer",
+        "thread_id": "66",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Erica Georgia Packer (née Baxter; born 10 November 1977) is an Australian singer and model. She was the second wife of Australia's eighth richest man, James Packer.",
+            "James Douglas Packer (born 8 September 1967) is an Australian businessman and investor.",
+            "Trevor Kennedy (born Trevor John Kennedy; born in Perth, Western Australia, on 24 June 1942) is an Australian businessman and company director. He has served on the board of directors of many Australian companies, including Consolidated Press Holdings and Qantas. He is a former journalist and right-hand man of Kerry Packer and a former business associate of Malcolm Turnbull, current leader of the Australian Parliamentary Liberal Party and the 29th Prime Minister of Australia."
+        ],
+        "supporting_facts": [
+            " She was the second wife of Australia's eighth richest man, James Packer.",
+            "James Douglas Packer (born 8 September 1967) is an Australian businessman and investor."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Which singer has been in more music bands, Michael Crafter or Martin Degville?",
+        "ground_truth": "Michael Crafter",
+        "prediction": "Michael Crafter",
+        "thread_id": "67",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Michael Crafter is an Australian musician, singer-songwriter and entertainment manager. His music career began as lead vocalist for I Killed the Prom Queen. He is the vocalist of Confession, and former vocalist of Carpathian and Bury Your Dead. Crafter runs a clothing apparel business, Mistake Clothing.",
+            "Martin Degville is (born 27 January 1961 in Walsall) is the lead singer and co-songwriter of the UK pop band, Sigue Sigue Sputnik – which had a worldwide hit single in 1986 with \"Love Missile F1-11\" – and six other EMI single releases. Sputnik was formed with ex-Generation X bassist Tony James.",
+            "Confession was an Australian melodic hardcore band from Melbourne, Victoria. The band was formed in 2008 by frontman Michael Crafter, who is best known as the former lead vocalist of metalcore bands I Killed the Prom Queen, Carpathian and Bury Your Dead. They have released one EP entitled \"Can't Live, Can't Breathe\", and three albums: \"Cancer\", \"The Long Way Home\" and \"Life And Death\" on Resist Records."
+        ],
+        "supporting_facts": [
+            "Michael Crafter is an Australian musician, singer-songwriter and entertainment manager.",
+            " His music career began as lead vocalist for I Killed the Prom Queen.",
+            " He is the vocalist of Confession, and former vocalist of Carpathian and Bury Your Dead.",
+            "Martin Degville is (born 27 January 1961 in Walsall) is the lead singer and co-songwriter of the UK pop band, Sigue Sigue Sputnik – which had a worldwide hit single in 1986 with \"Love Missile F1-11\" – and six other EMI single releases.",
+            " Sputnik was formed with ex-Generation X bassist Tony James."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Why did Rudolf Hess stop serving Hitler in 1941?",
+        "ground_truth": "report Hess's illegal May 1941 flight to Scotland",
+        "prediction": "He flew solo to Scotland in an attempt to negotiate peace with the United Kingdom during World War II.",
+        "thread_id": "68",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Rudolf Walter Richard Hess (Heß in German; 26 April 1894 – 17 August 1987), was a prominent politician in Nazi Germany. Appointed Deputy Führer to Adolf Hitler in 1933, he served in this position until 1941, when he flew solo to Scotland in an attempt to negotiate peace with the United Kingdom during World War II. He was taken prisoner and eventually was convicted of crimes against peace, serving a life sentence until his suicide.",
+            "The Party Chancellery (\"Parteikanzlei\"), was the name of the head office for the German Nazi Party (NSDAP), designated as such on 12 May 1941. The office existed previously as the Staff of the Deputy Führer (\"Stab des Stellvertreters des Führers\") but was renamed after Rudolf Hess flew to England in an attempt to negotiate a peace agreement without Hitler's authorization. Hess was denounced by Hitler, his former office was dissolved",
+            "Karlheinz Pintsch (1909 -?) was the long serving senior adjutant to Rudolf Hess who was the Deputy Führer to Adolf Hitler in Nazi Germany. It fell to him to report Hess's illegal May 1941 flight to Scotland to Hitler and his recollections and notes have been the subject of debate by historians."
+        ],
+        "supporting_facts": [
+            " It fell to him to report Hess's illegal May 1941 flight to Scotland to Hitler and his recollections and notes have been the subject of debate by historians.",
+            " Appointed Deputy Führer to Adolf Hitler in 1933, he served in this position until 1941, when he flew solo to Scotland in an attempt to negotiate peace with the United Kingdom during World War II.",
+            " He was taken prisoner and eventually was convicted of crimes against peace, serving a life sentence until his suicide."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.1111111111111111,
+            0.09090909090909091,
+            0.14285714285714285
+        ]
+    },
+    {
+        "question": "Which university did the third pick by the Philadelphia 76ers in the 2014 NBA draft attend before he was drafted?",
+        "ground_truth": "University of Kansas",
+        "prediction": "University of Kansas",
+        "thread_id": "69",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Joel Hans Embiid ( ; born 16 March 1994) is a Cameroonian professional basketball player for the Philadelphia 76ers of the National Basketball Association (NBA). After one year of college basketball at the University of Kansas, he was drafted with the third overall pick in the 2014 NBA draft by the 76ers. He has nicknamed himself \"The Process\" in response to a refrain from 76ers fans during the Sam Hinkie-era to \"trust the process\".",
+            "The 2015–16 Philadelphia 76ers season was the 77th season of the franchise in the National Basketball Association (NBA). It was also the second straight season that Joel Embiid, their third pick in the 2014 NBA draft",
+            "Benjamin David Simmons (born 20 July 1996) is an Australian professional basketball player for the Philadelphia 76ers of the National Basketball Association (NBA). A versatile forward from Melbourne, Simmons attended Box Hill Senior Secondary College before moving to the United States to attend Montverde Academy in Montverde, Florida. He played one season of college basketball for Louisiana State University (LSU)"
+        ],
+        "supporting_facts": [
+            " It was also the second straight season that Joel Embiid, their third pick in the 2014 NBA draft, would not suit up for the 76ers due to a leg injury.",
+            " After one year of college basketball at the University of Kansas, he was drafted with the third overall pick in the 2014 NBA draft by the 76ers."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "According to the 2011 census what is the population of the city where Royal Wahingdoh F.C. are based ?",
+        "ground_truth": "143,007",
+        "prediction": "I cannot answer this question.",
+        "thread_id": "70",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Royal Wahingdoh Football Club is a men's professional football club based in Shillong, Meghalaya that participates in the Indian I-League. Royal Wahingdoh F.C. holds the record for the highest number of consecutive Shillong Premier League titles, having won the finals in December 2010",
+            "The Shillong Premier League is an association football league in India. It started with 8 teams in 2012. Royal Wahingdoh F.C. clinched the title for the third consecutive year after winning the previous two editions in 2010 and 2011. Royal Wahingdoh F.C. beat table toppers in the league stage, Rangdajied United F.C. comprehensively by 3-1 after the match was taken into extra time.",
+            "Ngouba Singh (born 1 March 1995 in Manipur) is an Indian professional footballer who plays as a defender for Royal Wahingdoh F.C. in the I-League."
+        ],
+        "supporting_facts": [
+            "Royal Wahingdoh Football Club is a men's professional football club based in Shillong, Meghalaya that participates in the Indian I-League.",
+            " Shillong is the 330th most populous city in India with a population of 143,007 according to the 2011 census."
+        ],
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "How many people did the South Korean spree killer which NICS Improvement Amendments Act of 2007 enabaled to buy firearm killed in 2007",
+        "ground_truth": "32 people",
+        "prediction": "32",
+        "thread_id": "71",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Seung-Hui Cho (in Korean, properly Cho Seung-Hui; January 18, 1984 – April 16, 2007) was a South Korean spree killer and mass murderer who killed 32 people and wounded 17 others armed with two semi-automatic pistols on April 16, 2007, at the Virginia Polytechnic Institute and State University in Blacksburg",
+            "The NICS Improvement Amendments Act was passed in 2007 in the wake of the Virginia Tech shootings in order to address loopholes in the National Instant Criminal Background Check System, commonly known as NICS, which enabled Seung-Hui Cho to buy firearms despite having been ruled a danger to himself by a Virginia court.",
+            "Woo Bum-kon (or Wou Bom-kon (February 24, 1955 – April 27, 1982) was a South Korean policeman and spree killer who killed 56 people and wounded 35 others in several villages in Uiryeong County, South Gyeongsang Province, South Korea, during the night from April 26 to April 27, 1982, before committing suicide."
+        ],
+        "supporting_facts": [
+            "The NICS Improvement Amendments Act was passed in 2007 in the wake of the Virginia Tech shootings in order to address loopholes in the National Instant Criminal Background Check System, commonly known as NICS, which enabled Seung-Hui Cho to buy firearms despite having been ruled a danger to himself by a Virginia court.",
+            "Seung-Hui Cho (in Korean, properly Cho Seung-Hui; January 18, 1984 – April 16, 2007) was a South Korean spree killer and mass murderer who killed 32 people and wounded 17 others armed with two semi-automatic pistols on April 16, 2007, at the Virginia Polytechnic Institute and State University in Blacksburg, Virginia."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.6666666666666666,
+            1.0,
+            0.5
+        ]
+    },
+    {
+        "question": "Margaret Clifford, Countess of Derby was the daughter the Earl who was seated at which castle from 1310 to 1676?",
+        "ground_truth": "Skipton Castle",
+        "prediction": "Skipton Castle",
+        "thread_id": "72",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Henry Clifford, 1st Earl of Cumberland KG (1493 – 22 April 1542) was a member of the Clifford family which was seated at Skipton Castle, Yorkshire from 1310 to 1676. He was a close friend of King Henry VIII.",
+            "Henry Clifford, 2nd Earl of Cumberland (1517 – January 1570) was a member of the Clifford family, seated at Skipton Castle from 1310 to 1676. His wife was Lady Eleanor Brandon, a niece of King Henry VIII.",
+            "Henry Clifford, 10th Baron de Clifford, also 10th feudal baron of Skipton (ca. 1454 – 23 April 1523) was a member of the Clifford family which was seared at Skipton Castle from 1310 to 1676. He was one of the chief commanders in the Battle of Flodden against the Scots in 1513. He is the subject of the opera \"Henry Clifford\" by Isaac Albéniz."
+        ],
+        "supporting_facts": [
+            "Margaret Stanley, Countess of Derby (née Lady Margaret Clifford; 1540 – 28 September 1596) was the only surviving daughter of Henry Clifford, 2nd Earl of Cumberland and Lady Eleanor Brandon.",
+            "Henry Clifford, 2nd Earl of Cumberland (1517 – January 1570) was a member of the Clifford family, seated at Skipton Castle from 1310 to 1676."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Who was born first, Grigory Margulis or Leonid Levin?",
+        "ground_truth": "Gregori Aleksandrovich Margulis",
+        "prediction": "Grigory Margulis",
+        "thread_id": "73",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Leonid Anatolievich Levin ( ; Russian: Леони́д Анато́льевич Ле́вин ; Ukrainian: Леоні́д Анато́лійович Ле́він ; born November 2, 1948) is a Soviet-American computer scientist.",
+            "Gregori Aleksandrovich Margulis (Russian: Григо́рий Алекса́ндрович Маргу́лис , first name often given as Gregory, Grigori or Grigory; born February 24, 1946) is a Russian-American mathematician known for his work on lattices in Lie groups, and the introduction of methods from ergodic theory into diophantine approximation. He was awarded a Fields Medal in 1978 and a Wolf Prize in Mathematics in 2005, becoming the seventh mathematician to receive both prizes. In 1991",
+            ", Grigory Margulis, Anders Karlsson, and François Ledrappier."
+        ],
+        "supporting_facts": [
+            "Gregori Aleksandrovich Margulis (Russian: Григо́рий Алекса́ндрович Маргу́лис , first name often given as Gregory, Grigori or Grigory; born February 24, 1946) is a Russian-American mathematician known for his work on lattices in Lie groups, and the introduction of methods from ergodic theory into diophantine approximation.",
+            "Leonid Anatolievich Levin ( ; Russian: Леони́д Анато́льевич Ле́вин ; Ukrainian: Леоні́д Анато́лійович Ле́він ; born November 2, 1948) is a Soviet-American computer scientist."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.4,
+            0.5,
+            0.3333333333333333
+        ]
+    },
+    {
+        "question": "Alexander Kerensky was defeated and destroyed by the Bolsheviks in the course of a civil war that ended when ?",
+        "ground_truth": "October 1922",
+        "prediction": "October 1922",
+        "thread_id": "74",
+        "rec_depth": 0,
+        "similar_chunks": [
+            ", known as the Right SRs, which remained loyal to the Provisional Government leader Alexander Kerensky was defeated and destroyed by the Bolsheviks in the course of the Russian Civil War and subsequent persecution.",
+            "Alexander Fyodorovich Kerensky (Russian: Алекса́ндр Фёдорович Ке́ренский , ] ; 4 May 1881 – 11 June 1970) was a Russian lawyer and key political figure in the Russian Revolution of 1917. After the February Revolution of 1917 he joined the newly formed Russian Provisional Government, first as Minister of Justice, then as Minister of War, and after July 1917 as the government's second Minister-Chairman. A leader of the moderate-socialist Trudoviks faction of the Socialist Revolutionary Party",
+            "The Russian Civil War (Russian: Гражда́нская война́ в Росси́и , \"Grazhdanskaya voyna v Rossiyi\" ; November 1917 – October 1922) was a multi-party war in the former Russian Empire immediately after the Russian Revolutions of 1917, as many factions vied to determine Russia's political future. The two largest combatant groups were the Red Army, fighting for the Bolshevik form of socialism led by Vladimir Lenin, and the loosely allied forces known as the White Army"
+        ],
+        "supporting_facts": [
+            " The anti-Bolshevik faction of this party, known as the Right SRs, which remained loyal to the Provisional Government leader Alexander Kerensky was defeated and destroyed by the Bolsheviks in the course of the Russian Civil War and subsequent persecution.",
+            "The Russian Civil War (Russian: Гражда́нская война́ в Росси́и , \"Grazhdanskaya voyna v Rossiyi\" ; November 1917 – October 1922) was a multi-party war in the former Russian Empire immediately after the Russian Revolutions of 1917, as many factions vied to determine Russia's political future."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Over what time period was the motion picture studio which produced Marvel One-Shots known as \"Marvel Films\"?",
+        "ground_truth": "from 1993 to 1996",
+        "prediction": "1993 to 1996",
+        "thread_id": "75",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Marvel One-Shots are a series of direct-to-video short films produced by Marvel Studios, set within the Marvel Cinematic Universe (MCU), released from 2011 to 2014. They are included as special features in the MCU films' Blu-ray and digital distribution releases, but are not included in the DVD releases. Each of the films, which range from 4 to 15 minutes",
+            "Marvel Studios, LLC (originally known as Marvel Films from 1993 to 1996) is an American motion picture studio based at The Walt Disney Studios in Burbank, California and is a subsidiary of Walt Disney Studios, itself a wholly owned division of The Walt Disney Company, with film producer Kevin Feige serving as president. Previously, the studio was a subsidiary of Marvel Entertainment until The Walt Disney Company reorganized the companies in August 2015.",
+            "Item 47 is a 2012 American direct-to-video short film featuring the Marvel Comics organization S.H.I.E.L.D. (Strategic Homeland Intervention Enforcement and Logistics Division), produced by Marvel Studios and distributed by Walt Disney Studios Home Entertainment on the home media release of \"Marvel's The Avengers\". It is a follow up and spin-off of \"The Avengers\", and is the third film in the Marvel One-Shots short film series. The film is directed by Louis D'Esposito"
+        ],
+        "supporting_facts": [
+            "Marvel One-Shots are a series of direct-to-video short films produced by Marvel Studios, set within the Marvel Cinematic Universe (MCU), released from 2011 to 2014.",
+            "Marvel Studios, LLC (originally known as Marvel Films from 1993 to 1996) is an American motion picture studio based at The Walt Disney Studios in Burbank, California and is a subsidiary of Walt Disney Studios, itself a wholly owned division of The Walt Disney Company, with film producer Kevin Feige serving as president."
+        ],
+        "em": 0.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "In what year was the British actress who starred in a film adaptation of a series of eight children's books written by P. L. Travers born?",
+        "ground_truth": "9 November 1955",
+        "prediction": "1955",
+        "thread_id": "76",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Mary Poppins is a series of eight children's books written by P. L. Travers and published over the period 1934 to 1988. Mary Shepard was the illustrator throughout the series.",
+            "Karen Dotrice ( ; born 9 November 1955) is a British actress, known primarily for her role as Jane Banks in Walt Disney's feature film adaptation of the \"Mary Poppins\" book series. Dotrice was born in Guernsey to two accomplished stage actors. Her career began on stage, and expanded into film and television",
+            "Susan Travers (born 18 February 1939) is a retired British film and television actress. She is the daughter of the actress Linden Travers and the niece of Bill Travers. She played the role of Arlette Van der Valk, the detective's wife, in the series Van der Valk."
+        ],
+        "supporting_facts": [
+            "Karen Dotrice ( ; born 9 November 1955) is a British actress, known primarily for her role as Jane Banks in Walt Disney's feature film adaptation of the \"Mary Poppins\" book series.",
+            "Mary Poppins is a series of eight children's books written by P. L. Travers and published over the period 1934 to 1988."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.5,
+            1.0,
+            0.3333333333333333
+        ]
+    },
+    {
+        "question": "What party campaigned for the Irish Home Rule Movement?",
+        "ground_truth": "The Home Rule League",
+        "prediction": "The Home Rule League and the Irish Parliamentary Party campaigned for the Irish Home Rule Movement.",
+        "thread_id": "77",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "The Home Rule League (1873–1882), sometimes called the Home Rule Party or the Home Rule Confederation, was a political party which campaigned for home rule for Ireland within the United Kingdom of Great Britain and Ireland, until it was replaced by the Irish Parliamentary Party.",
+            "The Irish Parliamentary Party (IPP; commonly called the Irish Party or the Home Rule Party) was formed in 1874 by Isaac Butt, the leader of the Nationalist Party, replacing the Home Rule League",
+            ", as official parliamentary party for Irish nationalist Members of Parliament (MPs) elected to the House of Commons at Westminster within the United Kingdom of Great Britain and Ireland up until 1918. Its central objectives were legislative independence for Ireland and land reform. Its constitutional movement was instrumental in laying the groundwork for Irish self-government through three Irish Home Rule bills."
+        ],
+        "supporting_facts": [
+            "The Home Rule League (1873–1882), sometimes called the Home Rule Party or the Home Rule Confederation, was a political party which campaigned for home rule for Ireland within the United Kingdom of Great Britain and Ireland, until it was replaced by the Irish Parliamentary Party.",
+            "The Irish Home Rule movement was a movement that agitated for self-government for Ireland within the United Kingdom of Great Britain and Ireland."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.42857142857142855,
+            0.2727272727272727,
+            1.0
+        ]
+    },
+    {
+        "question": "What film studio produced both National Treasure and The Computer Wore Tennis Shoes?",
+        "ground_truth": "Walt Disney Pictures",
+        "prediction": "Walt Disney Productions",
+        "thread_id": "78",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "The Computer Wore Tennis Shoes is a 1969 American comedy film starring Kurt Russell, Cesar Romero, Joe Flynn and William Schallert. It was produced by Walt Disney Productions and distributed by Buena Vista Distribution Company as part of \"The Last Laughs of the 1960s\".",
+            "National Treasure is a 2004 American adventure heist film produced and released by Walt Disney Pictures. It was written by Jim Kouf and the Wibberleys, produced by Jerry Bruckheimer and directed by Jon Turteltaub. It is the first film in the \"National Treasure\" franchise and stars Nicolas Cage, Harvey Keitel, Jon Voight, Diane Kruger, Sean Bean, Justin Bartha and Christopher Plummer.",
+            "The Computer Wore Tennis Shoes is a 1995 American made-for-television comedy science fiction film and a remake of the 1969 film of the same name produced by Walt Disney Television which premiered on February 18, 1995 as part of \"The Wonderful World of Disney\". It is the second in a series of four remakes of classic Disney films produced for broadcast on ABC during the 1994–95 television season."
+        ],
+        "supporting_facts": [
+            "National Treasure is a 2004 American adventure heist film produced and released by Walt Disney Pictures.",
+            " It was produced by Walt Disney Productions and distributed by Buena Vista Distribution Company as part of \"The Last Laughs of the 1960s\"."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.6666666666666666,
+            0.6666666666666666,
+            0.6666666666666666
+        ]
+    },
+    {
+        "question": "The Prussian General Carl von Clausewitz is associated with what type of realism?",
+        "ground_truth": "Modern thinkers associated with classical realism are Carl von Clausewitz",
+        "prediction": "Classical Realism",
+        "thread_id": "79",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Classical Realism is a theory of International Relations established in the post-World War II era that seeks to explain international politics as a result of human nature. The theory is associated with thinkers such as Niccolò Machiavelli and Thomas Hobbes. Modern thinkers associated with classical realism are Carl von Clausewitz",
+            "Carl Philipp Gottfried (or Gottlieb) von Clausewitz ( ; 1 June 1780 – 16 November 1831) was a Prussian general and military theorist who stressed the \"moral\" (meaning, in modern terms, psychological) and political aspects of war. His most notable work, \"Vom Kriege\" (\"On War\"), was unfinished at his death.",
+            "The concept of absolute war was a theoretical construct developed by the Prussian military theorist General Carl von Clausewitz in his famous but unfinished philosophical exploration of war, \"Vom Kriege\" (in English, \"On War\", 1832). It is discussed only in the first half of Book VIII (there are only a couple of references to it elsewhere) and it does not appear in sections of the text written later. This indicates that it was an experiment that failed and was meant to be dropped."
+        ],
+        "supporting_facts": [
+            " Modern thinkers associated with classical realism are Carl von Clausewitz, Hans Morgenthau and Reinhold Niebuhr.",
+            "Carl Philipp Gottfried (or Gottlieb) von Clausewitz ( ; 1 June 1780 – 16 November 1831) was a Prussian general and military theorist who stressed the \"moral\" (meaning, in modern terms, psychological) and political aspects of war."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.4,
+            1.0,
+            0.25
+        ]
+    },
+    {
+        "question": "Which number-one single is Michael Steele responsible for?",
+        "ground_truth": "\"Walk Like an Egyptian\"",
+        "prediction": "I cannot answer this question.",
+        "thread_id": "80",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Bret Michael Sychak (born March 15, 1963), professionally known as Bret Michaels, is an American singer-songwriter and musician. He gained fame as the lead singer of the glam metal band Poison who have sold over 50 million records worldwide and 15 million records in the United States alone. The band has also charted ten singles to the Top 40 of the \"Billboard\" Hot 100, including six Top 10 singles and a number-one single, \"Every Rose Has Its Thorn\".",
+            "\"All 4 Love\" (also known as \"All for Love\") is a number-one single by the music group Color Me Badd released in 1991 as the third single from their debut album \"C.M.B.\" As a number-one single, it replaced Michael Jackson's \"Black or White\" and was then replaced by Elton John and George Michael's \"Don't Let the Sun Go Down on Me\" in early 1992. It was the band's second number-one single in the US",
+            ", 58 \"Billboard\" Top 40 singles, 27 Top 10, four No. 2 and nine No. 1. For 31 consecutive years (1970–2000) he had at least one song in the \"Billboard\" Hot 100. His tribute single, re-penned in dedication to the late Princess Diana, \"Candle in the Wind 1997\" sold over 33million copies worldwide and is the best-selling single in the history of the UK and US singles charts. He has also composed music, produced records"
+        ],
+        "supporting_facts": [
+            " Ezo has been named a \"seminal influence by such artists as Steve McDonald of Redd Kross and Michael Steele of The Bangles.\"",
+            " The band's hits include \"Walk Like an Egyptian\", \"Billboard\" magazine's number-one single of 1987, as well as two number-two hits, \"Manic Monday\" and \"Hazy Shade of Winter\", and their 1989 number-one single \"Eternal Flame\"."
+        ],
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "The 2014 Baylor Bears football games were played at the stadium whose name was changed during what month?",
+        "ground_truth": "December 2013",
+        "prediction": "December",
+        "thread_id": "81",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "McLane Stadium is an American football stadium in Waco, Texas. It is owned and operated by Baylor University. Originally named \"Baylor Stadium\", the name was changed to McLane Stadium in December 2013 to honor alumnus and business magnate Drayton McLane, Jr., who provided the lead gift for the stadium construction. Baylor's first game at McLane was played August 31, 2014, with the Bears defeating SMU 45–0. The stadium has a capacity of 45,140 spectators and is expandable to 55",
+            "The 2014 Baylor Bears football team represented Baylor University in the 2014 NCAA Division I FBS football season. The Bears were coached by Art Briles. Playing their 116th football season, this was the team's first in the new McLane Stadium in Waco, Texas. The Bears were members of the Big 12 Conference. They finished the season 11–2, 8–1 in Big 12 play to win a share of the Big 12 title with TCU. They were invited to the Cotton Bowl Classic where they lost to Michigan State.",
+            ",000. McLane Stadium replaced Floyd Casey Stadium as the home field for the Baylor Bears football program."
+        ],
+        "supporting_facts": [
+            " Playing their 116th football season, this was the team's first in the new McLane Stadium in Waco, Texas.",
+            " Originally named \"Baylor Stadium\", the name was changed to McLane Stadium in December 2013 to honor alumnus and business magnate Drayton McLane, Jr., who provided the lead gift for the stadium construction."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.6666666666666666,
+            1.0,
+            0.5
+        ]
+    },
+    {
+        "question": "Are Horace Ové and A. Edward Sutherland both photographers?",
+        "ground_truth": "no",
+        "prediction": "I cannot answer this question.",
+        "thread_id": "82",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Horace Ové, CBE (born 1939), is a British filmmaker, photographer, painter and writer, one of the leading black independent film-makers to emerge in Britain since the post-war period. Ové holds the \"Guinness World Record\" for being the first black British film-maker to direct a feature-length film, \"Pressure\" (1975). In its retrospective history, \"100 Years of Cinema\"",
+            "Albert Edward Sutherland (January 5, 1895 – December 31, 1973) was a film director and actor. Born in London, he was from a theatrical family. His father, Al Sutherland, was a theatre manager and producer and his mother, Julie Ring, was a vaudeville performer. He was a nephew of both Blanche Ring and Thomas Meighan, who was married to Frances Ring, another of his mother's sisters.",
+            "Ivan Edward Sutherland (born May 16, 1938) is an American computer scientist and Internet pioneer, widely regarded as the \"father of computer graphics.\" His early work in computer graphics as well as his teaching with David C. Evans in that subject at the University of Utah in the 1970s was pioneering in the field. Sutherland, Evans"
+        ],
+        "supporting_facts": [
+            "Horace Ové, CBE (born 1939), is a British filmmaker, photographer, painter and writer, one of the leading black independent film-makers to emerge in Britain since the post-war period.",
+            "Albert Edward Sutherland (January 5, 1895 – December 31, 1973) was a film director and actor."
+        ],
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "How many total staff (including part-time, flexible, and fixed contract staff) does the broadcaster, who released HyperNormalisation, employ?",
+        "ground_truth": "35,402",
+        "prediction": "35,402",
+        "thread_id": "83",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "The British Broadcasting Corporation (BBC) is a British public service broadcaster with its headquarters at Broadcasting House in London. The BBC is the world's oldest national broadcasting organisation and the largest broadcaster in the world by number of employees. It employs over 20,950 staff in total, 16,672 of whom are in public sector broadcasting. The total number of staff is 35,402 when part-time, flexible, and fixed contract staff are included.",
+            ", non-governmental organisations, the international media, and other stakeholders. Chemicals companies in the European Union employ a total staff of about 1.2 million.",
+            "The Daily Dot is a digital media company covering Internet culture and life on the web. Founded by Nicholas White in 2011, \"The Daily Dot\" is headquartered in Austin, Texas with offices in New York City and San Francisco. It had a full-time staff of 76 in addition to 222 freelance contributors in early 2016 before laying off 40% of its total staff in September 2016."
+        ],
+        "supporting_facts": [
+            "HyperNormalisation is a 2016 BBC documentary by British filmmaker Adam Curtis.",
+            " The total number of staff is 35,402 when part-time, flexible, and fixed contract staff are included."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Are Harry Everett Smith and Vladimir Danilevich both from Russia?",
+        "ground_truth": "no",
+        "prediction": "No.",
+        "thread_id": "84",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Vladimir Petrovich Danilevich (Russian: Владимир Петрович Данилевич ; 4 September 1924 — 9 October 2001) was well-known Soviet and Russian Animator: who successfully worked as the film director, the screenwriter, the art director and the animator.",
+            "Harry Everett Smith (May 29, 1923 in Portland, Oregon – November 27, 1991 in New York City) was a visual artist, experimental filmmaker, record collector, bohemian, mystic, and largely self-taught student of anthropology. Smith was an important figure in the Beat Generation scene in New York City, and his activities, such as his use of mind-altering substances and interest in esoteric spirituality, anticipated aspects of the Hippie movement. Besides his films",
+            "Harry Everett \"Bud\" Abell (born December 21, 1940) is a former American football linebacker in the American Football League for the Kansas City Chiefs. He played college football at the University of Missouri."
+        ],
+        "supporting_facts": [
+            "Harry Everett Smith (May 29, 1923 in Portland, Oregon – November 27, 1991 in New York City) was a visual artist, experimental filmmaker, record collector, bohemian, mystic, and largely self-taught student of anthropology.",
+            "Vladimir Petrovich Danilevich (Russian: Владимир Петрович Данилевич ; 4 September 1924 — 9 October 2001) was well-known Soviet and Russian Animator: who successfully worked as the film director, the screenwriter, the art director and the animator."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Do both Lancaster Cathedral and Peel Cathedral belong to the Catholic religion?",
+        "ground_truth": "yes",
+        "prediction": "Yes.",
+        "thread_id": "85",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Lancaster Cathedral, also known as The Cathedral Church of St Peter and Saint Peter's Cathedral, is in St Peter's Road, Lancaster, Lancashire, England. It was a Roman Catholic parish church until 1924, when it was elevated to the status of a cathedral. It started as a mission church in 1798, and the present church was built on a different site in 1857–59. It was designed by E. G. Paley in the Gothic Revival style. In 1901 a baptistry was added by Austin and Paley",
+            "The Roman Catholic Diocese of Lancaster is a Latin Rite Roman Catholic diocese centred on Lancaster Cathedral in the city of Lancaster in Lancashire, England.",
+            "The Cathedral Church of Saint German or Peel Cathedral, rebranded as Cathedral Isle of Man is located in Peel, Isle of Man. The cathedral is also one of the parish churches in the parish of the West Coast which includes the town of Peel, and was built in 1879–84. It was made the cathedral by Act of Tynwald in 1980."
+        ],
+        "supporting_facts": [
+            "Lancaster Cathedral, also known as The Cathedral Church of St Peter and Saint Peter's Cathedral, is in St Peter's Road, Lancaster, Lancashire, England.",
+            " It was a Roman Catholic parish church until 1924, when it was elevated to the status of a cathedral.",
+            "The Cathedral Church of Saint German or Peel Cathedral, rebranded as Cathedral Isle of Man is located in Peel, Isle of Man.",
+            " The cathedral is also one of the parish churches in the parish of the West Coast which includes the town of Peel, and was built in 1879–84."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "In what county is the community, to which the character Everett Turner is travelling to in the book \"Away West\", located?",
+        "ground_truth": "Graham County, Kansas",
+        "prediction": "Graham County, Kansas",
+        "thread_id": "86",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Scraps of Time: 1879, Away West is a 2006 book by Patricia McKissack about a farmboy, Everett Turner, who runs away and joins the Exodusters, travelling to Nicodemus, Kansas.",
+            "Everett is an unincorporated community located along the border of Holmdel and Middletown townships in Monmouth County, New Jersey, United States. The community is located on Everett Road (County Route 52), along which the township line runs, at its intersection with Stillwell Road and Sunnyside Road. Most of the area in Everett is composed of homes with some farmlands nearby. Holmdel's Bell Labs Complex is located to the west of Everett.",
+            "Turner is a census-designated place and unincorporated community in Blaine County, Montana, United States. Turner is located on Montana State Highway 241 41.5 mi east-northeast of Chinook. Its population was 61 as of the 2010 census. Turner has a post office with ZIP code 59542; it also has an airport, Turner Airport. Turner is the farthest community in the continental U.S. from a Major League Baseball park; it lies 646.93 mi from Safeco Field in Seattle, the nearest park."
+        ],
+        "supporting_facts": [
+            "Scraps of Time: 1879, Away West is a 2006 book by Patricia McKissack about a farmboy, Everett Turner, who runs away and joins the Exodusters, travelling to Nicodemus, Kansas.",
+            "Nicodemus is an unincorporated community in Graham County, Kansas, United States."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Which of the people featured on Wall of Fame is the daughter of Bernie Ecclestone?",
+        "ground_truth": "Tamara Ecclestone",
+        "prediction": "Tamara Ecclestone Rutland",
+        "thread_id": "87",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Wall of Fame is a British comedy panel game that was first broadcast on Sky1 in 2011. It is hosted by \"Little Britain\" star David Walliams and features Jack Dee, Kate Garraway, with Tamara Ecclestone for the first two episodes then Sara Pascoe took over from episode three, and Andrew Maxwell as regular panellists, alongside two weekly guests.",
+            "Tamara Ecclestone Rutland (born 28 June 1984) is a British model, socialite, television personality, and the daughter of billionaire Bernie Ecclestone.",
+            ", daughter of Formula One racing magnate Bernie Ecclestone. Stunt purchased the home in 2011 for $85 million after it had been on the market for two years with an asking price of $150 million, making it the most expensive residential real estate listing in the US at the time."
+        ],
+        "supporting_facts": [
+            " It is hosted by \"Little Britain\" star David Walliams and features Jack Dee, Kate Garraway, with Tamara Ecclestone for the first two episodes then Sara Pascoe took over from episode three, and Andrew Maxwell as regular panellists, alongside two weekly guests.",
+            "Tamara Ecclestone Rutland (born 28 June 1984) is a British model, socialite, television personality, and the daughter of billionaire Bernie Ecclestone."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.8,
+            0.6666666666666666,
+            1.0
+        ]
+    },
+    {
+        "question": "The 2004 romantic drama film based on Shake'spears play of the same name was produced by whom?",
+        "ground_truth": "Julia Verdin",
+        "prediction": "I cannot answer this question.",
+        "thread_id": "88",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "The Merchant of Venice is a 2004 romantic drama film based on Shakespeare's play of the same name. It is the first full-length sound film in English of Shakespeare's playother versions are videotaped productions which were made for television, including John Sichel's 1973 version and Jack Gold's 1980 BBC production.",
+            "Bride and Prejudice is a 2004 romantic drama film directed by Gurinder Chadha. The screenplay by Chadha and Paul Mayeda Berges is a Bollywood-style adaptation of \"Pride and Prejudice\" by Jane Austen. It was filmed primarily in English, with some Hindi and Punjabi dialogue. The film released in the United States on 11 February 2005 and was well received by critics.",
+            "Ae Fond Kiss… (also known as \"Just a Kiss\" in some countries) is a 2004 romantic drama film directed by Ken Loach, and starring Atta Yaqub and Eva Birthistle. The title is taken from a Scottish song by Robert Burns, the complete line being \"\"Ae Fond Kiss, and then we sever...\"\""
+        ],
+        "supporting_facts": [
+            "Julia Verdin is a British independent film producer and founder of Rough Diamond Productions, established in 1993.",
+            " She has produced over 30 feature films and is best known for Stander, starring Thomas Jane, The Merchant of Venice (2004), starring Al Pacino, Jeremy Irons and Joseph Fiennes, and 2 Jacks, starring Sienna Miller and Danny Houston.",
+            "The Merchant of Venice is a 2004 romantic drama film based on Shakespeare's play of the same name."
+        ],
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "Who choreographed one who is said to be the last muse for the choreographer and starred in the Nutcracker?",
+        "ground_truth": "George Balanchine",
+        "prediction": "George Balanchine choreographed Darci Kistler, who is said to be his last muse and starred in The Nutcracker.",
+        "thread_id": "89",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Darci Kistler (born June 4, 1964) is a noted American ballerina. She is often said to be the last muse for the choreographer, George Balanchine.",
+            "The Nutcracker, also known as George Balanchine's The Nutcracker, is a 1993 American Christmas musical film directed by Emile Ardolino. The film stars Darci Kistler, Damian Woetzel, Kyra Nichols, Macaulay Culkin Wendy Whelan, Margaret Tracey, Gen Horiuchi and Tom Gold. The film was released by Warner Bros. on 24 November, 1993.",
+            "Tchaikovsky's now-classic ballet The Nutcracker received its first complete production in the U.S. on 24 December 1944, performed by the San Francisco Ballet. This production used the ballet's original plot and was choreographed by Willam Christensen, who danced the role of the Cavalier. Gisella Caccialanza, the wife of Lew Christensen"
+        ],
+        "supporting_facts": [
+            "The Nutcracker, also known as George Balanchine's The Nutcracker, is a 1993 American Christmas musical film directed by Emile Ardolino.",
+            " The film stars Darci Kistler, Damian Woetzel, Kyra Nichols, Macaulay Culkin Wendy Whelan, Margaret Tracey, Gen Horiuchi and Tom Gold.",
+            "Darci Kistler (born June 4, 1964) is a noted American ballerina.",
+            " She is often said to be the last muse for the choreographer, George Balanchine."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.33333333333333337,
+            0.2,
+            1.0
+        ]
+    },
+    {
+        "question": "Who is older Craig Nicholls or Norman Blake ?",
+        "ground_truth": "Norman Blake",
+        "prediction": "Norman Blake is older than Craig Nicholls.",
+        "thread_id": "90",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Norman Blake (born 20 October 1965, Bellshill, North Lanarkshire, Scotland) is a singer, instrumentalist and songwriter in the Glasgow based band Teenage Fanclub.",
+            "Craig Robert Nicholls (born 31 August 1977) is an Australian musician, best known as the lead singer, songwriter, and guitarist of the Australian alternative rock band The Vines, of which he is the only mainstay member.",
+            "Ryan Griffiths (born 14 February 1978) is an Australian musician. From March 2002 to December 2011 he was a member of garage rock band, The Vines. Craig Nicholls, who founded the group, realised while touring for the promotion of their debut album, \"Highly Evolved\" (July 2002), that they needed an additional guitarist. So Nicholls asked his longtime friend and schoolmate Griffiths to join. As a member of The Vines he appeared on four of their studio albums, \"Winning Days\" (March 2004)"
+        ],
+        "supporting_facts": [
+            "Craig Robert Nicholls (born 31 August 1977) is an Australian musician, best known as the lead singer, songwriter, and guitarist of the Australian alternative rock band The Vines, of which he is the only mainstay member.",
+            "Norman Blake (born 20 October 1965, Bellshill, North Lanarkshire, Scotland) is a singer, instrumentalist and songwriter in the Glasgow based band Teenage Fanclub."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.5714285714285715,
+            0.4,
+            1.0
+        ]
+    },
+    {
+        "question": "Eduard Schweizer teaches at a German university with over how many students? ",
+        "ground_truth": "26,000",
+        "prediction": "26,000 students",
+        "thread_id": "91",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Eduard Schweizer (1913-2006) was a Swiss New Testament scholar who taught at the University of Zurich for an extended period. He won the Burkitt Medal for Biblical Studies in 1996.",
+            "The University of Zurich (UZH, German: \"Universität Zürich\" ), located in the city of Zürich, is the largest university in Switzerland, with over 26,000 students. It was founded in 1833 from the existing colleges of theology, law, medicine and a new faculty of philosophy.",
+            "Matthias Eduard Schweizer (8 August 1818 – 23 October 1860) was a Swiss chemist."
+        ],
+        "supporting_facts": [
+            "Eduard Schweizer (1913-2006) was a Swiss New Testament scholar who taught at the University of Zurich for an extended period.",
+            "The University of Zurich (UZH, German: \"Universität Zürich\" ), located in the city of Zürich, is the largest university in Switzerland, with over 26,000 students."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.6666666666666666,
+            0.5,
+            1.0
+        ]
+    },
+    {
+        "question": "What did Felix Salten originally title his most famous work?",
+        "ground_truth": "Bambi: Eine Lebensgeschichte aus dem Walde",
+        "prediction": "Bambi, a Life in the Woods",
+        "thread_id": "92",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Felix Salten (6 September 1869 – 8 October 1945) was an Austrian author and critic in Vienna. His most famous work is \"Bambi, a Life in the Woods\" (1923).",
+            "Bambi's Children: The Story of a Forest Family (German: Bambis Kinder: Eine Familie im Walde ) is a novel written by Austrian author Felix Salten as a sequel to his successful work \"Bambi, A Life in the Woods\".",
+            "Perri: The Youth of a Squirrel (German: \"Die Jugend des Eichhörnchens Perri\") is a 1938 novel by Felix Salten, author of \"Bambi, a Life in the Woods\", and is a followup to that book. Its title character is an Eurasian red squirrel. Bambi makes a brief appearance in \"Perri\"."
+        ],
+        "supporting_facts": [
+            "Felix Salten (6 September 1869 – 8 October 1945) was an Austrian author and critic in Vienna.",
+            "Bambi, a Life in the Woods, originally published in Austria as Bambi: Eine Lebensgeschichte aus dem Walde is a 1923 Austrian novel written by Felix Salten and published by Ullstein Verlag."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.2222222222222222,
+            0.3333333333333333,
+            0.16666666666666666
+        ]
+    },
+    {
+        "question": "What is the nationality of the man who finished third in the 2016 Pau Grand Prix?",
+        "ground_truth": "British",
+        "prediction": "British",
+        "thread_id": "93",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "The 2016 Pau Grand Prix was a Formula Three motor race held on 15 May, 2016 at the Pau circuit, in Pau, Pyrénées-Atlantiques, France. The Grand Prix was run as the third round of the 2016 European Formula 3 Championship and was won by Alessio Lorandi, driving for Carlin. Lance Stroll finished second and George Russell third.",
+            "The Pau Grand Prix (French: \"Grand Prix de Pau\" ) is a motor race held in Pau, in the Pyrénées-Atlantiques department of southwestern France. The French Grand Prix was held at Pau in 1930, leading to the annual Pau Grand Prix being inaugurated in 1933. It was not run during World War II.",
+            "The 1933 Pau Grand Prix was a motor race held on 19 February 1933 at the Pau circuit, in Pau, Pyrénées-Atlantiques, France. It was the inaugural Pau Grand Prix (i.e. the first race that actually held \"Grand Prix de Pau\" title), although the numbering of the races may not have reflected this due to a confusion about the 1901 race at Pau. The Grand Prix was won by Marcel Lehoux, driving the Bugatti T51. Guy Moll finished second and Philippe Étancelin third."
+        ],
+        "supporting_facts": [
+            "The 2016 Pau Grand Prix was a Formula Three motor race held on 15 May, 2016 at the Pau circuit, in Pau, Pyrénées-Atlantiques, France.",
+            " Lance Stroll finished second and George Russell third.",
+            "George Russell (born 15 February 1998) is a British racing driver."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Who wrote the music for Billy Elliot the Musical and had at least one song on the \"Billboard\" Hot 100 for 31 consecutive years?",
+        "ground_truth": "Elton John",
+        "prediction": "Elton John",
+        "thread_id": "94",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Billy Elliot the Musical is a musical based on the 2000 film \"Billy Elliot\". The music is by Elton John, and the book and lyrics are by Lee Hall, who wrote the film's screenplay. The plot revolves around Billy, a British motherless boy who trades boxing gloves for ballet shoes. The story of his personal struggle and fulfillment are balanced against a counter-story of family and community strife caused by the 1984–85 UK miners' strike in County Durham",
+            ", 58 \"Billboard\" Top 40 singles, 27 Top 10, four No. 2 and nine No. 1. For 31 consecutive years (1970–2000) he had at least one song in the \"Billboard\" Hot 100. His tribute single, re-penned in dedication to the late Princess Diana, \"Candle in the Wind 1997\" sold over 33million copies worldwide and is the best-selling single in the history of the UK and US singles charts. He has also composed music, produced records",
+            ", bumping it back to number one on the \"Billboard\" Hot 100 in June 1987. The single reached number one by two different musical acts in America. In the first 32 years of the \"Billboard\" Hot 100 rock era, “You Keep Me Hangin' On” became one of only six songs to achieve this feat. In 1996, country music singer Reba McEntire's version reached number 2 on the US \"Billboard\" Hot Dance Club Play chart."
+        ],
+        "supporting_facts": [
+            " The music is by Elton John, and the book and lyrics are by Lee Hall, who wrote the film's screenplay.",
+            " For 31 consecutive years (1970–2000) he had at least one song in the \"Billboard\" Hot 100."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "What is the man who Hofstadter's law is named after's profession?",
+        "ground_truth": "professor of cognitive science",
+        "prediction": "cognitive science professor",
+        "thread_id": "95",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Hofstadter's law is a self-referential time-related adage, coined by Douglas Hofstadter and named after him.",
+            "Douglas Richard Hofstadter (born February 15, 1945) is an American professor of cognitive science whose research focuses on the sense of \"I\" (sense of self in relation to the external world), consciousness, analogy-making, artistic creation, literary translation, and discovery in mathematics and physics. Hofstadter's book \"Gödel, Escher, Bach: An Eternal Golden Braid\", first published in 1979, won both the Pulitzer Prize for general non-fiction",
+            "Comer Vann Woodward (November 13, 1908 – December 17, 1999) was an American historian focusing primarily on the American South and race relations. He was considered, along with Richard Hofstadter and Arthur Schlesinger, Jr., to be one of the most influential historians of the postwar era, 1940s–1970s, both by scholars and by the general public. He was long a supporter of the approach of Charles A. Beard, stressing the influence of unseen economic motivations in politics. Stylistically"
+        ],
+        "supporting_facts": [
+            "Hofstadter's law is a self-referential time-related adage, coined by Douglas Hofstadter and named after him.",
+            "Douglas Richard Hofstadter (born February 15, 1945) is an American professor of cognitive science whose research focuses on the sense of \"I\" (sense of self in relation to the external world), consciousness, analogy-making, artistic creation, literary translation, and discovery in mathematics and physics."
+        ],
+        "em": 0.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "James Davidson reported on which infamous American serial killers?",
+        "ground_truth": "the Harpe brothers",
+        "prediction": "I cannot answer this question.",
+        "thread_id": "96",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "James Davidson was born in Lincoln County, Kentucky. He was the son of George Davidson, a captain in the Revolutionary War. He and his twin brother, Michael, married sisters; the sisters, Lucretia and Jane Ballenger, were granddaughters of Kentucky pioneer and eventual state treasurer John Logan. James Davidson was among the first to report the presence of notorious outlaws the Harpe brothers near the city of Stanford, their first reported appearance in Kentucky.",
+            "Patrick Wayne Kearney (born September 24, 1939) is an American serial killer who preyed on young men in California during the 1970s. He is sometimes referred to as \"The Freeway Killer\", a nickname he shares with two other – separate – serial killers, William Bonin and Randy Steven Kraft. Kearney may be among the most prolific serial killers in United States history, claiming possibly as many as 43 victims according to law enforcement.",
+            "Harvey Miguel Robinson (born December 6, 1974) is an American serial killer who is a prisoner on death row in Pennsylvania. He is one of the youngest serial killers in American history. He was 18 years old when he was apprehended for his crimes. He is also the first serial killer in the history of Allentown, Pennsylvania."
+        ],
+        "supporting_facts": [
+            " James Davidson was among the first to report the presence of notorious outlaws the Harpe brothers near the city of Stanford, their first reported appearance in Kentucky.",
+            "Micajah \"Big\" Harpe, born Joshua Harper (before 1768 (probably, c. 1748) – August 1799) and Wiley \"Little\" Harpe, born William Harper (before 1770 (probably, c. 1750) – February 8, 1804), were serial killers, murderers, highwaymen, and river pirates, who operated in Tennessee, Kentucky, Illinois, and Mississippi, in the late eighteenth century."
+        ],
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "Is Karjiang a mountain and Sherpi Kangri a mountain peak?",
+        "ground_truth": "yes",
+        "prediction": "Yes.",
+        "thread_id": "97",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Karjiang is a mountain in Tibet, located near the Bhutan–China border. The highest peak of the Karjiang group is Karjiang I or Karjiang South, with an elevation of 7221 m ; it remains unclimbed. Other peaks include Karjiang North (7196 m), Karjiang II\/Central (7045 m), Karjiang III or Taptol Kangri (6820 m) and the top of the north-eastern shoulder (6400 m).",
+            "Sherpi Kangri is a mountain peak in the Karakoram Range. It lies five km south of Ghent Kangri (7,380 m) and ten km northwest of Saltoro Kangri (7,742 m).",
+            "Chongtar Kangri or Chongtar Peak is a mountain peak in the Xinjiang region of China. Chongtar is situated about 10 km northwest of K2 and lies very near China's border with Pakistan."
+        ],
+        "supporting_facts": [
+            "Karjiang is a mountain in Tibet, located near the Bhutan–China border.",
+            "Sherpi Kangri is a mountain peak in the Karakoram Range."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Nguyễn Văn Trỗi tried to assassinate a future ambassador from which US state ?",
+        "ground_truth": "Massachusetts",
+        "prediction": "Massachusetts",
+        "thread_id": "98",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Nguyễn Văn Trỗi (1 February 1940 – 15 October 1964) was a Việt Minh (National Liberation Front) bomber. He gained notoriety after being captured by South Vietnamese forces while trying to assassinate United States Secretary of Defense Robert McNamara and future ambassador Henry Cabot Lodge Jr. who were visiting South Vietnam in May 1963.",
+            "Madame Nguyễn Văn Thiệu (born : Nguyễn Thị Mai Anh) served as First Lady of South Vietnam from 1967–75. She is the widow of Nguyễn Văn Thiệu a Vietnamese general and politician, who served as President of the Republic of Vietnam from 1967 until his resignation in 1975. She was born in Mỹ Tho.",
+            "Wanyan Chonghou (October, 1824 – 1893) was a Qing dynasty official and diplomat, said to have been a lineal descendant of the Imperial House of the Jin dynasty (1115–1234). Graduating as juren, he became a Taotai in Zhili in 1858, and in 1861 Superintendent of Trade for the three northern ports, to reside at Tianjin. He was occupying this post when the Tianjin Massacre occurred on the 21st June, 1870. Of all actual connivance at or participation in this tragedy he was doubtless innocent"
+        ],
+        "supporting_facts": [
+            " He gained notoriety after being captured by South Vietnamese forces while trying to assassinate United States Secretary of Defense Robert McNamara and future ambassador Henry Cabot Lodge Jr. who were visiting South Vietnam in May 1963.",
+            "Henry Cabot Lodge Jr. (July 5, 1902 – February 27, 1985) sometimes referred to as Henry Cabot Lodge II, was a Republican United States Senator from Massachusetts and a United States ambassador."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Nicholas Medforth-Mills is a grandson to a king who was born on what day and year?",
+        "ground_truth": "25 October 1921",
+        "prediction": "1 April 1985",
+        "thread_id": "99",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Nicholas Michael de Roumanie Medforth-Mills (born 1 April 1985) is the eldest child and only son of Princess Elena of Romania and Robin Medforth-Mills. As a grandson of the former king of Romania, Michael I, he was third in line to the defunct throne of Romania according to a new family statute enacted in 2007, that also conferred the title of a \"Prince of Romania\" on him which was abrogated in 2015. The statute, and the titles it confers, have no standing in present Romanian law.",
+            "Koningsdag (] ) or King's Day is a national holiday in the Kingdom of the Netherlands. Celebrated on 27 April (26 April if the 27th is a Sunday), the date marks the birth of King Willem-Alexander.",
+            "Charles Edward Louis John Casimir Sylvester Severino Maria Stuart (31 December 1720 – 31 January 1788), commonly known in Britain during his lifetime as The Young Pretender and The Young Chevalier, and often known in retrospective accounts as Bonnie Prince Charlie, was the second Jacobite pretender to the thrones of England, Scotland, France and Ireland (as Charles III) from the death of his father in 1766. This claim was based on his status as the eldest son of James Francis Edward Stuart"
+        ],
+        "supporting_facts": [
+            " As a grandson of the former king of Romania, Michael I, he was third in line to the defunct throne of Romania according to a new family statute enacted in 2007, that also conferred the title of a \"Prince of Romania\" on him which was abrogated in 2015.",
+            "Michael I (Romanian: \"Mihai I\" ] ; born 25 October 1921) reigned as King of Romania, from 20 July 1927 to 8 June 1930 and again from 6 September 1940 until his abdication on 30 December 1947."
+        ],
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "Whataburger in Richardson Square is loacted in what city and state?",
+        "ground_truth": "Richardson, Texas",
+        "prediction": "Richardson, Texas, United States",
+        "thread_id": "100",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Richardson Square Mall was an enclosed shopping center located in Richardson, Texas, United States. Richardson Square Mall demolition began in June 2007. Now located in its place is an outdoor retail center which goes by the name Richardson Square. The retail center includes Super Target with a Starbucks and Pizza Hut Express inside, Sears, Ross Dress for Less, Anna's Linens, and a Lowe's home improvement store. The center also includes pad sites such as Panda Express, Chick-fil-A, Whataburger",
+            "Whataburger is an American privately held regional fast food restaurant chain, based in San Antonio, Texas, that specializes in hamburgers. The company, founded by Harmon Dobson and Paul Burton, opened its first restaurant in Corpus Christi, Texas, in 1950. The chain is owned and operated by the Dobson family, along with 25 franchisers. s of 2017 , there are currently 809 Whataburger stores across the Southeastern and Southwestern United States regions.",
+            "Richardson is a principal city in Dallas and Collin counties in the U.S. state of Texas. As of the 2015 American Community Survey, the city had a total population of 106,123. Richardson is an affluent inner suburb of Dallas and home of The University of Texas at Dallas (UTD) and the Telecom Corridor® with a high concentration of telecommunications companies. More than 5,000 businesses have operations within Richardson's 28 sqmi"
+        ],
+        "supporting_facts": [
+            "Richardson Square Mall was an enclosed shopping center located in Richardson, Texas, United States.",
+            " Now located in its place is an outdoor retail center which goes by the name Richardson Square.",
+            "Whataburger is an American privately held regional fast food restaurant chain, based in San Antonio, Texas, that specializes in hamburgers."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.6666666666666666,
+            0.5,
+            1.0
+        ]
+    },
+    {
+        "question": "Who will conduct the firing cannons in Victoria as part of a musical piece written to celebrate the defeat of Napoleon in Russia?",
+        "ground_truth": "Tania Miller",
+        "prediction": "I cannot answer this question.",
+        "thread_id": "101",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Victoria Symphony Splash is an annual event held in Victoria, British Columbia on the Sunday before BC Day. The event is produced by the Victoria Symphony and consists of the Victoria Symphony playing, live on a barge, in the middle of Victoria's Inner Harbour. Also included in the event is a very large fireworks display, as well as live cannon fire",
+            "The Year 1812, festival overture in E♭ major, Op. 49, popularly known as the 1812 Overture, is an overture written in 1880 by Russian composer Pyotr Ilyich Tchaikovsky to commemorate Russia's defence of its motherland against Napoleon's invading Grande Armée in 1812.",
+            "The Viola Concerto is a composition for viola and orchestra by the Scottish composer James MacMillan. The work was jointly commissioned by the London Philharmonic Orchestra, the Lucerne Symphony Orchestra, the Bergen Philharmonic Orchestra, and the Adelaide Symphony Orchestra. Its world premiere was given by the violist Lawrence Power and the London Philharmonic Orchestra under the direction of Vladimir Jurowski in the Royal Festival Hall, London"
+        ],
+        "supporting_facts": [
+            " The concert is led by Victoria Symphony Music Director Tania Miller.",
+            "The Year 1812, festival overture in E♭ major, Op. 49, popularly known as the 1812 Overture, is an overture written in 1880 by Russian composer Pyotr Ilyich Tchaikovsky to commemorate Russia's defence of its motherland against Napoleon's invading Grande Armée in 1812."
+        ],
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "What other jobs did the actress Olivia Munn from Mortdecai have?",
+        "ground_truth": "model",
+        "prediction": "model",
+        "thread_id": "102",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Lisa Olivia Munn (born July 3, 1980) is an American actress and model. She was credited as Lisa Munn in her early career, but since 2006, she has used the name Olivia Munn.",
+            "Mortdecai is a 2015 American action comedy film directed by David Koepp and written by Eric Aronson. The film is adapted from the novel series \"Mortdecai\" (specifically its first installment \"Don't Point that Thing at Me\") written by Kyril Bonfiglioli. It stars Johnny Depp in the title role and also features Gwyneth Paltrow, Ewan McGregor, Olivia Munn, Paul Bettany and Jeff Goldblum. Released by Lionsgate on January 23, 2015, \"Mortdecai\" was a box office bomb",
+            ", 1960s, and 1970's. Having originated many roles in musicals she is also strongly identified with her second husband, director–choreographer Bob Fosse, remembered as the dancer–collaborator–muse for whom he choreographed much of his work and as the guardian of his legacy after his death."
+        ],
+        "supporting_facts": [
+            " It stars Johnny Depp in the title role and also features Gwyneth Paltrow, Ewan McGregor, Olivia Munn, Paul Bettany and Jeff Goldblum.",
+            "Lisa Olivia Munn (born July 3, 1980) is an American actress and model."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Which retired baseball player played Chad Bradford in a movie adaptation of a Michael Lewis book?",
+        "ground_truth": "Casey Bond",
+        "prediction": "Casey Bond",
+        "thread_id": "103",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Casey Bond (born October 5, 1984) is an American actor, film producer and retired professional baseball player. He is most noted for playing Chad Bradford in the 2011 film \"Moneyball\". Before becoming an actor, Bond played as an outfielder for the MLB team San Francisco Giants.",
+            "Chadwick Lee \"Chad\" Bradford (born September 14, 1974) is a former Major League Baseball (MLB) relief pitcher. He was well known for his extreme submarine-style pitching, and his success in MLB despite his unconventional delivery and the slow speed at which he threw the ball (his fastball was only in the mid 80-mph range). This led to him figuring prominently in the Michael Lewis book \"Moneyball\"",
+            "Moneyball is a 2011 American sports drama film directed by Bennett Miller and written by Steven Zaillian and Aaron Sorkin. The film is based on Michael Lewis's 2003 nonfiction book of the same name, an account of the Oakland Athletics baseball team's 2002 season and their general manager Billy Beane's attempts to assemble a competitive team."
+        ],
+        "supporting_facts": [
+            "Casey Bond (born October 5, 1984) is an American actor, film producer and retired professional baseball player.",
+            " He is most noted for playing Chad Bradford in the 2011 film \"Moneyball\".",
+            " The film is based on Michael Lewis's 2003 nonfiction book of the same name, an account of the Oakland Athletics baseball team's 2002 season and their general manager Billy Beane's attempts to assemble a competitive team."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Are Ranger Rick and Tennis both sports magazines?",
+        "ground_truth": "no",
+        "prediction": "No.",
+        "thread_id": "104",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "TENNIS is an American sports magazine owned by the Sinclair Broadcast Group. There are eight issues per year covering the world of tennis. The \"tennis.com\" website is an offshoot of the magazine and part of the same media company.",
+            "Ranger Rick, originally Ranger Rick's Nature Magazine, is a children’s nature magazine that is published by the United States National Wildlife Federation. The magazine offers feature articles and activities for children, ages 7 and up, in order to spark their interest in the outdoors and become more actively involved in the environment. The magazine's primary intention is to instill a passion for nature and promote activity outdoors. NWF also publishes two companion magazines, \"Ranger Rick Jr.\"",
+            ", which is aimed at ages 4–7, and \"Ranger Rick Cub\", which is aimed at kids 0–4 years old.)"
+        ],
+        "supporting_facts": [
+            "Ranger Rick, originally Ranger Rick's Nature Magazine, is a children’s nature magazine that is published by the United States National Wildlife Federation.",
+            "TENNIS is an American sports magazine owned by the Sinclair Broadcast Group."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "What type of forum did a former Soviet statesman initiate?",
+        "ground_truth": "Organizations could come together to address global issues",
+        "prediction": "a forum in which the Nobel Peace Laureates and the Peace Laureate Organizations could come together to address global issues with a view to encourage and support peace and human well being in the world.",
+        "thread_id": "105",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Mikhail Sergeyevich Gorbachev, ( ; Russian: Михаи́л Серге́евич Горбачёв ; ] ; born 2 March 1931) is a former Soviet statesman. He was the eighth and last leader of the Soviet Union, having been General Secretary of the Communist Party of the Soviet Union from 1985 until 1991. He was the country's head of state from 1988 until 1991 (titled as Chairman of the Presidium of the Supreme Soviet from 1988 to 1989, as Chairman of the from 1989 to 1990, and as Soviet Union]] from 1990 to 1991).",
+            "The World Summit of Nobel Peace Laureates was initiated by Mikhail Gorbachev in the 90s, as a forum in which the Nobel Peace Laureates and the Peace Laureate Organizations could come together to address global issues with a view to encourage and support peace and human well being in the world. Its Permanent Secretariat is an independent, non-profit, ECOSOC non-governmental organization, based in Rome, operating on a permanent basis. A permanent staff, mainly composed of volunteers",
+            ", Ukrainian: Микола Вікторович Підгорний ; 18 February [O.S. 5 February] 1903 – 11 January 1983) was a Soviet statesman during the Cold War. He served as First Secretary of the Central Committee of the Communist Party of Ukraine from 1957 to 1963 and as Chairman of the Presidium of the Supreme Soviet from 1965 to 1977. He was replaced as Chairman of the Presidium of the Supreme Soviet in 1977 by General Secretary Leonid Brezhnev. That same year he lost his seat in the Political Bureau"
+        ],
+        "supporting_facts": [
+            "The World Summit of Nobel Peace Laureates was initiated by Mikhail Gorbachev in the 90s, as a forum in which the Nobel Peace Laureates and the Peace Laureate Organizations could come together to address global issues with a view to encourage and support peace and human well being in the world.",
+            "Mikhail Sergeyevich Gorbachev, ( ; Russian: Михаи́л Серге́евич Горбачёв ; ] ; born 2 March 1931) is a former Soviet statesman."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.5185185185185185,
+            0.35,
+            1.0
+        ]
+    },
+    {
+        "question": "Who was born first, Antonin Artaud or  Elizabeth Taylor?",
+        "ground_truth": "Antonin Artaud",
+        "prediction": "Antonin Artaud",
+        "thread_id": "106",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Antoine Marie Joseph Artaud, better known as Antonin Artaud (] ; 4 September 1896 – 4 March 1948), was a French dramatist, poet, essayist, actor, and theatre director, widely recognized as one of the major figures of twentieth-century theatre and the European avant-garde.",
+            "Dame Elizabeth Rosemond Taylor, DBE (February 27, 1932 – March 23, 2011) was a British-American actress, businesswoman, and humanitarian. She began her career as a child actress in the early 1940s, and was one of the most popular stars of classical Hollywood cinema in the 1950s. She continued her career successfully into the 1960s, and remained a well known public figure for the rest of her life. In 1999, the American Film Institute named her the seventh-greatest female screen legend.",
+            "The prix Antonin Artaud was a French literary prize created by Jean Digot and a few poets on 24 May 1951 in Rodez, in memory of Antonin Artaud, and was awarded for the last time in 2008."
+        ],
+        "supporting_facts": [
+            "Antoine Marie Joseph Artaud, better known as Antonin Artaud (] ; 4 September 1896 – 4 March 1948), was a French dramatist, poet, essayist, actor, and theatre director, widely recognized as one of the major figures of twentieth-century theatre and the European avant-garde.",
+            "Dame Elizabeth Rosemond Taylor, DBE (February 27, 1932 – March 23, 2011) was a British-American actress, businesswoman, and humanitarian."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Which genus has more species in it, Othonna or Stangeria?",
+        "ground_truth": "Othonna",
+        "prediction": "Othonna",
+        "thread_id": "107",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Othonna is a genus of African plants in the sunflower family.",
+            "Othonna capensis also known as Little Pickles, is a species of the genus \"Othonna\" and family Asteraceae and is a native of South Africa.",
+            "Stangeriaceae is the smallest family of cycads, both in number of living and fossil species. The family contains only two living genera, \"Stangeria\" and \"Bowenia\", though the latter genus has been recommended for placement in a separate family by itself."
+        ],
+        "supporting_facts": [
+            "Othonna is a genus of African plants in the sunflower family.",
+            "Stangeria eriopus is a cycad endemic to southern Africa It is the sole species in the genus Stangeria, most closely related to the Australian genus \"Bowenia\", with which it forms the family Stangeriaceae."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "In what county did Michael Ola attend high school?",
+        "ground_truth": "Clayton County, Georgia, United States",
+        "prediction": "Clayton County, Georgia",
+        "thread_id": "108",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Michael Ola (born April 19, 1988) is an American football offensive tackle for the Buffalo Bills of the National Football League (NFL). He played college football at Hampton University and attended Riverdale High School in Riverdale, Georgia. He has also been a member of the Jacksonville Sharks, Montreal Alouettes, Miami Dolphins, Chicago Bears, San Diego Chargers, Detroit Lions, Seattle Seahawks and New York Giants.",
+            "Two Rivers High School is a public high school for students in grades 7 through 12 located in Ola, Arkansas, United States. Two Rivers High School is administered by the Two Rivers School District. The Two Rivers High School and school district serves 650 sqmi of rural communities including Ola, Plainview, Rover, and Casa. Two Rivers High School is one of four high schools within Yell County and the sole high school administered by the Two Rivers School District.",
+            "Atlantic Community High School (also known as Atlantic and ATL) is a public high school located in Delray Beach, Florida. It is part of the School District of Palm Beach County. Known for its academics, many students attend due to the school's International Baccalaureate program and its ranking as a top-rated school for many years. In the 2010 Newsweek ranking of America's best high schools, Atlantic High ranked 89th. In 2005"
+        ],
+        "supporting_facts": [
+            " He played college football at Hampton University and attended Riverdale High School in Riverdale, Georgia.",
+            "Riverdale is a city in Clayton County, Georgia, United States."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.7499999999999999,
+            1.0,
+            0.6
+        ]
+    },
+    {
+        "question": "What aviator participated to the Transatlantic flight organized by the \"heir apparent\" to Italian dictator Benito Mussolini?",
+        "ground_truth": "Antonio Lippi",
+        "prediction": "Antonio Lippi",
+        "thread_id": "109",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Italo Balbo (Ferrara, 6 June 1896 – Tobruk, 28 June 1940) was an Italian Blackshirt (\"Camicie Nere\", or CCNN) leader who served as Italy's Marshal of the Air Force (\"Maresciallo dell'Aria\"), Governor-General of Libya, Commander-in-Chief of Italian North Africa (\"Africa Settentrionale Italiana\", or ASI), and the \"heir apparent\" to Italian dictator Benito Mussolini.",
+            "Antonio Lippi (1900–1957) was an Italian aviator. He participated to the Transatlantic flight organized by Italo Balbo and awarded with the Medaglia d'Oro to aeronautic valor of Regia Aeronautica.",
+            "Bruno Mussolini (22 April 1918 – 7 August 1941) was the son of Italian dictator Benito Mussolini and Mussolini's wife Rachele."
+        ],
+        "supporting_facts": [
+            "Antonio Lippi (1900–1957) was an Italian aviator.",
+            " He participated to the Transatlantic flight organized by Italo Balbo and awarded with the Medaglia d'Oro to aeronautic valor of Regia Aeronautica.",
+            "Italo Balbo (Ferrara, 6 June 1896 – Tobruk, 28 June 1940) was an Italian Blackshirt (\"Camicie Nere\", or CCNN) leader who served as Italy's Marshal of the Air Force (\"Maresciallo dell'Aria\"), Governor-General of Libya, Commander-in-Chief of Italian North Africa (\"Africa Settentrionale Italiana\", or ASI), and the \"heir apparent\" to Italian dictator Benito Mussolini."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Who directed the film to which \" A Perfect Murder\" was a modern remake? ",
+        "ground_truth": "Alfred Hitchcock",
+        "prediction": "Alfred Hitchcock directed the film \"Dial M for Murder,\" to which \"A Perfect Murder\" was a modern remake.",
+        "thread_id": "110",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "A Perfect Murder is a 1998 American crime thriller film directed by Andrew Davis and starring Michael Douglas, Gwyneth Paltrow, and Viggo Mortensen. It is a modern remake of Alfred Hitchcock's 1954 film \"Dial M for Murder\", though the characters' names are all changed, and over half the plot is completely rewritten and altered. Loosely based on the play by Frederick Knott, the screenplay was written by Patrick Smith Kelly.",
+            "The Perfect Murder is a 1988 English language Indian film directed by Zafar Hai and produced by Merchant-Ivory. The film is based on the 1964 novel \"The Perfect Murder\" by British crime fiction writer HRF Keating and stars Naseeruddin Shah as Inspector Ghote, the leading character in Keating's novels. Swedish actor Stellan Skarsgård as well as many noted Indian actors such as Madhur Jaffrey, Amjad Khan, Dalip Tahil, Ratna Pathak, Annu Kapoor and Johnny Walker also appear in the film.",
+            "Cross Current (Italian: \"Un omicidio perfetto a termine di legge\" \/ \"A Perfect Murder According to Law\"), (Spanish: \"Homicidio al límite de la ley\" ), is a 1971 Italian-Spanish giallo film directed by Tonino Ricci, starring Ivan Rassimov and Rosanna Yanni. The film's original working title was \"Il buio nel cervello\" (\"A Darkness in the Brain\")"
+        ],
+        "supporting_facts": [
+            "A Perfect Murder is a 1998 American crime thriller film directed by Andrew Davis and starring Michael Douglas, Gwyneth Paltrow, and Viggo Mortensen.",
+            "Dial M for Murder is a 1954 American crime mystery film directed by Alfred Hitchcock, starring Ray Milland, Grace Kelly, Robert Cummings and John Williams."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.33333333333333337,
+            0.2,
+            1.0
+        ]
+    },
+    {
+        "question": "What song was on an American radio network that is owned by Disney Channels Worldwide, Inc. is a song by Senegalese-American R&B and rapper Akon? ",
+        "ground_truth": "\"Lonely\"",
+        "prediction": "\"Lonely\" (also known as \"Mr. Lonely\")",
+        "thread_id": "111",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Radio Disney, also known as Radio Disney Networks (corporate name Radio Disney, Inc.), is an American radio network that is owned by Disney Channels Worldwide, Inc., a subsidiary of Disney–ABC Television Group, a primary component of The Walt Disney Company's Disney Media Networks segment. Radio Disney Networks broadcasts three separated digital channels, Radio Disney, Radio Disney Country and Radio Disney Junior",
+            "\"Lonely\" (also known as \"Mr. Lonely\") is a song by Senegalese-American R&B and rapper Akon; it appears on his debut album, \"Trouble\". The single was released in 2005 and was his first worldwide hit. It reached number one in several countries, including in the United Kingdom and Germany (where it stayed there for eight weeks), and Australia. It was also highly popular in France where it reached number two",
+            "Disney Channels Worldwide (officially ABC Cable Networks Group, Inc.) is a subsidiary of Disney–ABC Television Group, a unit of Disney Media Networks, the division of The Walt Disney Company that operates various children and family television channels around the world: Disney Channel, Disney XD, Disney Junior, Disney Cinemagic, Dlife, and Hungama TV. In addition, the subsidiary is responsible for operating Radio Disney, Disney Television Animation and It's a Laugh Productions."
+        ],
+        "supporting_facts": [
+            "\"Lonely\" (also known as \"Mr. Lonely\") is a song by Senegalese-American R&B and rapper Akon; it appears on his debut album, \"Trouble\".",
+            "Radio Disney, also known as Radio Disney Networks (corporate name Radio Disney, Inc.), is an American radio network that is owned by Disney Channels Worldwide, Inc., a subsidiary of Disney–ABC Television Group, a primary component of The Walt Disney Company's Disney Media Networks segment."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.33333333333333337,
+            0.2,
+            1.0
+        ]
+    },
+    {
+        "question": "Criss Angel generated $150 million in tourist revenue for his live performance show in what city?",
+        "ground_truth": "Paradise, Nevada",
+        "prediction": "Las Vegas",
+        "thread_id": "112",
+        "rec_depth": 0,
+        "similar_chunks": [
+            ", before moving his base of operations to the Las Vegas Valley. He is known for starring in the television and stage show \"Criss Angel Mindfreak\" and his previous live performance illusion show \"Criss Angel Believe\" in collaboration with \"Cirque du Soleil\" at the Luxor casino in Las Vegas. The show generated $150 million in tourist revenue to Las Vegas in 2010, but has since been replaced by \"Mindfreak LIVE\" on 11 May 2016 (the show is partly produced by Cirque",
+            "Christopher Nicholas Sarantakos (born December 19, 1967), known by the stage name Criss Angel, is an American magician, illusionist and musician. Angel began his career in New York City",
+            "Criss Angel Believe (also written as CRISS ANGEL \"beLIEve\") was the sixth Cirque du Soleil show in Las Vegas, which was premiered at the beLIEve theatre (which holds 1,600 when at capacity) inside the Luxor hotel in Las Vegas in 2008. It is a theatrical production created in partnership of Cirque du Soleil and magician Criss Angel, who is billed as the \"co-writer, illusions creator and designer, original concept creator and star\" of the show. The show had its final performance on April 17, 2016"
+        ],
+        "supporting_facts": [
+            "Christopher Nicholas Sarantakos (born December 19, 1967), known by the stage name Criss Angel, is an American magician, illusionist and musician.",
+            " He is known for starring in the television and stage show \"Criss Angel Mindfreak\" and his previous live performance illusion show \"Criss Angel Believe\" in collaboration with \"Cirque du Soleil\" at the Luxor casino in Las Vegas.",
+            " The show generated $150 million in tourist revenue to Las Vegas in 2010, but has since been replaced by \"Mindfreak LIVE\" on 11 May 2016 (the show is partly produced by Cirque, however the directive rights are entirely with Criss Angel).",
+            "Luxor Las Vegas is a hotel and casino situated on the southern end of the Las Vegas Strip in Paradise, Nevada."
+        ],
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "Which star on the Mexican telenovela \"Amy, la niña de la mochila azul\" is also a singer, model, fashion designer, and recording artist?",
+        "ground_truth": "Danna Paola",
+        "prediction": "Danna Paola Rivera Munguía",
+        "thread_id": "113",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Amy, la niña de la mochila azul \"(Amy, the Girl with the Blue Schoolbag)\" is a Mexican telenovela produced by Televisa in 2004. Starring Danna Paola, Nora Salinas and Eduardo Capetillo, while Pedro Armendáriz Jr. and Tatiana star as co-protagonists with Alejandro Tommasi, Lorena Herrera, Alejandra Meyer and Alejandra Procuna as antagonists.",
+            "Danna Paola Rivera Munguía (born 23 June 1995 in Mexico City), better known as Danna Paola, is a Mexican singer, actress, model, fashion designer and recording artist. She gained popularity in her native Mexico as a child actress and singer, starring in dozens of television projects throughout her early childhood and adolescence.",
+            "La niña de la mochila azul (in English: \"The girl with the blue backpack\") is a 1979 Mexican motion picture, based on the song La de la Mochila Azul from the album by the same name, performed by Pedrito Fernández. This film is categorized as a Musical, Drama and Comedy."
+        ],
+        "supporting_facts": [
+            "Amy, la niña de la mochila azul \"(Amy, the Girl with the Blue Schoolbag)\" is a Mexican telenovela produced by Televisa in 2004.",
+            " Starring Danna Paola, Nora Salinas and Eduardo Capetillo, while Pedro Armendáriz Jr. and Tatiana star as co-protagonists with Alejandro Tommasi, Lorena Herrera, Alejandra Meyer and Alejandra Procuna as antagonists.",
+            "Danna Paola Rivera Munguía (born 23 June 1995 in Mexico City), better known as Danna Paola, is a Mexican singer, actress, model, fashion designer and recording artist."
+        ],
+        "em": 0.0,
+        "f1": [
+            0.6666666666666666,
+            0.5,
+            1.0
+        ]
+    },
+    {
+        "question": "Jasmin Geljo is known for his role in a 2005 post-apocalyptic horror film written and directed by who?",
+        "ground_truth": "George A. Romero",
+        "prediction": "George A. Romero",
+        "thread_id": "114",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Jasmin Geljo (born September 18, 1959) is a Bosnian-Canadian actor. He is best known for his roles on Cube Zero as Ryjkin and in the films \"Land of the Dead\", \"Assault on Precinct 13\" and \"The Sentinel\".",
+            "Land of the Dead (also known as George A. Romero's Land of the Dead) is a 2005 post-apocalyptic horror film written and directed by George A. Romero; the fourth of Romero's six \"Living Dead\" movies, it is preceded by \"Night of the Living Dead\", \"Dawn of the Dead\" and \"Day of the Dead\", and succeeded by \"Diary of the Dead\" and \"Survival of the Dead\". It was released in 2005, with a budget of $15–19 million, the highest in the series, and became a success, grossing over $46 million.",
+            "Revolver is a 2005 British-French crime thriller film co-written and directed by Guy Ritchie and starring Jason Statham, Ray Liotta, Vincent Pastore and André Benjamin. The film centres on a revenge-seeking confidence trickster whose weapon is a universal formula that guarantees victory to its user, when applied to any game or confidence trick."
+        ],
+        "supporting_facts": [
+            "Jasmin Geljo (born September 18, 1959) is a Bosnian-Canadian actor.",
+            " He is best known for his roles on Cube Zero as Ryjkin and in the films \"Land of the Dead\", \"Assault on Precinct 13\" and \"The Sentinel\".",
+            "Land of the Dead (also known as George A. Romero's Land of the Dead) is a 2005 post-apocalyptic horror film written and directed by George A. Romero; the fourth of Romero's six \"Living Dead\" movies, it is preceded by \"Night of the Living Dead\", \"Dawn of the Dead\" and \"Day of the Dead\", and succeeded by \"Diary of the Dead\" and \"Survival of the Dead\"."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Used to This was included on the streaming version of the album released in 2017 on what label?",
+        "ground_truth": "A1 Recordings",
+        "prediction": "Freebandz and Epic Records",
+        "thread_id": "115",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "\"Used to This\" is a song by American rapper Future. It was released on November 4, 2016, by Freebandz and Epic Records, as the intended first single from his upcoming fourteenth mixtape \"Beast Mode 2\" (2017), however, it was later included on the streaming version of \"Future\" (2017). The song, produced by Zaytoven, features a guest appearance from frequent collaborator Drake.",
+            ", 2017, this was the song he played for Paul McCartney and George Harrison as an audition before signing with Apple Records.",
+            ", released on the independent label Touch and Go Records."
+        ],
+        "supporting_facts": [
+            " It was released on November 4, 2016, by Freebandz and Epic Records, as the intended first single from his upcoming fourteenth mixtape \"Beast Mode 2\" (2017), however, it was later included on the streaming version of \"Future\" (2017).",
+            " It was released on February 17, 2017, by A1 Recordings, Freebandz and Epic Records."
+        ],
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "The scientists who discovered Tedatioxetine were from what international pharmaceutical company?",
+        "ground_truth": "Danish international pharmaceutical company",
+        "prediction": "Lundbeck",
+        "thread_id": "116",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "Tedatioxetine (Lu AA24530) is an antidepressant that was discovered by scientists at Lundbeck; in 2007 Lundbeck and Takeda entered into a partnership that included tedatioxetine but was focused on another, more advanced Lundbeck drug candidate, vortioxetine.",
+            "Zandu Realty Limited (formerly Zandu Pharmaceutical Works Limited) is an international pharmaceutical company based in Mumbai, India. Company's core business of manufacturing and dealing in ayurvedic and medicinal preparations.",
+            "Teva Active Pharmaceutical Ingredients (TAPI) is an international pharmaceutical company headquartered in Israel. TAPI is a stand-alone business unit of Teva Pharmaceutical Industries limited, the largest generic drug manufacturer in the world and one of the 15 largest pharmaceutical companies worldwide."
+        ],
+        "supporting_facts": [
+            "Tedatioxetine (Lu AA24530) is an antidepressant that was discovered by scientists at Lundbeck; in 2007 Lundbeck and Takeda entered into a partnership that included tedatioxetine but was focused on another, more advanced Lundbeck drug candidate, vortioxetine.",
+            "H. Lundbeck A\/S (commonly known simply as Lundbeck) is a Danish international pharmaceutical company engaged in the research and development, production, marketing, and sale of drugs for the treatment of disorders in the central nervous system (CNS), including depression, schizophrenia, Alzheimer's disease, Parkinson's disease, Huntington's disease, epilepsy and insomnia."
+        ],
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "The Joggers are a four-piece band whose lead singer is the son of an American chemist who received the highest what?",
+        "ground_truth": "Hirsch index rating",
+        "prediction": "I cannot answer this question.",
+        "thread_id": "117",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "The Joggers, formerly known as Stateside, are a four-piece band from Portland, Oregon. They play complex songs with elements of math rock which retain a pop sensibility. The guitar style of (lead singer and songwriter) Ben Whitesides and the second guitarist rejects a traditional rhythm & lead style for more scale exploration and includes elements of call and response. Murphy Kasiewicz played second guitar on \"Solid Guild\"",
+            ", one of the most decorated and wealthy chemists in the world.",
+            "Rocco DeLuca (born December 27, 1975) is a California-based indie rock musician who came to prominence as the lead singer of the four-piece band Rocco DeLuca and the Burden. Since 2009, DeLuca has toured and recorded as a solo artist."
+        ],
+        "supporting_facts": [
+            "The Joggers, formerly known as Stateside, are a four-piece band from Portland, Oregon.",
+            " The guitar style of (lead singer and songwriter) Ben Whitesides and the second guitarist rejects a traditional rhythm & lead style for more scale exploration and includes elements of call and response.",
+            " Ben Whitesides is the son of George M. Whitesides, one of the most decorated and wealthy chemists in the world.",
+            "George McClelland Whitesides (born August 3, 1939) is an American chemist and professor of chemistry at Harvard University.",
+            " A prolific author and patent holder who has received many awards, he received the highest Hirsch index rating of all living chemists in 2011."
+        ],
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "In what Chennai location are trade laws different from rest of the country?",
+        "ground_truth": "Madras Export Processing Zone",
+        "prediction": "Madras Export Processing Zone",
+        "thread_id": "118",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "A special economic zone (SEZ) is an area in which business and trade laws are different from rest of the country. SEZs are located within a country's national borders, and their aims include: increased trade, increased investment, job creation and effective administration. To encourage businesses to set up in the zone, financial policies are introduced. These policies typically regard investing, taxation, trading, quotas, customs and labour regulations. Additionally",
+            ", Indian laws also adhere to the United Nations guidelines on human rights law and the environmental law. Certain international trade laws, such as those on intellectual property, are also enforced in India.",
+            "Kadaperi is a geographical region in West Tambaram, Chennai, India. The name comes from \"Kada\" meaning door or gateway in Kannada\/Tamil and \"eri\" meaning lake, hence Gateway Lake to Chennai. With a population of around 2000 people, Kadaperi is close to the Madras Export Processing Zone, which is the first Special Economic Zone in Chennai. \"Pachai Malai\" grassland and lakes are present in the area."
+        ],
+        "supporting_facts": [
+            " With a population of around 2000 people, Kadaperi is close to the Madras Export Processing Zone, which is the first Special Economic Zone in Chennai.",
+            "A special economic zone (SEZ) is an area in which business and trade laws are different from rest of the country."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Which magazine is published more in a year, Essence or Alt for Damerne?",
+        "ground_truth": "ALT for Damerne",
+        "prediction": "Alt for Damerne",
+        "thread_id": "119",
+        "rec_depth": 0,
+        "similar_chunks": [
+            "ALT for Damerne (meaning \"All for the Ladies\" in English) is a Danish language weekly women's magazine published in Copenhagen, Denmark.",
+            "Essence is a monthly magazine for African American women between the ages of 18 and 49. It is the only magazine that focuses on reaching an audience of black women, revolves around the black woman experience, and has remained for a long period of time. The magazine covers fashion, lifestyle and beauty, with an intimate girlfriend-to-girlfriend tone, and its slogan \"Fierce, Fun",
+            "The Essence Festival, known as \"the party with a purpose\", is an annual music festival which started in 1995 as a one-time event to celebrate the 25th anniversary of \"Essence\", a magazine aimed primarily towards African-American women. It is the largest event celebrating African-American culture and music in the United States. Locally referred to as the Essence Fest, it has been held in New Orleans, Louisiana every year since 1994 except for 2006, when it was held in Houston"
+        ],
+        "supporting_facts": [
+            "Essence is a monthly magazine for African American women between the ages of 18 and 49.",
+            "ALT for Damerne (meaning \"All for the Ladies\" in English) is a Danish language weekly women's magazine published in Copenhagen, Denmark."
+        ],
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "em": 0.4,
+        "f1": 0.6050531694159145,
+        "precision": 0.6136784511784512,
+        "recall": 0.6618849206349205,
+        "individual_em": [
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0
+        ],
+        "individual_f1": [
+            0,
+            1.0,
+            1.0,
+            0,
+            1.0,
+            0,
+            0,
+            1.0,
+            1.0,
+            1.0,
+            0,
+            1.0,
+            0.5,
+            1.0,
+            0,
+            0.6666666666666666,
+            0.8,
+            0,
+            0,
+            1.0,
+            0,
+            0.3333333333333333,
+            1.0,
+            0.6666666666666666,
+            0,
+            0.6666666666666666,
+            1.0,
+            0,
+            1.0,
+            0.6666666666666666,
+            0.3333333333333333,
+            1.0,
+            1.0,
+            1.0,
+            0.6666666666666666,
+            0.8,
+            0,
+            0.8571428571428571,
+            0,
+            0,
+            1.0,
+            0.4444444444444445,
+            1.0,
+            1.0,
+            1.0,
+            0.6666666666666666,
+            0,
+            0,
+            0.35294117647058826,
+            1.0,
+            0,
+            0,
+            0.6666666666666666,
+            1.0,
+            1.0,
+            0,
+            1.0,
+            1.0,
+            0.4,
+            0.75,
+            1.0,
+            0.19999999999999998,
+            1.0,
+            0.8,
+            0.6666666666666666,
+            1.0,
+            1.0,
+            1.0,
+            0.1111111111111111,
+            1.0,
+            0,
+            0.6666666666666666,
+            1.0,
+            0.4,
+            1.0,
+            1.0,
+            0.5,
+            0.42857142857142855,
+            0.6666666666666666,
+            0.4,
+            0,
+            0.6666666666666666,
+            0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.8,
+            0,
+            0.33333333333333337,
+            0.5714285714285715,
+            0.6666666666666666,
+            0.2222222222222222,
+            1.0,
+            1.0,
+            1.0,
+            0,
+            1.0,
+            1.0,
+            0,
+            0.6666666666666666,
+            0,
+            1.0,
+            1.0,
+            1.0,
+            0.5185185185185185,
+            1.0,
+            1.0,
+            0.7499999999999999,
+            1.0,
+            0.33333333333333337,
+            0.33333333333333337,
+            0,
+            0.6666666666666666,
+            1.0,
+            0,
+            0,
+            0,
+            1.0,
+            1.0
+        ],
+        "individual_precision": [
+            0,
+            1.0,
+            1.0,
+            0,
+            1.0,
+            0,
+            0,
+            1.0,
+            1.0,
+            1.0,
+            0,
+            1.0,
+            0.3333333333333333,
+            1.0,
+            0,
+            1.0,
+            1.0,
+            0,
+            0,
+            1.0,
+            0,
+            0.25,
+            1.0,
+            1.0,
+            0,
+            0.5,
+            1.0,
+            0,
+            1.0,
+            1.0,
+            0.5,
+            1.0,
+            1.0,
+            1.0,
+            0.5,
+            0.6666666666666666,
+            0,
+            0.75,
+            0,
+            0,
+            1.0,
+            0.4,
+            1.0,
+            1.0,
+            1.0,
+            0.5,
+            0,
+            0,
+            0.25,
+            1.0,
+            0,
+            0,
+            1.0,
+            1.0,
+            1.0,
+            0,
+            1.0,
+            1.0,
+            0.25,
+            0.75,
+            1.0,
+            0.1111111111111111,
+            1.0,
+            1.0,
+            0.5,
+            1.0,
+            1.0,
+            1.0,
+            0.09090909090909091,
+            1.0,
+            0,
+            1.0,
+            1.0,
+            0.5,
+            1.0,
+            1.0,
+            1.0,
+            0.2727272727272727,
+            0.6666666666666666,
+            1.0,
+            0,
+            1.0,
+            0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.6666666666666666,
+            0,
+            0.2,
+            0.4,
+            0.5,
+            0.3333333333333333,
+            1.0,
+            1.0,
+            1.0,
+            0,
+            1.0,
+            1.0,
+            0,
+            0.5,
+            0,
+            1.0,
+            1.0,
+            1.0,
+            0.35,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.2,
+            0.2,
+            0,
+            0.5,
+            1.0,
+            0,
+            0,
+            0,
+            1.0,
+            1.0
+        ],
+        "individual_recall": [
+            0,
+            1.0,
+            1.0,
+            0,
+            1.0,
+            0,
+            0,
+            1.0,
+            1.0,
+            1.0,
+            0,
+            1.0,
+            1.0,
+            1.0,
+            0,
+            0.5,
+            0.6666666666666666,
+            0,
+            0,
+            1.0,
+            0,
+            0.5,
+            1.0,
+            0.5,
+            0,
+            1.0,
+            1.0,
+            0,
+            1.0,
+            0.5,
+            0.25,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0,
+            1.0,
+            0,
+            0,
+            1.0,
+            0.5,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0,
+            0,
+            0.6,
+            1.0,
+            0,
+            0,
+            0.5,
+            1.0,
+            1.0,
+            0,
+            1.0,
+            1.0,
+            1.0,
+            0.75,
+            1.0,
+            1.0,
+            1.0,
+            0.6666666666666666,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.14285714285714285,
+            1.0,
+            0,
+            0.5,
+            1.0,
+            0.3333333333333333,
+            1.0,
+            1.0,
+            0.3333333333333333,
+            1.0,
+            0.6666666666666666,
+            0.25,
+            0,
+            0.5,
+            0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0,
+            1.0,
+            1.0,
+            1.0,
+            0.16666666666666666,
+            1.0,
+            1.0,
+            1.0,
+            0,
+            1.0,
+            1.0,
+            0,
+            1.0,
+            0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.6,
+            1.0,
+            1.0,
+            1.0,
+            0,
+            1.0,
+            1.0,
+            0,
+            0,
+            0,
+            1.0,
+            1.0
+        ]
+    }
+]

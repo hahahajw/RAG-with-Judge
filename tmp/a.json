@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "result": "success"
+    },
+    {
+        "id": 2,
+        "result": "failed"
+    }
+][
+    {
+        "id": 3,
+        "result": "pending"
+    }
+]

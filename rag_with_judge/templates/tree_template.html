@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索树可视化</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .controls {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .control-btn {
+            padding: 8px 16px;
+            background-color: #4682b4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .control-btn:hover {
+            background-color: #5a9bd5;
+        }
+        .tree {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+        }
+        .node-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px 0;
+            width: 100%;
+        }
+        /* 层级样式 */
+        .level-0 {
+            margin-left: 0;
+        }
+        .level-1 {
+            margin-left: 50px;
+        }
+        .level-2 {
+            margin-left: 100px;
+        }
+        .level-3 {
+            margin-left: 150px;
+        }
+        .level-4 {
+            margin-left: 200px;
+        }
+        .level-5 {
+            margin-left: 250px;
+        }
+        /* 更多层级可以根据需要添加 */
+        
+        .query-node {
+            background-color: #f0f8ff;
+            border: 2px solid #4682b4;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            min-width: 300px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .document-node {
+            background-color: #fff8e1;
+            border: 2px solid #ffa500;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            min-width: 250px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .content-tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            gap: 10px;
+        }
+        .tab-btn {
+            padding: 5px 10px;
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        .tab-btn.active {
+            background-color: #ffa500;
+            color: white;
+            border-color: #cc8400;
+        }
+        .children-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            margin-top: 30px;
+            width: 100%;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+        .document-children {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .query-node:hover, .document-node:hover {
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .document-content {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .metadata-content {
+            display: none;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .collapsed .document-content, .collapsed .metadata-content {
+            display: none;
+        }
+        .collapsed .children-container, .collapsed .document-children {
+            display: none;
+        }
+        .toggle-icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .relations-container {
+            display: none;
+        }
+        h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .node-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        .metadata {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>搜索树可视化</h1>
+    <div class="controls">
+        <button id="collapse-all" class="control-btn">全部折叠</button>
+        <button id="expand-all" class="control-btn">全部展开</button>
+    </div>
+    <div class="tree" id="tree-container">
+        {{tree_html}}
+    </div>
+    <script>
+        // 折叠/展开功能
+        function setupToggle() {
+            // 为查询节点添加切换功能
+            document.querySelectorAll('.query-node').forEach(node => {
+                // 添加切换图标
+                const title = node.querySelector('.node-title');
+                if (!title.querySelector('.toggle-icon')) {
+                    const toggleIcon = document.createElement('span');
+                    toggleIcon.className = 'toggle-icon';
+                    toggleIcon.textContent = '-';
+                    title.prepend(toggleIcon);
+                }
+
+                node.addEventListener('click', function() {
+                    const nodeContainer = this.closest('.node-container');
+                    nodeContainer.classList.toggle('collapsed');
+                    const toggleIcon = this.querySelector('.toggle-icon');
+                    if (nodeContainer.classList.contains('collapsed')) {
+                        toggleIcon.textContent = '+';
+                    } else {
+                        toggleIcon.textContent = '-';
+                    }
+                });
+            });
+
+            // 为文档节点添加切换功能
+            document.querySelectorAll('.document-node').forEach(node => {
+                node.addEventListener('click', function(e) {
+                    const nodeContainer = this.closest('.node-container');
+                    nodeContainer.classList.toggle('collapsed');
+                    const toggleIcon = this.querySelector('.toggle-icon');
+                    if (nodeContainer.classList.contains('collapsed')) {
+                        toggleIcon.textContent = '+';
+                    } else {
+                        toggleIcon.textContent = '-';
+                    }
+                    e.stopPropagation(); // 防止事件冒泡到父节点
+                });
+            });
+
+            // 初始化标签切换
+            setupTabs();
+
+            // 初始化全部折叠/展开按钮
+            setupCollapseExpandButtons();
+        }
+
+        // 标签切换功能
+        function setupTabs() {
+            document.querySelectorAll('.document-node').forEach(node => {
+                // 创建标签按钮
+                const tabContainer = document.createElement('div');
+                tabContainer.className = 'content-tabs';
+
+                const contentBtn = document.createElement('button');
+                contentBtn.className = 'tab-btn active';
+                contentBtn.textContent = '内容';
+                contentBtn.setAttribute('data-tab', 'content');
+
+                const metadataBtn = document.createElement('button');
+                metadataBtn.className = 'tab-btn';
+                metadataBtn.textContent = '元数据';
+                metadataBtn.setAttribute('data-tab', 'metadata');
+
+                tabContainer.appendChild(contentBtn);
+                tabContainer.appendChild(metadataBtn);
+
+                // 插入到文档节点中
+                const nodeContent = node.querySelector('.document-content');
+                if (nodeContent) {
+                    node.insertBefore(tabContainer, nodeContent);
+                }
+
+                // 添加标签切换事件
+                tabContainer.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        // 移除所有标签的active类
+                        tabContainer.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                        // 为当前标签添加active类
+                        this.classList.add('active');
+
+                        const tab = this.getAttribute('data-tab');
+                        // 隐藏所有内容
+                        node.querySelector('.document-content').style.display = 'none';
+                        node.querySelector('.metadata-content').style.display = 'none';
+                        // 显示选中的内容
+                        if (tab === 'content') {
+                            node.querySelector('.document-content').style.display = 'block';
+                        } else {
+                            node.querySelector('.metadata-content').style.display = 'block';
+                        }
+                    });
+                });
+            });
+        }
+
+        // 全部折叠/展开按钮功能
+        function setupCollapseExpandButtons() {
+            // 全部折叠按钮
+            document.getElementById('collapse-all').addEventListener('click', function() {
+                document.querySelectorAll('.node-container').forEach(container => {
+                    container.classList.add('collapsed');
+                    const toggleIcon = container.querySelector('.toggle-icon');
+                    if (toggleIcon) {
+                        toggleIcon.textContent = '+';
+                    }
+                });
+            });
+
+            // 全部展开按钮
+            document.getElementById('expand-all').addEventListener('click', function() {
+                document.querySelectorAll('.node-container').forEach(container => {
+                    container.classList.remove('collapsed');
+                    const toggleIcon = container.querySelector('.toggle-icon');
+                    if (toggleIcon) {
+                        toggleIcon.textContent = '-';
+                    }
+                });
+            });
+        }
+
+        // 初始设置
+        window.addEventListener('load', setupToggle);
+    </script>
+</body>
+</html>

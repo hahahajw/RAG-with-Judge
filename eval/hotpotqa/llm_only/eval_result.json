@@ -1,0 +1,916 @@
+[
+    {
+        "question": "How long did the career span of the actor who starred with Mickey Rooney and Marilyn Maxwell in Off Limits?",
+        "ground_truth": "nearly 80 years",
+        "prediction": "The actor who starred with Mickey Rooney and Marilyn Maxwell in *Off Limits* (1952) is Bob Hope. His career spanned approximately **70 years**, from the early 1920s to the mid-1990s.",
+        "em": 0.0,
+        "f1": [
+            0.09523809523809525,
+            0.05555555555555555,
+            0.3333333333333333
+        ]
+    },
+    {
+        "question": "What Hong Kong actor born in 1980 will star in \"Heart and Greed\"?",
+        "ground_truth": "Bosco Wong Chung-chak",
+        "prediction": "Bosco Wong",
+        "em": 0.0,
+        "f1": [
+            0.8,
+            1.0,
+            0.6666666666666666
+        ]
+    },
+    {
+        "question": "What is the name of the presidential memorial in Washington, D.C that connects to an artificial island?",
+        "ground_truth": "Jefferson Memorial",
+        "prediction": "The Jefferson Memorial",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "How many episodes were in the season of \"Rick and Morty\" that featured an episode called \"The Ricks Must Be Crazy\"?",
+        "ground_truth": "ten",
+        "prediction": "10",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "In what year was Kasper Schmeichel's father born?",
+        "ground_truth": "1963",
+        "prediction": "1963",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "In the animal kingdom what type of sexuality is described as sexual behavior toward both male and females?",
+        "ground_truth": "bisexual",
+        "prediction": "Bisexual",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "What nationality was Oliver Reed's character in the film Royal Flash?",
+        "ground_truth": "Prussian",
+        "prediction": "German",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "What cuisine is described as a cultural blending of Mediterranean influences (such as those created by Italian and Spanish populations)?",
+        "ground_truth": "Argentine cuisine",
+        "prediction": "Argentinian cuisine",
+        "em": 0.0,
+        "f1": [
+            0.5,
+            0.5,
+            0.5
+        ]
+    },
+    {
+        "question": "Which canal is located farther east, Champlain Canal or Warren County Canal?",
+        "ground_truth": "Champlain Canal",
+        "prediction": "Champlain Canal",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Who was the running mate of the man about whose candidacy the 2016 book Insane Clown President: Dispatches from the 2016 Circus documents?",
+        "ground_truth": "Mike Pence",
+        "prediction": "Mike Pence",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "New Jersey politicians Linda Stender and Leonard Lance were born within a year of each other beginning in which year?",
+        "ground_truth": "1952",
+        "prediction": "1953",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "Where was the movement that August Brancart published literature from centerd?",
+        "ground_truth": "Western Europe",
+        "prediction": "The movement that August Brancart published literature from was centered in **Belgium**.",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "How much change in elevation is there at the site of the 1999 FIA GT Hockenheim 500km?",
+        "ground_truth": "very little",
+        "prediction": "The Hockenheimring, where the 1999 FIA GT Hockenheim 500km took place, has a change in elevation of approximately 12 meters over the course of the track.",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "In which Sottish Region is the castle in which] Sir Roger de Kirkpatrick was born ?  ",
+        "ground_truth": "Dumfries and Galloway,",
+        "prediction": "Dumfries and Galloway",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "What relationship does Fred Gehrke have to the 23rd overall pick in the 2010 Major League Baseball Draft?",
+        "ground_truth": "great-grandfather",
+        "prediction": "Fred Gehrke is the great-grandfather of the 23rd overall pick in the 2010 Major League Baseball Draft, Christian Colon.",
+        "em": 0.0,
+        "f1": [
+            0.14285714285714288,
+            0.07692307692307693,
+            1.0
+        ]
+    },
+    {
+        "question": "What record did the Super Bowl XXXIV champions finish the regular-season with in 1999?",
+        "ground_truth": "a record of 13–3",
+        "prediction": "14-2",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "Spider9 was founded in 2011 by the head of which subsidiary of Wanxiang Group?",
+        "ground_truth": "A123 Systems, LLC",
+        "prediction": "GreatPoint Energy",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "John Stoltenberg is the managing editor of the magazine that focuses on what?",
+        "ground_truth": "aging issues",
+        "prediction": "John Stoltenberg is the managing editor of the magazine that focuses on **feminism and gender issues**.",
+        "em": 0.0,
+        "f1": [
+            0.1818181818181818,
+            0.1111111111111111,
+            0.5
+        ]
+    },
+    {
+        "question": "What kind of song did Alexander Grant produce for Eminem?",
+        "ground_truth": "a midtempo hip hop ballad",
+        "prediction": "Alexander Grant, also known as Alex da Kid, produced the song \"Love the Way You Lie\" for Eminem.",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "An American who is a German literature translator and did a thesis on an Austrian prodigy born in 1874 taught at which university?",
+        "ground_truth": "University of Vienna",
+        "prediction": "The University of Texas at Austin",
+        "em": 0.0,
+        "f1": [
+            0.4,
+            0.3333333333333333,
+            0.5
+        ]
+    },
+    {
+        "question": "From which country is the largest known example of European Iron Age silver work?",
+        "ground_truth": "Switzerland",
+        "prediction": "Denmark",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "Is Rick Husband Amarillo International Airport or Grand Forks International Airport closer to the town it is near?",
+        "ground_truth": "Grand Forks International Airport",
+        "prediction": "Rick Husband Amarillo International Airport is closer to the town it is near.",
+        "em": 0.0,
+        "f1": [
+            0.3333333333333333,
+            0.25,
+            0.5
+        ]
+    },
+    {
+        "question": "The Greatest Event in Television History aired on the channel that was founded by whom?",
+        "ground_truth": "Betty Cohen",
+        "prediction": "The Greatest Event in Television History aired on NBC, which was founded by David Sarnoff.",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "The Lowry Hotel is named after an artist, many of whose drawings and paintings depict what town?",
+        "ground_truth": "Pendlebury, Lancashire",
+        "prediction": "Salford",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "ICI House is now named after the company that provides what type of item?",
+        "ground_truth": "explosives",
+        "prediction": "Office supplies",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "What professionn does Stanley Kwan and Ken Hughes have in common?",
+        "ground_truth": "director",
+        "prediction": "Film director",
+        "em": 0.0,
+        "f1": [
+            0.6666666666666666,
+            0.5,
+            1.0
+        ]
+    },
+    {
+        "question": "The school in which the Wilmslow Show is held is designated as what?",
+        "ground_truth": "Centre of Excellence",
+        "prediction": "The school where the Wilmslow Show is held is designated as a **Community School**.",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "The musician who did \"Khalaara\" was born on what date?",
+        "ground_truth": "15 March 1983",
+        "prediction": "June 16, 1992",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "How many times has the author of Negotiating with the Dead been shortlisted for the Booker Prize ?",
+        "ground_truth": "five times",
+        "prediction": "The author of *Negotiating with the Dead*, Margaret Atwood, has been shortlisted for the Booker Prize **six times**.",
+        "em": 0.0,
+        "f1": [
+            0.16666666666666669,
+            0.1,
+            0.5
+        ]
+    },
+    {
+        "question": "The 1st Virginia Regiment saw action at a battle that led to the departure of what Royal Governor?",
+        "ground_truth": "Royal Governor Lord Dunmore",
+        "prediction": "Lord Dunmore",
+        "em": 0.0,
+        "f1": [
+            0.6666666666666666,
+            1.0,
+            0.5
+        ]
+    },
+    {
+        "question": "What breed of dog are the Basset Bleu de Gascogne and the Beagle?",
+        "ground_truth": "The Beagle is a breed of small hound",
+        "prediction": "Hound breeds",
+        "em": 0.0,
+        "f1": [
+            0.3333333333333333,
+            0.5,
+            0.25
+        ]
+    },
+    {
+        "question": "Which opera has more acts, Don Quichotte or Tosca?",
+        "ground_truth": "Don Quichotte",
+        "prediction": "Don Quichotte has more acts than Tosca.",
+        "em": 0.0,
+        "f1": [
+            0.5,
+            0.3333333333333333,
+            1.0
+        ]
+    },
+    {
+        "question": " Hans Florian Zimmer composed The original music score for  Pacific Heights, since the 19080's how many films has he composed music for?",
+        "ground_truth": "over 150 films",
+        "prediction": "Over 150 films",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "What Kenya-based company owns the Tusker beer brand?",
+        "ground_truth": "East African Breweries Limited",
+        "prediction": "East African Breweries Limited (EABL)",
+        "em": 0.0,
+        "f1": [
+            0.888888888888889,
+            0.8,
+            1.0
+        ]
+    },
+    {
+        "question": "Who was born first, Nellee Hooper or Baz Luhrmann?",
+        "ground_truth": "\"Baz\" Luhrmann",
+        "prediction": "Nellee Hooper was born first.",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "Who is younger, Keisuke Kuwata or Moya Brennan?",
+        "ground_truth": "Keisuke Kuwata",
+        "prediction": "Keisuke Kuwata is younger than Moya Brennan.",
+        "em": 0.0,
+        "f1": [
+            0.5714285714285715,
+            0.4,
+            1.0
+        ]
+    },
+    {
+        "question": "Which of the starting pitchers for Team USA in the Baseball at the 2000 Summer Olympics was not born August 29, 1977?",
+        "ground_truth": "Ben Sheets",
+        "prediction": "The starting pitcher for Team USA in the Baseball at the 2000 Summer Olympics who was not born on August 29, 1977, is **Ben Sheets**.",
+        "em": 0.0,
+        "f1": [
+            0.25,
+            0.14285714285714285,
+            1.0
+        ]
+    },
+    {
+        "question": "When was the rock band to which Pre-Creedence name was changed active? ",
+        "ground_truth": "1960s and early 1970s",
+        "prediction": "1964–1968",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "What other teams played in the same division that Chad Clements played in?",
+        "ground_truth": "Los Angeles Xtreme, San Francisco Demons and Memphis Maniax",
+        "prediction": "Chad Clements played in the NFL, primarily as a linebacker for the Indianapolis Colts. During his time with the Colts, they were part of the AFC East division. The other teams in the AFC East during that period were the New England Patriots, Miami Dolphins, and Buffalo Bills. \n\n**Final Answer:** New England Patriots, Miami Dolphins, Buffalo Bills",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "Atlanta Zero Mile Post is located within a historic area opened in what year ?",
+        "ground_truth": "1969",
+        "prediction": "1926",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "What Cantonese slang term can mean both \"ghost man\" and to refer to Westerners?",
+        "ground_truth": "Gweilo",
+        "prediction": "鬼佬 (gwai lo)",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "What location is shared by both Great Neck School District and Saddle Rock Elementary School?",
+        "ground_truth": "New York, United States",
+        "prediction": "Great Neck, New York",
+        "em": 0.0,
+        "f1": [
+            0.5,
+            0.5,
+            0.5
+        ]
+    },
+    {
+        "question": "Jim Sharman and Ava DuVernay both share what title concerning their actions leading actors in film or stage?",
+        "ground_truth": "director",
+        "prediction": "Director",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "High School Confidential, an eight part documentary followed twelve high school teenagers from a high school in Overland Park, Kansas that ranked what in the 2009 Newsweek ranking of the top 1,500 high schools in the United States?",
+        "ground_truth": "#364",
+        "prediction": "Blue Valley Northwest High School ranked 65th in the 2009 Newsweek ranking of the top 1,500 high schools in the United States.",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "When was the younger brother of Ervin Randle born?",
+        "ground_truth": "December 12, 1967",
+        "prediction": "December 24, 1965",
+        "em": 0.0,
+        "f1": [
+            0.3333333333333333,
+            0.3333333333333333,
+            0.3333333333333333
+        ]
+    },
+    {
+        "question": "What team did Kenny Brown manage following the departure of Dean Holdsworth?",
+        "ground_truth": "Chelmsford",
+        "prediction": "Kenny Brown managed Wycombe Wanderers following the departure of Dean Holdsworth.",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "The Waterloo Vase has been used as a garden ornament at whose residence and administrative headquarters?",
+        "ground_truth": "reigning monarch of the United Kingdom",
+        "prediction": "Buckingham Palace",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "Vincas Kudirka is the author of both the music and lyrics of a national anthem which has how many words?",
+        "ground_truth": "fifty-word",
+        "prediction": "56",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "What is the origin of the name of the neighbourhood in which the building at 359 Broadway is located ?",
+        "ground_truth": "a syllabic abbreviation from \"Triangle Below Canal Street",
+        "prediction": "The neighborhood in which the building at 359 Broadway is located is SoHo. The name \"SoHo\" is derived from \"South of Houston Street,\" reflecting its geographical location in Manhattan, New York City.",
+        "em": 0.0,
+        "f1": [
+            0.08333333333333333,
+            0.05263157894736842,
+            0.2
+        ]
+    },
+    {
+        "question": "Are Denzel Washington and David Hewlett both actors?",
+        "ground_truth": "yes",
+        "prediction": "Yes.",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Tony Leung Ka-fai is a four time winner of the award that has been on offer since what month?",
+        "ground_truth": "December 1993",
+        "prediction": "March 1982",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "Swingin' Down Yonder is the first full-length, 12-inch album recorded by a singer known by what nickname?",
+        "ground_truth": "\"King of Cool\"",
+        "prediction": "The singer known by the nickname \"The First Lady of Song\" recorded the album \"Swingin' Down Yonder.\" This nickname refers to Ella Fitzgerald.",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "Which star of \"Chalet Girl\" also appeared in \"The Treasure Seekers\"?",
+        "ground_truth": "Felicity Rose Hadley Jones",
+        "prediction": "Bill Milner",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "When did the the Antonine who was known as the third of the five good emperors live?",
+        "ground_truth": "24 January 76 – 10 July 138",
+        "prediction": "86 AD - 161 AD",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "Beyond the Edge was a docudrama about the mountaineer that was part of the Everest expedition led by whom?",
+        "ground_truth": "John Hunt",
+        "prediction": "John Hunt",
+        "em": 1.0,
+        "f1": [
+            1.0,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "question": "Which year and which conference was the 14th season for this conference as part of the NCAA Division that the Colorado Buffaloes played in with a record of 2-6 in conference play?",
+        "ground_truth": "2009 Big 12 Conference",
+        "prediction": "2014, Pac-12 Conference",
+        "em": 0.0,
+        "f1": [
+            0.28571428571428575,
+            0.3333333333333333,
+            0.25
+        ]
+    },
+    {
+        "question": "When is the football club which Stan Spinks played for founded",
+        "ground_truth": "in 1902",
+        "prediction": "1878",
+        "em": 0.0,
+        "f1": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "question": "Theme Park Inc is a video game that created what sequel in North America in 1999?",
+        "ground_truth": "Sim Theme Park",
+        "prediction": "Theme Park World",
+        "em": 0.0,
+        "f1": [
+            0.6666666666666666,
+            0.6666666666666666,
+            0.6666666666666666
+        ]
+    },
+    {
+        "question": "Which band has more members Band of Skulls or Live ?",
+        "ground_truth": "Live",
+        "prediction": "Live has more members than Band of Skulls.",
+        "em": 0.0,
+        "f1": [
+            0.4,
+            0.25,
+            1.0
+        ]
+    },
+    {
+        "question": "Which film was was made first The Young Black Stallion or Wild Hearts Can't Be Broken?",
+        "ground_truth": "Wild Hearts Can’t Be Broken",
+        "prediction": "*Wild Hearts Can't Be Broken* was made first. It was released in 1991, while *The Young Black Stallion* was released in 2003.",
+        "em": 0.0,
+        "f1": [
+            0.3529411764705882,
+            0.23076923076923078,
+            0.75
+        ]
+    },
+    {
+        "em": 0.16666666666666666,
+        "f1": 0.31864810570692925,
+        "precision": 0.3078307949360581,
+        "recall": 0.39916666666666667,
+        "individual_em": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "individual_f1": [
+            0.09523809523809525,
+            0.8,
+            1.0,
+            0,
+            1.0,
+            1.0,
+            0,
+            0.5,
+            1.0,
+            1.0,
+            0,
+            0,
+            0,
+            1.0,
+            0.14285714285714288,
+            0,
+            0,
+            0.1818181818181818,
+            0,
+            0.4,
+            0,
+            0.3333333333333333,
+            0,
+            0,
+            0,
+            0.6666666666666666,
+            0,
+            0,
+            0.16666666666666669,
+            0.6666666666666666,
+            0.3333333333333333,
+            0.5,
+            1.0,
+            0.888888888888889,
+            0,
+            0.5714285714285715,
+            0.25,
+            0,
+            0,
+            0,
+            0,
+            0.5,
+            1.0,
+            0,
+            0.3333333333333333,
+            0,
+            0,
+            0,
+            0.08333333333333333,
+            1.0,
+            0,
+            0,
+            0,
+            0,
+            1.0,
+            0.28571428571428575,
+            0,
+            0.6666666666666666,
+            0.4,
+            0.3529411764705882
+        ],
+        "individual_precision": [
+            0.05555555555555555,
+            1.0,
+            1.0,
+            0,
+            1.0,
+            1.0,
+            0,
+            0.5,
+            1.0,
+            1.0,
+            0,
+            0,
+            0,
+            1.0,
+            0.07692307692307693,
+            0,
+            0,
+            0.1111111111111111,
+            0,
+            0.3333333333333333,
+            0,
+            0.25,
+            0,
+            0,
+            0,
+            0.5,
+            0,
+            0,
+            0.1,
+            1.0,
+            0.5,
+            0.3333333333333333,
+            1.0,
+            0.8,
+            0,
+            0.4,
+            0.14285714285714285,
+            0,
+            0,
+            0,
+            0,
+            0.5,
+            1.0,
+            0,
+            0.3333333333333333,
+            0,
+            0,
+            0,
+            0.05263157894736842,
+            1.0,
+            0,
+            0,
+            0,
+            0,
+            1.0,
+            0.3333333333333333,
+            0,
+            0.6666666666666666,
+            0.25,
+            0.23076923076923078
+        ],
+        "individual_recall": [
+            0.3333333333333333,
+            0.6666666666666666,
+            1.0,
+            0,
+            1.0,
+            1.0,
+            0,
+            0.5,
+            1.0,
+            1.0,
+            0,
+            0,
+            0,
+            1.0,
+            1.0,
+            0,
+            0,
+            0.5,
+            0,
+            0.5,
+            0,
+            0.5,
+            0,
+            0,
+            0,
+            1.0,
+            0,
+            0,
+            0.5,
+            0.5,
+            0.25,
+            1.0,
+            1.0,
+            1.0,
+            0,
+            1.0,
+            1.0,
+            0,
+            0,
+            0,
+            0,
+            0.5,
+            1.0,
+            0,
+            0.3333333333333333,
+            0,
+            0,
+            0,
+            0.2,
+            1.0,
+            0,
+            0,
+            0,
+            0,
+            1.0,
+            0.25,
+            0,
+            0.6666666666666666,
+            1.0,
+            0.75
+        ]
+    }
+]

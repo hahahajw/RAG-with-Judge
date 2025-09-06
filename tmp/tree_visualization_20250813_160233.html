@@ -1,0 +1,4140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索树可视化</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .controls {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .control-btn {
+            padding: 8px 16px;
+            background-color: #4682b4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .control-btn:hover {
+            background-color: #5a9bd5;
+        }
+        .tree {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+        }
+        .node-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px 0;
+            width: 100%;
+        }
+        /* 层级样式 */
+        .level-0 {
+            margin-left: 0;
+        }
+        .level-1 {
+            margin-left: 50px;
+        }
+        .level-2 {
+            margin-left: 100px;
+        }
+        .level-3 {
+            margin-left: 150px;
+        }
+        .level-4 {
+            margin-left: 200px;
+        }
+        .level-5 {
+            margin-left: 250px;
+        }
+        /* 更多层级可以根据需要添加 */
+        
+        .query-node {
+            background-color: #f0f8ff;
+            border: 2px solid #4682b4;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            min-width: 300px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .document-node {
+            background-color: #fff8e1;
+            border: 2px solid #ffa500;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            min-width: 250px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .content-tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            gap: 10px;
+        }
+        .tab-btn {
+            padding: 5px 10px;
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        .tab-btn.active {
+            background-color: #ffa500;
+            color: white;
+            border-color: #cc8400;
+        }
+        .children-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            margin-top: 30px;
+            width: 100%;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+        .document-children {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .query-node:hover, .document-node:hover {
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .document-content {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .metadata-content {
+            display: none;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .collapsed .document-content, .collapsed .metadata-content {
+            display: none;
+        }
+        .collapsed .children-container, .collapsed .document-children {
+            display: none;
+        }
+        .toggle-icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .relations-container {
+            display: none;
+        }
+        h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .node-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        .metadata {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>搜索树可视化</h1>
+    <div class="controls">
+        <button id="collapse-all" class="control-btn">全部折叠</button>
+        <button id="expand-all" class="control-btn">全部展开</button>
+    </div>
+    <div class="tree" id="tree-container">
+        <div class="node-container level-0" id="query-1282287f">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 1)</div>
+        <p><strong>问题:</strong> Which suburb of Adelaide in the City of Norwood Payneham St Peters is included in the electoral district of Dunstan?</p>
+        <p><strong>回答:</strong> St Peters</p>
+    </div>
+    
+        <div class="children-container level-1">
+            <div class="node-container level-1" id="document-99adf156">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: Which elect...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 0</p>
+            <p>判断理由: Knowledge lacks electoral district info.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: Which electoral district includes the suburb of St Peters?
+[answer]: Dunstan
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>page: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+dataset: HotpotQA
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+title: St Peters, South Australia
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+recursion_depth: 0
+next_rag_thread_id: afa04710-5e6c-4023-b5c6-f6b1de624d5a
+score: 1
+reason: Knowledge lacks electoral district info.
+next_query: Which electoral district includes the suburb of St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-2">
+            <div class="node-container level-2" id="query-12156da8">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: afa04710-5e6c-4023-b5c6-f6b1de624d5a)</div>
+        <p><strong>问题:</strong> Which electoral district includes the suburb of St Peters?</p>
+        <p><strong>回答:</strong> Dunstan</p>
+    </div>
+    
+        <div class="children-container level-3">
+            <div class="node-container level-3" id="document-02a4d41a">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What is the...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 1</p>
+            <p>判断理由: Missing electoral district info.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What is the electoral district for St Peters?
+[answer]: Dunstan
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+hotpotqa_id: 5ac3a47f554299391541386d
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+dataset: HotpotQA
+title: St Peters, South Australia
+start_index: 0
+page: 0
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+recursion_depth: 1
+next_rag_thread_id: 55614854-ace7-41d8-b35c-c15fc5790682
+score: 1
+reason: Missing electoral district info.
+next_query: What is the electoral district for St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-4">
+            <div class="node-container level-4" id="query-184bb4a6">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 55614854-ace7-41d8-b35c-c15fc5790682)</div>
+        <p><strong>问题:</strong> What is the electoral district for St Peters?</p>
+        <p><strong>回答:</strong> Dunstan</p>
+    </div>
+    
+        <div class="children-container level-5">
+            <div class="node-container level-5" id="document-13b831cd">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 2</p>
+            <p>判断理由: No electoral info</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>start_index: 0
+page: 0
+dataset: HotpotQA
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+title: St Peters, South Australia
+hotpotqa_id: 5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+recursion_depth: 2
+next_rag_thread_id: 
+score: 0
+reason: No electoral info
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-5" id="document-759f606a">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> , Southfield and Pontiac. He previously represented Michigan 's 9 congressional district from 2009 t...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 2</p>
+            <p>判断理由: Knowledge unrelated to St Peters district.</p>
+        </div>
+        <div class="document-content">
+            <pre>, Southfield and Pontiac. He previously represented Michigan 's 9 congressional district from 2009 to 2013. Following the redrawing of congressional district boundaries after the 2010 United States Census, Peters defeated fellow Congressman Hansen Clarke in the Democratic primary and won re-election in the newly redrawn 14th District.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>start_index: 383
+page: 0
+dataset: HotpotQA
+source: HotpotQA_Gary Peters (politician)_5adc7b855542994650320d1e
+title: Gary Peters (politician)
+hotpotqa_id: 5adc7b855542994650320d1e
+question: What county is the congressional district that Hansen Clarke was a U.S. Representative for in?
+pk: 3082d7a2-b3d6-4186-a11e-20fb8bf9155b
+recursion_depth: 2
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to St Peters district.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-5" id="document-2424af20">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Dunstan is an electoral district of the House of Assembly in the Australian state of South Australia...</p>
+        <div class="metadata">
+            <p>得分: 2 | 深度: 2</p>
+            <p>判断理由: Knowledge directly answers the question.</p>
+        </div>
+        <div class="document-content">
+            <pre>Dunstan is an electoral district of the House of Assembly in the Australian state of South Australia, covering the inner eastern suburbs of Beulah Park, College Park, Evandale, Firle, Hackney, Joslin, Kensington, Kent Town, Marden, Maylands, Norwood, Payneham South, Royston Park, St Morris, St Peters, Stepney, Trinity Gardens and Vale Park and parts of Klemzig and Payneham.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>start_index: 0
+page: 0
+dataset: HotpotQA
+source: HotpotQA_Electoral district of Dunstan_5ac3a47f554299391541386d
+title: Electoral district of Dunstan
+hotpotqa_id: 5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+pk: 5eea3750-0c89-400b-8f97-9bccde33cec1
+recursion_depth: 2
+next_rag_thread_id: 
+score: 2
+reason: Knowledge directly answers the question.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-3" id="document-ef4c8316">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> , Southfield and Pontiac. He previously represented Michigan 's 9 congressional district from 2009 t...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 1</p>
+            <p>判断理由: Knowledge unrelated to St Peters suburb.</p>
+        </div>
+        <div class="document-content">
+            <pre>, Southfield and Pontiac. He previously represented Michigan 's 9 congressional district from 2009 to 2013. Following the redrawing of congressional district boundaries after the 2010 United States Census, Peters defeated fellow Congressman Hansen Clarke in the Democratic primary and won re-election in the newly redrawn 14th District.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>question: What county is the congressional district that Hansen Clarke was a U.S. Representative for in?
+hotpotqa_id: 5adc7b855542994650320d1e
+pk: 3082d7a2-b3d6-4186-a11e-20fb8bf9155b
+dataset: HotpotQA
+title: Gary Peters (politician)
+start_index: 383
+page: 0
+source: HotpotQA_Gary Peters (politician)_5adc7b855542994650320d1e
+recursion_depth: 1
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to St Peters suburb.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-3" id="document-24b2129e">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Joslin is a suburb of Adelaide in the City of Norwood Payneham St Peters. It is rectangular, stretch...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 1</p>
+            <p>判断理由: Knowledge about Joslin is unrelated to St Peters' electoral district.</p>
+        </div>
+        <div class="document-content">
+            <pre>Joslin is a suburb of Adelaide in the City of Norwood Payneham St Peters. It is rectangular, stretching from Payneham Road (southeast) to the River Torrens and Torrens Linear Park (northwest), but from Lambert Road on the northeast only about 350m along the numbered avenues towards the next cross street which is in St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+hotpotqa_id: 5ac3a47f554299391541386d
+pk: 52bdb48a-6c59-4e35-8153-e87d3f64aa70
+dataset: HotpotQA
+title: Joslin, South Australia
+start_index: 0
+page: 0
+source: HotpotQA_Joslin, South Australia_5ac3a47f554299391541386d
+recursion_depth: 1
+next_rag_thread_id: 
+score: 0
+reason: Knowledge about Joslin is unrelated to St Peters' electoral district.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-1" id="document-fe40c838">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Dunstan is an electoral district of the House of Assembly in the Australian state of South Australia...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 0</p>
+            <p>判断理由: Lists suburbs but doesn't specify which are in City of Norwood Payneham St Peters</p>
+        </div>
+        <div class="document-content">
+            <pre>Dunstan is an electoral district of the House of Assembly in the Australian state of South Australia, covering the inner eastern suburbs of Beulah Park, College Park, Evandale, Firle, Hackney, Joslin, Kensington, Kent Town, Marden, Maylands, Norwood, Payneham South, Royston Park, St Morris, St Peters, Stepney, Trinity Gardens and Vale Park and parts of Klemzig and Payneham.
+[question]: Which suburbs within the City of Norwood Payneham St Peters are part of Dunstan?
+[answer]: St Peters, Payneham South, Marryatville, Heathpool
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>page: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+dataset: HotpotQA
+pk: 5eea3750-0c89-400b-8f97-9bccde33cec1
+title: Electoral district of Dunstan
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+source: HotpotQA_Electoral district of Dunstan_5ac3a47f554299391541386d
+recursion_depth: 0
+next_rag_thread_id: 557148d7-98a0-4126-93c2-a024f6592ad2
+score: 1
+reason: Lists suburbs but doesn't specify which are in City of Norwood Payneham St Peters
+next_query: Which suburbs within the City of Norwood Payneham St Peters are part of Dunstan?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-2">
+            <div class="node-container level-2" id="query-0892e2a9">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 557148d7-98a0-4126-93c2-a024f6592ad2)</div>
+        <p><strong>问题:</strong> Which suburbs within the City of Norwood Payneham St Peters are part of Dunstan?</p>
+        <p><strong>回答:</strong> St Peters, Payneham South, Marryatville, Heathpool</p>
+    </div>
+    
+        <div class="children-container level-3">
+            <div class="node-container level-3" id="document-b80f9ff3">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 1</p>
+            <p>判断理由: Knowledge unrelated to Dunstan suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>page: 0
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+hotpotqa_id: 5ac3a47f554299391541386d
+title: St Peters, South Australia
+start_index: 0
+dataset: HotpotQA
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+recursion_depth: 1
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to Dunstan suburbs.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-3" id="document-43545611">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Dunstan is an electoral district of the House of Assembly in the Australian state of South Australia...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 1</p>
+            <p>判断理由: Lists suburbs but not specific to City of Norwood Payneham St Peters</p>
+        </div>
+        <div class="document-content">
+            <pre>Dunstan is an electoral district of the House of Assembly in the Australian state of South Australia, covering the inner eastern suburbs of Beulah Park, College Park, Evandale, Firle, Hackney, Joslin, Kensington, Kent Town, Marden, Maylands, Norwood, Payneham South, Royston Park, St Morris, St Peters, Stepney, Trinity Gardens and Vale Park and parts of Klemzig and Payneham.
+[question]: Which suburbs are exclusively in the City of Norwood Payneham St Peters?
+[answer]: St Peters, Payneham South, Marryatville, Heathpool, Payneham
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>page: 0
+source: HotpotQA_Electoral district of Dunstan_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+hotpotqa_id: 5ac3a47f554299391541386d
+title: Electoral district of Dunstan
+start_index: 0
+dataset: HotpotQA
+pk: 5eea3750-0c89-400b-8f97-9bccde33cec1
+recursion_depth: 1
+next_rag_thread_id: c9311a11-c9f8-48bf-8b76-4986b8756b94
+score: 1
+reason: Lists suburbs but not specific to City of Norwood Payneham St Peters
+next_query: Which suburbs are exclusively in the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-4">
+            <div class="node-container level-4" id="query-d54744f4">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: c9311a11-c9f8-48bf-8b76-4986b8756b94)</div>
+        <p><strong>问题:</strong> Which suburbs are exclusively in the City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> St Peters, Payneham South, Marryatville, Heathpool, Payneham</p>
+    </div>
+    
+        <div class="children-container level-5">
+            <div class="node-container level-5" id="document-40dfcaba">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are th...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 2</p>
+            <p>判断理由: Lists one suburb but not all.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are the other suburbs in the City of Norwood Payneham St Peters?
+[answer]: Payneham South, Marryatville, Heathpool, Kensington
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: St Peters, South Australia
+hotpotqa_id: 5ac3a47f554299391541386d
+page: 0
+dataset: HotpotQA
+start_index: 0
+recursion_depth: 2
+next_rag_thread_id: 9e38f633-52fb-4836-aff2-06b9d9d0f81c
+score: 1
+reason: Lists one suburb but not all.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-6">
+            <div class="node-container level-6" id="query-cc196718">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 9e38f633-52fb-4836-aff2-06b9d9d0f81c)</div>
+        <p><strong>问题:</strong> What are the other suburbs in the City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> Payneham South, Marryatville, Heathpool, Kensington</p>
+    </div>
+    
+        <div class="children-container level-7">
+            <div class="node-container level-7" id="document-f5d9e9d3">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are th...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 3</p>
+            <p>判断理由: Knowledge only mentions St Peters.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are the other suburbs in the City of Norwood Payneham St Peters besides St Peters?
+[answer]: Payneham South, Marryatville, Heathpool, Kensington
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: St Peters, South Australia
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+page: 0
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+recursion_depth: 3
+next_rag_thread_id: 693f844c-3406-4c5b-8675-727b586712b8
+score: 1
+reason: Knowledge only mentions St Peters.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters besides St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-8">
+            <div class="node-container level-8" id="query-11b6dd5e">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 693f844c-3406-4c5b-8675-727b586712b8)</div>
+        <p><strong>问题:</strong> What are the other suburbs in the City of Norwood Payneham St Peters besides St Peters?</p>
+        <p><strong>回答:</strong> Payneham South, Marryatville, Heathpool, Kensington</p>
+    </div>
+    
+        <div class="children-container level-9">
+            <div class="node-container level-9" id="document-459c14a8">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are th...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 4</p>
+            <p>判断理由: Knowledge only mentions St Peters.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are the other suburbs in the City of Norwood Payneham St Peters?
+[answer]: St Peters, Payneham South, Marryatville, Heathpool, Kensington
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>page: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: St Peters, South Australia
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+dataset: HotpotQA
+recursion_depth: 4
+next_rag_thread_id: 2ddc8555-54bc-434c-a61d-5b82e305442b
+score: 1
+reason: Knowledge only mentions St Peters.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-10">
+            <div class="node-container level-10" id="query-7406b83f">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 2ddc8555-54bc-434c-a61d-5b82e305442b)</div>
+        <p><strong>问题:</strong> What are the other suburbs in the City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> St Peters, Payneham South, Marryatville, Heathpool, Kensington</p>
+    </div>
+    
+        <div class="children-container level-11">
+            <div class="node-container level-11" id="document-0c5d0474">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists one suburb but not others</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+page: 0
+dataset: HotpotQA
+start_index: 0
+title: St Peters, South Australia
+hotpotqa_id: 5ac3a47f554299391541386d
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists one suburb but not others
+next_query: What are the suburbs in City of Norwood Payneham St Peters excluding St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-0a23bcd8">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Knowledge mentions only one suburb.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+page: 0
+dataset: HotpotQA
+start_index: 0
+title: Payneham South, South Australia
+hotpotqa_id: 5ac3a47f554299391541386d
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Knowledge mentions only one suburb.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters besides Payneham South?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-b1c59e97">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Knowledge mentions only Marryatville and Heathpool.</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+page: 0
+dataset: HotpotQA
+start_index: 0
+title: Marryatville, South Australia
+hotpotqa_id: 5ac3a47f554299391541386d
+source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Knowledge mentions only Marryatville and Heathpool.
+next_query: Which suburbs other than Marryatville and Heathpool belong to the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-9" id="document-717e644e">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 4</p>
+            <p>判断理由: Lists Payneham South but not all suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.
+[question]: What are the other suburbs in the City of Norwood Payneham St Peters besides Payneham South and St Peters?
+[answer]: College Park
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>page: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: Payneham South, South Australia
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+dataset: HotpotQA
+recursion_depth: 4
+next_rag_thread_id: 3cf6bb3e-705b-491c-a417-562e7aaa3ff2
+score: 1
+reason: Lists Payneham South but not all suburbs.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters besides Payneham South and St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-10">
+            <div class="node-container level-10" id="query-131cb8bf">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 3cf6bb3e-705b-491c-a417-562e7aaa3ff2)</div>
+        <p><strong>问题:</strong> What are the other suburbs in the City of Norwood Payneham St Peters besides Payneham South and St Peters?</p>
+        <p><strong>回答:</strong> College Park</p>
+    </div>
+    
+        <div class="children-container level-11">
+            <div class="node-container level-11" id="document-7a324040">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Missing names of other suburbs</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+title: St Peters, South Australia
+start_index: 0
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+page: 0
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Missing names of other suburbs
+next_query: What are the names of all suburbs within the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-435da749">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 5</p>
+            <p>判断理由: Knowledge unrelated to other suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+title: Payneham South, South Australia
+start_index: 0
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+page: 0
+recursion_depth: 5
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to other suburbs.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-fe59d962">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> College Park (previously "College Town") is a suburb of Adelaide, South Australia in the City of Nor...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Knowledge mentions one suburb but not others.</p>
+        </div>
+        <div class="document-content">
+            <pre>College Park (previously "College Town") is a suburb of Adelaide, South Australia in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: 773be472-56cf-41de-8e7b-1adec91a7f77
+title: College Park, South Australia
+start_index: 0
+source: HotpotQA_College Park, South Australia_5ac3a47f554299391541386d
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+page: 0
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Knowledge mentions one suburb but not others.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-9" id="document-9ad66155">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> , Mitcham, Norwood Payneham and St Peters and Unley. The city has an area of 27.53 km².
+[question]: ...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 4</p>
+            <p>判断理由: Lists some suburbs but misses others.</p>
+        </div>
+        <div class="document-content">
+            <pre>, Mitcham, Norwood Payneham and St Peters and Unley. The city has an area of 27.53 km².
+[question]: What are the other suburbs in the City of Norwood Payneham St Peters besides Mitcham, Norwood, and Unley?
+[answer]: St Peters, Payneham South
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>page: 0
+question: What is the estimated population of the city in which the suburb of Beaumont is located ?
+title: City of Burnside
+source: HotpotQA_City of Burnside_5ae7473f5542991bbc9761d2
+start_index: 429
+hotpotqa_id: 5ae7473f5542991bbc9761d2
+pk: 703981f1-528b-4ca1-8cd2-9836b2a51e45
+dataset: HotpotQA
+recursion_depth: 4
+next_rag_thread_id: 61641d1f-f9f7-481e-9b17-892ef99dab19
+score: 1
+reason: Lists some suburbs but misses others.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters besides Mitcham, Norwood, and Unley?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-10">
+            <div class="node-container level-10" id="query-fa9f3366">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 61641d1f-f9f7-481e-9b17-892ef99dab19)</div>
+        <p><strong>问题:</strong> What are the other suburbs in the City of Norwood Payneham St Peters besides Mitcham, Norwood, and Unley?</p>
+        <p><strong>回答:</strong> St Peters, Payneham South</p>
+    </div>
+    
+        <div class="children-container level-11">
+            <div class="node-container level-11" id="document-902c58d3">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> , Mitcham, Norwood Payneham and St Peters and Unley. The city has an area of 27.53 km².</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists some but not all suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>, Mitcham, Norwood Payneham and St Peters and Unley. The city has an area of 27.53 km².</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: City of Burnside
+pk: 703981f1-528b-4ca1-8cd2-9836b2a51e45
+start_index: 429
+page: 0
+hotpotqa_id: 5ae7473f5542991bbc9761d2
+dataset: HotpotQA
+source: HotpotQA_City of Burnside_5ae7473f5542991bbc9761d2
+question: What is the estimated population of the city in which the suburb of Beaumont is located ?
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists some but not all suburbs.
+next_query: What are the remaining suburbs in the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-06781224">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists one suburb; others missing.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: St Peters, South Australia
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+start_index: 0
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists one suburb; others missing.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-4483596e">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists one suburb but misses others.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: Payneham South, South Australia
+pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+start_index: 0
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists one suburb but misses others.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-7" id="document-d20c9625">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 3</p>
+            <p>判断理由: Knowledge only mentions Payneham South.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.
+[question]: What are the other suburbs in the City of Norwood Payneham St Peters besides Payneham South?
+[answer]: St Peters, Marryatville, Heathpool, Kensington
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: Payneham South, South Australia
+pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+page: 0
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+recursion_depth: 3
+next_rag_thread_id: 4b4fc8fb-75f8-414a-a1ac-55bbc957dbb2
+score: 1
+reason: Knowledge only mentions Payneham South.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters besides Payneham South?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-8">
+            <div class="node-container level-8" id="query-cf24dd9b">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 4b4fc8fb-75f8-414a-a1ac-55bbc957dbb2)</div>
+        <p><strong>问题:</strong> What are the other suburbs in the City of Norwood Payneham St Peters besides Payneham South?</p>
+        <p><strong>回答:</strong> St Peters, Marryatville, Heathpool, Kensington</p>
+    </div>
+    
+        <div class="children-container level-9">
+            <div class="node-container level-9" id="document-2600648d">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 4</p>
+            <p>判断理由: Knowledge is unrelated to the question.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+start_index: 0
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+title: Payneham South, South Australia
+page: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 4
+next_rag_thread_id: 
+score: 0
+reason: Knowledge is unrelated to the question.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-9" id="document-d2dc3f88">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are th...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 4</p>
+            <p>判断理由: Lists one suburb, missing others.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are the other suburbs in the City of Norwood Payneham St Peters?
+[answer]: St Peters, Payneham South, Marryatville, Heathpool, Kensington
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+start_index: 0
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+title: St Peters, South Australia
+page: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 4
+next_rag_thread_id: e2cd3bf3-ea19-4f6f-99ed-98e7ac363d2a
+score: 1
+reason: Lists one suburb, missing others.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-10">
+            <div class="node-container level-10" id="query-e5323015">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: e2cd3bf3-ea19-4f6f-99ed-98e7ac363d2a)</div>
+        <p><strong>问题:</strong> What are the other suburbs in the City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> St Peters, Payneham South, Marryatville, Heathpool, Kensington</p>
+    </div>
+    
+        <div class="children-container level-11">
+            <div class="node-container level-11" id="document-0d4196b6">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Knowledge mentions only one suburb.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>dataset: HotpotQA
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+title: St Peters, South Australia
+start_index: 0
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Knowledge mentions only one suburb.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters besides St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-09c1aa6f">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 5</p>
+            <p>判断理由: Knowledge unrelated to other suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>dataset: HotpotQA
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+title: Payneham South, South Australia
+start_index: 0
+pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+recursion_depth: 5
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to other suburbs.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-20ee8007">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists some but not all suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>dataset: HotpotQA
+source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+title: Marryatville, South Australia
+start_index: 0
+pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists some but not all suburbs.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters besides Marryatville and Heathpool?</pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-9" id="document-fd319098">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham is a northeastern suburb of Adelaide in the City of Norwood Payneham St Peters. It is part ...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 4</p>
+            <p>判断理由: Knowledge mentions Payneham but not other suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham is a northeastern suburb of Adelaide in the City of Norwood Payneham St Peters. It is part of a string of suburbs in Adelaide's north-east with a high proportion of Adelaide's Italian-Australian and French-Australian residents, many of whom can be traced back to the large-scale migration following the Second World War.
+[question]: What are the other suburbs in the City of Norwood Payneham St Peters?
+[answer]: St Peters, Payneham South, Marryatville, Heathpool
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: 4d7e50b2-7048-43c7-8462-d53abf7f6d44
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+start_index: 0
+source: HotpotQA_Payneham, South Australia_5ac3a47f554299391541386d
+title: Payneham, South Australia
+page: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 4
+next_rag_thread_id: 953ba105-50bd-4d82-8492-a7f765086a7f
+score: 1
+reason: Knowledge mentions Payneham but not other suburbs.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-10">
+            <div class="node-container level-10" id="query-06a5a98f">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 953ba105-50bd-4d82-8492-a7f765086a7f)</div>
+        <p><strong>问题:</strong> What are the other suburbs in the City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> St Peters, Payneham South, Marryatville, Heathpool</p>
+    </div>
+    
+        <div class="children-container level-11">
+            <div class="node-container level-11" id="document-12d77d4e">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Knowledge mentions only one suburb.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: St Peters, South Australia
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+page: 0
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Knowledge mentions only one suburb.
+next_query: What are the suburbs in the City of Norwood Payneham St Peters besides St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-c81fc76c">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Knowledge only mentions Payneham South.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: Payneham South, South Australia
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+page: 0
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Knowledge only mentions Payneham South.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters besides Payneham South?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-508a8450">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Knowledge mentions only one suburb.</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: Marryatville, South Australia
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+page: 0
+source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Knowledge mentions only one suburb.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters besides Marryatville and Heathpool?</pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-7" id="document-a306959c">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 3</p>
+            <p>判断理由: Knowledge mentions only Marryatville and Heathpool</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.
+[question]: What are the other suburbs in City of Norwood Payneham St Peters excluding Marryatville and Heathpool?
+[answer]: St Peters, Payneham South, Kensington
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: Marryatville, South Australia
+pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+page: 0
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+recursion_depth: 3
+next_rag_thread_id: a2a189e2-33d5-4a02-a9fb-43c6e6eb6ee4
+score: 1
+reason: Knowledge mentions only Marryatville and Heathpool
+next_query: What are the other suburbs in City of Norwood Payneham St Peters excluding Marryatville and Heathpool?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-8">
+            <div class="node-container level-8" id="query-11b01713">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: a2a189e2-33d5-4a02-a9fb-43c6e6eb6ee4)</div>
+        <p><strong>问题:</strong> What are the other suburbs in City of Norwood Payneham St Peters excluding Marryatville and Heathpool?</p>
+        <p><strong>回答:</strong> St Peters, Payneham South, Kensington</p>
+    </div>
+    
+        <div class="children-container level-9">
+            <div class="node-container level-9" id="document-1898f656">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 4</p>
+            <p>判断理由: Missing list of other suburbs</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.
+[question]: What are the other suburbs in City of Norwood Payneham St Peters?
+[answer]: St Peters, Payneham South, Marryatville, Heathpool, Kensington
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+start_index: 0
+page: 0
+title: Marryatville, South Australia
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+recursion_depth: 4
+next_rag_thread_id: 5ab62f9f-1bb5-4f18-bb16-4a98303ce60e
+score: 1
+reason: Missing list of other suburbs
+next_query: What are the other suburbs in City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-10">
+            <div class="node-container level-10" id="query-f567be2b">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 5ab62f9f-1bb5-4f18-bb16-4a98303ce60e)</div>
+        <p><strong>问题:</strong> What are the other suburbs in City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> St Peters, Payneham South, Marryatville, Heathpool, Kensington</p>
+    </div>
+    
+        <div class="children-container level-11">
+            <div class="node-container level-11" id="document-7030ed80">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Knowledge only mentions St Peters.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>dataset: HotpotQA
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+title: St Peters, South Australia
+start_index: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Knowledge only mentions St Peters.
+next_query: What are the other suburbs in City of Norwood Payneham St Peters besides St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-4d6a04bd">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 5</p>
+            <p>判断理由: Knowledge unrelated to other suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>dataset: HotpotQA
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+title: Payneham South, South Australia
+start_index: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 5
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to other suburbs.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-38d99b40">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists some but not all suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>dataset: HotpotQA
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+title: Marryatville, South Australia
+start_index: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists some but not all suburbs.
+next_query: What are the other suburbs in City of Norwood Payneham St Peters besides Marryatville and Heathpool?</pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-9" id="document-ece176fb">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are th...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 4</p>
+            <p>判断理由: Missing list of other suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are the suburbs in City of Norwood Payneham St Peters?
+[answer]: St Peters, Payneham, Marryatville, Heathpool Kensington
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+start_index: 0
+page: 0
+title: St Peters, South Australia
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+recursion_depth: 4
+next_rag_thread_id: c4628671-7797-45a3-81ec-6d9c8bf9d69b
+score: 1
+reason: Missing list of other suburbs.
+next_query: What are the suburbs in City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-10">
+            <div class="node-container level-10" id="query-d90ba1b3">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: c4628671-7797-45a3-81ec-6d9c8bf9d69b)</div>
+        <p><strong>问题:</strong> What are the suburbs in City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> St Peters, Payneham, Marryatville, Heathpool Kensington</p>
+    </div>
+    
+        <div class="children-container level-11">
+            <div class="node-container level-11" id="document-1fa55a20">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists one suburb, missing others.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: St Peters, South Australia
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+dataset: HotpotQA
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+start_index: 0
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists one suburb, missing others.
+next_query: What are the other suburbs in City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-4986e5a6">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham is a northeastern suburb of Adelaide in the City of Norwood Payneham St Peters. It is part ...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists Payneham but not all suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham is a northeastern suburb of Adelaide in the City of Norwood Payneham St Peters. It is part of a string of suburbs in Adelaide's north-east with a high proportion of Adelaide's Italian-Australian and French-Australian residents, many of whom can be traced back to the large-scale migration following the Second World War.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: Payneham, South Australia
+source: HotpotQA_Payneham, South Australia_5ac3a47f554299391541386d
+dataset: HotpotQA
+pk: 4d7e50b2-7048-43c7-8462-d53abf7f6d44
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+start_index: 0
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists Payneham but not all suburbs.
+next_query: What are the other suburbs in City of Norwood Payneham St Peters besides Payneham?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-d1b637fc">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists some suburbs but not all.</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: Marryatville, South Australia
+source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+dataset: HotpotQA
+pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+start_index: 0
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists some suburbs but not all.
+next_query: What are the other suburbs in City of Norwood Payneham St Peters besides Marryatville and Heathpool?</pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-9" id="document-ad7181bd">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> , Mitcham, Norwood Payneham and St Peters and Unley. The city has an area of 27.53 km².
+[question]: ...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 4</p>
+            <p>判断理由: Lists some suburbs but misses others.</p>
+        </div>
+        <div class="document-content">
+            <pre>, Mitcham, Norwood Payneham and St Peters and Unley. The city has an area of 27.53 km².
+[question]: What are the remaining suburbs in the City of Norwood Payneham St Peters?
+[answer]: I cannot answer this question.
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>source: HotpotQA_City of Burnside_5ae7473f5542991bbc9761d2
+question: What is the estimated population of the city in which the suburb of Beaumont is located ?
+pk: 703981f1-528b-4ca1-8cd2-9836b2a51e45
+start_index: 429
+page: 0
+title: City of Burnside
+hotpotqa_id: 5ae7473f5542991bbc9761d2
+dataset: HotpotQA
+recursion_depth: 4
+next_rag_thread_id: bd908925-dd8e-43fa-bb09-26eb4e279aa1
+score: 1
+reason: Lists some suburbs but misses others.
+next_query: What are the remaining suburbs in the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-10">
+            <div class="node-container level-10" id="query-d10d8f1a">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: bd908925-dd8e-43fa-bb09-26eb4e279aa1)</div>
+        <p><strong>问题:</strong> What are the remaining suburbs in the City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> I cannot answer this question.</p>
+    </div>
+    
+        <div class="children-container level-11">
+            <div class="node-container level-11" id="document-7de566b2">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Knowledge only mentions one suburb.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>hotpotqa_id: 5ac3a47f554299391541386d
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+page: 0
+dataset: HotpotQA
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+title: St Peters, South Australia
+start_index: 0
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Knowledge only mentions one suburb.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters besides St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-84da4f4a">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 5</p>
+            <p>判断理由: Knowledge unrelated to remaining suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>hotpotqa_id: 5ac3a47f554299391541386d
+pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+page: 0
+dataset: HotpotQA
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+title: Payneham South, South Australia
+start_index: 0
+recursion_depth: 5
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to remaining suburbs.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-dd24ad37">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Knowledge mentions only Marryatville and Heathpool.</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>hotpotqa_id: 5ac3a47f554299391541386d
+pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+page: 0
+dataset: HotpotQA
+source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+title: Marryatville, South Australia
+start_index: 0
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Knowledge mentions only Marryatville and Heathpool.
+next_query: What are the other suburbs in City of Norwood Payneham St Peters besides Marryatville and Heathpool?</pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-5" id="document-230aad01">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 2</p>
+            <p>判断理由: Knowledge covers one suburb but not all.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.
+[question]: What are other suburbs within the City of Norwood Payneham St Peters?
+[answer]: St Peters, Payneham South, Mitcham, Norwood Payneham, Unley, Payneham, Marryatville, Heathpool
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: Payneham South, South Australia
+hotpotqa_id: 5ac3a47f554299391541386d
+page: 0
+dataset: HotpotQA
+start_index: 0
+recursion_depth: 2
+next_rag_thread_id: c9fd82aa-93cd-489f-9882-bdf9a0754251
+score: 1
+reason: Knowledge covers one suburb but not all.
+next_query: What are other suburbs within the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-6">
+            <div class="node-container level-6" id="query-9c890830">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: c9fd82aa-93cd-489f-9882-bdf9a0754251)</div>
+        <p><strong>问题:</strong> What are other suburbs within the City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> St Peters, Payneham South, Mitcham, Norwood Payneham, Unley, Payneham, Marryatville, Heathpool</p>
+    </div>
+    
+        <div class="children-container level-7">
+            <div class="node-container level-7" id="document-0c387089">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are th...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 3</p>
+            <p>判断理由: Knowledge only mentions St Peters.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are the other suburbs in the City of Norwood Payneham St Peters?
+[answer]: St Peters, Payneham South, Mitcham, Norwood Payneham, Unley, Payneham, Marryatville, Heathpool
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: St Peters, South Australia
+start_index: 0
+dataset: HotpotQA
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 3
+next_rag_thread_id: 0327500b-7eaf-4227-93bb-1df971ae8ccd
+score: 1
+reason: Knowledge only mentions St Peters.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-8">
+            <div class="node-container level-8" id="query-5aa4bdfb">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 0327500b-7eaf-4227-93bb-1df971ae8ccd)</div>
+        <p><strong>问题:</strong> What are the other suburbs in the City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> St Peters, Payneham South, Mitcham, Norwood Payneham, Unley, Payneham, Marryatville, Heathpool</p>
+    </div>
+    
+        <div class="children-container level-9">
+            <div class="node-container level-9" id="document-0791f40b">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are th...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 4</p>
+            <p>判断理由: Knowledge mentions only one suburb.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are the other suburbs in the City of Norwood Payneham St Peters besides St Peters?
+[answer]: Payneham South, Mitcham, Norwood Payneham, Unley
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+dataset: HotpotQA
+title: St Peters, South Australia
+start_index: 0
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 4
+next_rag_thread_id: 1d29f64a-c629-4691-8dfe-c46f8767257b
+score: 1
+reason: Knowledge mentions only one suburb.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters besides St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-10">
+            <div class="node-container level-10" id="query-2dd97310">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 1d29f64a-c629-4691-8dfe-c46f8767257b)</div>
+        <p><strong>问题:</strong> What are the other suburbs in the City of Norwood Payneham St Peters besides St Peters?</p>
+        <p><strong>回答:</strong> Payneham South, Mitcham, Norwood Payneham, Unley</p>
+    </div>
+    
+        <div class="children-container level-11">
+            <div class="node-container level-11" id="document-91378106">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Knowledge lists only one suburb.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+start_index: 0
+dataset: HotpotQA
+hotpotqa_id: 5ac3a47f554299391541386d
+title: St Peters, South Australia
+page: 0
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Knowledge lists only one suburb.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-2b915327">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Knowledge only mentions Payneham South.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+start_index: 0
+dataset: HotpotQA
+hotpotqa_id: 5ac3a47f554299391541386d
+title: Payneham South, South Australia
+page: 0
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Knowledge only mentions Payneham South.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters besides Payneham South and St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-d1f65f7d">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> , Mitcham, Norwood Payneham and St Peters and Unley. The city has an area of 27.53 km².</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists some suburbs but misses others.</p>
+        </div>
+        <div class="document-content">
+            <pre>, Mitcham, Norwood Payneham and St Peters and Unley. The city has an area of 27.53 km².</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: 703981f1-528b-4ca1-8cd2-9836b2a51e45
+start_index: 429
+dataset: HotpotQA
+hotpotqa_id: 5ae7473f5542991bbc9761d2
+title: City of Burnside
+page: 0
+source: HotpotQA_City of Burnside_5ae7473f5542991bbc9761d2
+question: What is the estimated population of the city in which the suburb of Beaumont is located ?
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists some suburbs but misses others.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-9" id="document-493c4bc1">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 4</p>
+            <p>判断理由: Knowledge only mentions Payneham South.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.
+[question]: What are the other suburbs in the City of Norwood Payneham St Peters besides Payneham South?
+[answer]: St Peters, Payneham
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+dataset: HotpotQA
+title: Payneham South, South Australia
+start_index: 0
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 4
+next_rag_thread_id: 62442f61-9755-4676-a74d-520bd484e023
+score: 1
+reason: Knowledge only mentions Payneham South.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters besides Payneham South?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-10">
+            <div class="node-container level-10" id="query-a4fb1db1">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 62442f61-9755-4676-a74d-520bd484e023)</div>
+        <p><strong>问题:</strong> What are the other suburbs in the City of Norwood Payneham St Peters besides Payneham South?</p>
+        <p><strong>回答:</strong> St Peters, Payneham</p>
+    </div>
+    
+        <div class="children-container level-11">
+            <div class="node-container level-11" id="document-0094fda1">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 5</p>
+            <p>判断理由: Knowledge unrelated to other suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+hotpotqa_id: 5ac3a47f554299391541386d
+title: Payneham South, South Australia
+start_index: 0
+page: 0
+dataset: HotpotQA
+pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+recursion_depth: 5
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to other suburbs.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-394e63fe">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Knowledge only mentions St Peters.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+hotpotqa_id: 5ac3a47f554299391541386d
+title: St Peters, South Australia
+start_index: 0
+page: 0
+dataset: HotpotQA
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Knowledge only mentions St Peters.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters besides St Peters and Payneham South?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-e00c6c6c">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham is a northeastern suburb of Adelaide in the City of Norwood Payneham St Peters. It is part ...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Knowledge mentions Payneham but not other suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham is a northeastern suburb of Adelaide in the City of Norwood Payneham St Peters. It is part of a string of suburbs in Adelaide's north-east with a high proportion of Adelaide's Italian-Australian and French-Australian residents, many of whom can be traced back to the large-scale migration following the Second World War.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>source: HotpotQA_Payneham, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+hotpotqa_id: 5ac3a47f554299391541386d
+title: Payneham, South Australia
+start_index: 0
+page: 0
+dataset: HotpotQA
+pk: 4d7e50b2-7048-43c7-8462-d53abf7f6d44
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Knowledge mentions Payneham but not other suburbs.
+next_query: What are the suburbs in the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-9" id="document-91b5b580">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 4</p>
+            <p>判断理由: Knowledge mentions only one suburb.</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.
+[question]: What are the other suburbs in the City of Norwood Payneham St Peters besides Marryatville and Heathpool?
+[answer]: St Peters, Payneham South
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+dataset: HotpotQA
+title: Marryatville, South Australia
+start_index: 0
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 4
+next_rag_thread_id: 5928acd5-2c2d-43ab-9ba7-d3040743d67e
+score: 1
+reason: Knowledge mentions only one suburb.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters besides Marryatville and Heathpool?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-10">
+            <div class="node-container level-10" id="query-ea8b3731">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 5928acd5-2c2d-43ab-9ba7-d3040743d67e)</div>
+        <p><strong>问题:</strong> What are the other suburbs in the City of Norwood Payneham St Peters besides Marryatville and Heathpool?</p>
+        <p><strong>回答:</strong> St Peters, Payneham South</p>
+    </div>
+    
+        <div class="children-container level-11">
+            <div class="node-container level-11" id="document-b0e6bf9a">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Missing names of other suburbs</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+start_index: 0
+dataset: HotpotQA
+source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+title: Marryatville, South Australia
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Missing names of other suburbs
+next_query: Which suburbs are part of the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-d4afe480">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Only mentions St Peters, not others.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+start_index: 0
+dataset: HotpotQA
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+title: St Peters, South Australia
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Only mentions St Peters, not others.
+next_query: What are the other suburbs in City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-f486e5cb">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists Payneham South but not all suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+start_index: 0
+dataset: HotpotQA
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+title: Payneham South, South Australia
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists Payneham South but not all suburbs.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-7" id="document-181ca7f6">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 3</p>
+            <p>判断理由: Knowledge mentions one suburb but not others.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.
+[question]: What are the names of other suburbs in the City of Norwood Payneham St Peters?
+[answer]: St Peters, Payneham South, Marryatville, Heathpool
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: Payneham South, South Australia
+start_index: 0
+dataset: HotpotQA
+pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 3
+next_rag_thread_id: 61ec15ad-cf44-472c-87e2-e6b2f81e22b8
+score: 1
+reason: Knowledge mentions one suburb but not others.
+next_query: What are the names of other suburbs in the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-8">
+            <div class="node-container level-8" id="query-15da3d99">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 61ec15ad-cf44-472c-87e2-e6b2f81e22b8)</div>
+        <p><strong>问题:</strong> What are the names of other suburbs in the City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> St Peters, Payneham South, Marryatville, Heathpool</p>
+    </div>
+    
+        <div class="children-container level-9">
+            <div class="node-container level-9" id="document-6edbd94c">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are th...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 4</p>
+            <p>判断理由: Lists one suburb but not others.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are the other suburbs in City of Norwood Payneham St Peters?
+[answer]: St Peters, Payneham South, Marryatville, Heathpool
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>hotpotqa_id: 5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+page: 0
+title: St Peters, South Australia
+dataset: HotpotQA
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+start_index: 0
+recursion_depth: 4
+next_rag_thread_id: 23712b6d-64c7-4c21-90e3-a454e7134302
+score: 1
+reason: Lists one suburb but not others.
+next_query: What are the other suburbs in City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-10">
+            <div class="node-container level-10" id="query-befd9cba">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 23712b6d-64c7-4c21-90e3-a454e7134302)</div>
+        <p><strong>问题:</strong> What are the other suburbs in City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> St Peters, Payneham South, Marryatville, Heathpool</p>
+    </div>
+    
+        <div class="children-container level-11">
+            <div class="node-container level-11" id="document-ca509b43">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Knowledge only mentions St Peters.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>start_index: 0
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+page: 0
+dataset: HotpotQA
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: St Peters, South Australia
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+hotpotqa_id: 5ac3a47f554299391541386d
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Knowledge only mentions St Peters.
+next_query: What are the other suburbs in City of Norwood Payneham St Peters besides St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-32f48f68">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 5</p>
+            <p>判断理由: Knowledge is about Payneham South only.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>start_index: 0
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+page: 0
+dataset: HotpotQA
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: Payneham South, South Australia
+pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+hotpotqa_id: 5ac3a47f554299391541386d
+recursion_depth: 5
+next_rag_thread_id: 
+score: 0
+reason: Knowledge is about Payneham South only.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-e2d77a2d">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Mentions only Marryatville and Heathpool</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>start_index: 0
+source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+page: 0
+dataset: HotpotQA
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: Marryatville, South Australia
+pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+hotpotqa_id: 5ac3a47f554299391541386d
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Mentions only Marryatville and Heathpool
+next_query: Which suburbs besides Marryatville and Heathpool belong to City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-9" id="document-1e343df9">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 4</p>
+            <p>判断理由: Knowledge unrelated to other suburbs</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>hotpotqa_id: 5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+page: 0
+title: Payneham South, South Australia
+dataset: HotpotQA
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+start_index: 0
+recursion_depth: 4
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to other suburbs
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-9" id="document-b3b3c12c">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 4</p>
+            <p>判断理由: Mentions City but lacks suburb list</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.
+[question]: Which suburbs are part of City of Norwood Payneham St Peters?
+[answer]: St Peters, Payneham, Marryatville, Heathpool
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>hotpotqa_id: 5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+page: 0
+title: Marryatville, South Australia
+dataset: HotpotQA
+source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+start_index: 0
+recursion_depth: 4
+next_rag_thread_id: dd459d78-9b7c-420f-91f8-02af1d2a6ba4
+score: 1
+reason: Mentions City but lacks suburb list
+next_query: Which suburbs are part of City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-10">
+            <div class="node-container level-10" id="query-e81aca01">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: dd459d78-9b7c-420f-91f8-02af1d2a6ba4)</div>
+        <p><strong>问题:</strong> Which suburbs are part of City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> St Peters, Payneham, Marryatville, Heathpool</p>
+    </div>
+    
+        <div class="children-container level-11">
+            <div class="node-container level-11" id="document-98e9eee2">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists only one suburb</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: St Peters, South Australia
+hotpotqa_id: 5ac3a47f554299391541386d
+page: 0
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+start_index: 0
+dataset: HotpotQA
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists only one suburb
+next_query: What are other suburbs in City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-44626eda">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham is a northeastern suburb of Adelaide in the City of Norwood Payneham St Peters. It is part ...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists Payneham but not all suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham is a northeastern suburb of Adelaide in the City of Norwood Payneham St Peters. It is part of a string of suburbs in Adelaide's north-east with a high proportion of Adelaide's Italian-Australian and French-Australian residents, many of whom can be traced back to the large-scale migration following the Second World War.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>source: HotpotQA_Payneham, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: Payneham, South Australia
+hotpotqa_id: 5ac3a47f554299391541386d
+page: 0
+pk: 4d7e50b2-7048-43c7-8462-d53abf7f6d44
+start_index: 0
+dataset: HotpotQA
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists Payneham but not all suburbs.
+next_query: What are the other suburbs in City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-cba3c014">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists only some suburbs; missing others.</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: Marryatville, South Australia
+hotpotqa_id: 5ac3a47f554299391541386d
+page: 0
+pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+start_index: 0
+dataset: HotpotQA
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists only some suburbs; missing others.
+next_query: Which other suburbs are included in the City of Norwood Payneham St Peters besides Marryatville and Heathpool?</pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-7" id="document-1c472f8c">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 3</p>
+            <p>判断理由: Lists some suburbs but misses others.</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.
+[question]: Which suburbs other than Marryatville and Heathpool belong to the City of Norwood Payneham St Peters?
+[answer]: St Peters, Payneham
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: Marryatville, South Australia
+start_index: 0
+dataset: HotpotQA
+pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 3
+next_rag_thread_id: 7466a6a7-c0ef-469b-b8c0-5c3ed6a9b7bc
+score: 1
+reason: Lists some suburbs but misses others.
+next_query: Which suburbs other than Marryatville and Heathpool belong to the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-8">
+            <div class="node-container level-8" id="query-743b493b">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 7466a6a7-c0ef-469b-b8c0-5c3ed6a9b7bc)</div>
+        <p><strong>问题:</strong> Which suburbs other than Marryatville and Heathpool belong to the City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> St Peters, Payneham</p>
+    </div>
+    
+        <div class="children-container level-9">
+            <div class="node-container level-9" id="document-b691ac99">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 4</p>
+            <p>判断理由: Missing names of other suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.
+[question]: What are the names of the suburbs in the City of Norwood Payneham St Peters?
+[answer]: St Peters, Payneham, Marryatville, Heathpool
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: Marryatville, South Australia
+start_index: 0
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+dataset: HotpotQA
+recursion_depth: 4
+next_rag_thread_id: 98dc7775-b36a-4376-a785-2c8be3f007b3
+score: 1
+reason: Missing names of other suburbs.
+next_query: What are the names of the suburbs in the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-10">
+            <div class="node-container level-10" id="query-2038e662">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 98dc7775-b36a-4376-a785-2c8be3f007b3)</div>
+        <p><strong>问题:</strong> What are the names of the suburbs in the City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> St Peters, Payneham, Marryatville, Heathpool</p>
+    </div>
+    
+        <div class="children-container level-11">
+            <div class="node-container level-11" id="document-e9964a93">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists one suburb, not all.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>dataset: HotpotQA
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+page: 0
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+title: St Peters, South Australia
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists one suburb, not all.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-becb0344">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham is a northeastern suburb of Adelaide in the City of Norwood Payneham St Peters. It is part ...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists Payneham but not all suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham is a northeastern suburb of Adelaide in the City of Norwood Payneham St Peters. It is part of a string of suburbs in Adelaide's north-east with a high proportion of Adelaide's Italian-Australian and French-Australian residents, many of whom can be traced back to the large-scale migration following the Second World War.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>dataset: HotpotQA
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+page: 0
+pk: 4d7e50b2-7048-43c7-8462-d53abf7f6d44
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+source: HotpotQA_Payneham, South Australia_5ac3a47f554299391541386d
+title: Payneham, South Australia
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists Payneham but not all suburbs.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters besides Payneham?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-a3d279d4">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists some suburbs but not all.</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>dataset: HotpotQA
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+page: 0
+pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+title: Marryatville, South Australia
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists some suburbs but not all.
+next_query: Which other suburbs are part of the City of Norwood Payneham St Peters besides Marryatville and Heathpool?</pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-9" id="document-ee74d49b">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are al...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 4</p>
+            <p>判断理由: Lists one suburb, but others are missing.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are all the suburbs within the City of Norwood Payneham St Peters?
+[answer]: St Peters, Marryatville, Heathpool, Payneham
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: St Peters, South Australia
+start_index: 0
+page: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+dataset: HotpotQA
+recursion_depth: 4
+next_rag_thread_id: 1d3a57cf-714f-4ef4-8bf9-9750a6c4e367
+score: 1
+reason: Lists one suburb, but others are missing.
+next_query: What are all the suburbs within the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-10">
+            <div class="node-container level-10" id="query-455eb3ed">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 1d3a57cf-714f-4ef4-8bf9-9750a6c4e367)</div>
+        <p><strong>问题:</strong> What are all the suburbs within the City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> St Peters, Marryatville, Heathpool, Payneham</p>
+    </div>
+    
+        <div class="children-container level-11">
+            <div class="node-container level-11" id="document-3c7f314c">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists one suburb, not all.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: St Peters, South Australia
+hotpotqa_id: 5ac3a47f554299391541386d
+page: 0
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+start_index: 0
+dataset: HotpotQA
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists one suburb, not all.
+next_query: What are the other suburbs within the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-ebc3faeb">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists some suburbs but not all.</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: Marryatville, South Australia
+hotpotqa_id: 5ac3a47f554299391541386d
+page: 0
+pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+start_index: 0
+dataset: HotpotQA
+source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists some suburbs but not all.
+next_query: Which suburbs other than Marryatville and Heathpool belong to the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-319d34ef">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham is a northeastern suburb of Adelaide in the City of Norwood Payneham St Peters. It is part ...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Knowledge mentions Payneham but not all suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham is a northeastern suburb of Adelaide in the City of Norwood Payneham St Peters. It is part of a string of suburbs in Adelaide's north-east with a high proportion of Adelaide's Italian-Australian and French-Australian residents, many of whom can be traced back to the large-scale migration following the Second World War.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: Payneham, South Australia
+hotpotqa_id: 5ac3a47f554299391541386d
+page: 0
+pk: 4d7e50b2-7048-43c7-8462-d53abf7f6d44
+start_index: 0
+dataset: HotpotQA
+source: HotpotQA_Payneham, South Australia_5ac3a47f554299391541386d
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Knowledge mentions Payneham but not all suburbs.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters besides Payneham?</pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-9" id="document-8ffd0e22">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> , Mitcham, Norwood Payneham and St Peters and Unley. The city has an area of 27.53 km².
+[question]: ...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 4</p>
+            <p>判断理由: Lists suburbs but misses some.</p>
+        </div>
+        <div class="document-content">
+            <pre>, Mitcham, Norwood Payneham and St Peters and Unley. The city has an area of 27.53 km².
+[question]: Which other suburbs are part of the City of Norwood Payneham St Peters?
+[answer]: St Peters, Payneham South, Marryatville, Heathpool
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: City of Burnside
+start_index: 429
+page: 0
+hotpotqa_id: 5ae7473f5542991bbc9761d2
+question: What is the estimated population of the city in which the suburb of Beaumont is located ?
+source: HotpotQA_City of Burnside_5ae7473f5542991bbc9761d2
+pk: 703981f1-528b-4ca1-8cd2-9836b2a51e45
+dataset: HotpotQA
+recursion_depth: 4
+next_rag_thread_id: dedbc91c-b2b0-4201-826c-5a32ab30181c
+score: 1
+reason: Lists suburbs but misses some.
+next_query: Which other suburbs are part of the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-10">
+            <div class="node-container level-10" id="query-18613086">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: dedbc91c-b2b0-4201-826c-5a32ab30181c)</div>
+        <p><strong>问题:</strong> Which other suburbs are part of the City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> St Peters, Payneham South, Marryatville, Heathpool</p>
+    </div>
+    
+        <div class="children-container level-11">
+            <div class="node-container level-11" id="document-b184ffc1">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists only one suburb; others missing.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: St Peters, South Australia
+page: 0
+dataset: HotpotQA
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists only one suburb; others missing.
+next_query: What are the names of all suburbs within the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-27cc7db9">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 5</p>
+            <p>判断理由: Knowledge irrelevant to the question.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: Payneham South, South Australia
+page: 0
+dataset: HotpotQA
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+recursion_depth: 5
+next_rag_thread_id: 
+score: 0
+reason: Knowledge irrelevant to the question.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-725da370">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Mentions Marryatville and Heathpool but not all suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: Marryatville, South Australia
+page: 0
+dataset: HotpotQA
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Mentions Marryatville and Heathpool but not all suburbs.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters besides Marryatville and Heathpool?</pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-5" id="document-3e4f26dc">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham is a northeastern suburb of Adelaide in the City of Norwood Payneham St Peters. It is part ...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 2</p>
+            <p>判断理由: Knowledge mentions Payneham but not other suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham is a northeastern suburb of Adelaide in the City of Norwood Payneham St Peters. It is part of a string of suburbs in Adelaide's north-east with a high proportion of Adelaide's Italian-Australian and French-Australian residents, many of whom can be traced back to the large-scale migration following the Second World War.
+[question]: What are the other suburbs in the City of Norwood Payneham St Peters?
+[answer]: Payneham South, Mitcham, Norwood Payneham, Unley, St Peters
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>source: HotpotQA_Payneham, South Australia_5ac3a47f554299391541386d
+pk: 4d7e50b2-7048-43c7-8462-d53abf7f6d44
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: Payneham, South Australia
+hotpotqa_id: 5ac3a47f554299391541386d
+page: 0
+dataset: HotpotQA
+start_index: 0
+recursion_depth: 2
+next_rag_thread_id: 4ff07d66-63cf-4e53-a1ba-51d58494da3c
+score: 1
+reason: Knowledge mentions Payneham but not other suburbs.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-6">
+            <div class="node-container level-6" id="query-0cad05c7">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 4ff07d66-63cf-4e53-a1ba-51d58494da3c)</div>
+        <p><strong>问题:</strong> What are the other suburbs in the City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> Payneham South, Mitcham, Norwood Payneham, Unley, St Peters</p>
+    </div>
+    
+        <div class="children-container level-7">
+            <div class="node-container level-7" id="document-20b60204">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are th...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 3</p>
+            <p>判断理由: Knowledge mentions only one suburb.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are the other suburbs in the City of Norwood Payneham St Peters?
+[answer]: Payneham South, Mitcham, Norwood Payneham, Unley, St Peters
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: St Peters, South Australia
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+page: 0
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+recursion_depth: 3
+next_rag_thread_id: cf57e361-ccae-41e2-b14b-94a282189a82
+score: 1
+reason: Knowledge mentions only one suburb.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-8">
+            <div class="node-container level-8" id="query-2d7846d5">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: cf57e361-ccae-41e2-b14b-94a282189a82)</div>
+        <p><strong>问题:</strong> What are the other suburbs in the City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> Payneham South, Mitcham, Norwood Payneham, Unley, St Peters</p>
+    </div>
+    
+        <div class="children-container level-9">
+            <div class="node-container level-9" id="document-dd235403">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are th...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 4</p>
+            <p>判断理由: Knowledge only mentions St Peters.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: What are the suburbs in City of Norwood Payneham St Peters besides St Peters?
+[answer]: Payneham South, Mitcham, Norwood Payneham, Unley
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>hotpotqa_id: 5ac3a47f554299391541386d
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+page: 0
+title: St Peters, South Australia
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+start_index: 0
+dataset: HotpotQA
+recursion_depth: 4
+next_rag_thread_id: e0ec7419-cb42-40fb-bc32-bd8c88165f73
+score: 1
+reason: Knowledge only mentions St Peters.
+next_query: What are the suburbs in City of Norwood Payneham St Peters besides St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-10">
+            <div class="node-container level-10" id="query-0c66ab5a">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: e0ec7419-cb42-40fb-bc32-bd8c88165f73)</div>
+        <p><strong>问题:</strong> What are the suburbs in City of Norwood Payneham St Peters besides St Peters?</p>
+        <p><strong>回答:</strong> Payneham South, Mitcham, Norwood Payneham, Unley</p>
+    </div>
+    
+        <div class="children-container level-11">
+            <div class="node-container level-11" id="document-96c32fe2">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Knowledge only mentions St Peters.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+page: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+start_index: 0
+title: St Peters, South Australia
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Knowledge only mentions St Peters.
+next_query: What are the other suburbs in City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-e5a2a345">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists one suburb but misses others.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+page: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+start_index: 0
+title: Payneham South, South Australia
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists one suburb but misses others.
+next_query: What are other suburbs in City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-480bdcfa">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> , Mitcham, Norwood Payneham and St Peters and Unley. The city has an area of 27.53 km².</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists suburbs but misses clarity on exclusions.</p>
+        </div>
+        <div class="document-content">
+            <pre>, Mitcham, Norwood Payneham and St Peters and Unley. The city has an area of 27.53 km².</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: 703981f1-528b-4ca1-8cd2-9836b2a51e45
+page: 0
+question: What is the estimated population of the city in which the suburb of Beaumont is located ?
+start_index: 429
+title: City of Burnside
+hotpotqa_id: 5ae7473f5542991bbc9761d2
+dataset: HotpotQA
+source: HotpotQA_City of Burnside_5ae7473f5542991bbc9761d2
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists suburbs but misses clarity on exclusions.
+next_query: Which suburbs are included in the City of Norwood Payneham and St Peters besides St Peters?</pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-9" id="document-b875c945">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 4</p>
+            <p>判断理由: Knowledge unrelated to other suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>hotpotqa_id: 5ac3a47f554299391541386d
+pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+page: 0
+title: Payneham South, South Australia
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+start_index: 0
+dataset: HotpotQA
+recursion_depth: 4
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to other suburbs.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-9" id="document-46d8920d">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 4</p>
+            <p>判断理由: Lists Marryatville but not others</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.
+[question]: Which suburbs besides Marryatville and Heathpool belong to the City of Norwood Payneham St Peters?
+[answer]: St Peters
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>hotpotqa_id: 5ac3a47f554299391541386d
+pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+page: 0
+title: Marryatville, South Australia
+source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+start_index: 0
+dataset: HotpotQA
+recursion_depth: 4
+next_rag_thread_id: def3b61a-ca33-493b-83b2-384179e3a893
+score: 1
+reason: Lists Marryatville but not others
+next_query: Which suburbs besides Marryatville and Heathpool belong to the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-10">
+            <div class="node-container level-10" id="query-f2695def">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: def3b61a-ca33-493b-83b2-384179e3a893)</div>
+        <p><strong>问题:</strong> Which suburbs besides Marryatville and Heathpool belong to the City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> St Peters</p>
+    </div>
+    
+        <div class="children-container level-11">
+            <div class="node-container level-11" id="document-68299e37">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Missing names of other suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: Marryatville, South Australia
+page: 0
+source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+start_index: 0
+dataset: HotpotQA
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+hotpotqa_id: 5ac3a47f554299391541386d
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Missing names of other suburbs.
+next_query: What are the names of the other suburbs in the City of Norwood Payneham St Peters besides Marryatville and Heathpool?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-3695ddd3">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists one suburb but misses others.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: St Peters, South Australia
+page: 0
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+start_index: 0
+dataset: HotpotQA
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+hotpotqa_id: 5ac3a47f554299391541386d
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists one suburb but misses others.
+next_query: What are the other suburbs in the City of Norwood Payneham St Peters besides St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-11" id="document-2ba4a094">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> , Mitcham, Norwood Payneham and St Peters and Unley. The city has an area of 27.53 km².</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 5</p>
+            <p>判断理由: Lists some suburbs but misses others.</p>
+        </div>
+        <div class="document-content">
+            <pre>, Mitcham, Norwood Payneham and St Peters and Unley. The city has an area of 27.53 km².</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: City of Burnside
+page: 0
+source: HotpotQA_City of Burnside_5ae7473f5542991bbc9761d2
+pk: 703981f1-528b-4ca1-8cd2-9836b2a51e45
+start_index: 429
+dataset: HotpotQA
+question: What is the estimated population of the city in which the suburb of Beaumont is located ?
+hotpotqa_id: 5ae7473f5542991bbc9761d2
+recursion_depth: 5
+next_rag_thread_id: 
+score: 1
+reason: Lists some suburbs but misses others.
+next_query: Which other suburbs belong to the City of Norwood Payneham St Peters besides Mitcham, Norwood Payneham and St Peters, Unley, Marryatville, and Heathpool?</pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-7" id="document-9e101b80">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 3</p>
+            <p>判断理由: Knowledge is about Payneham South only</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: Payneham South, South Australia
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+page: 0
+pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+recursion_depth: 3
+next_rag_thread_id: 
+score: 0
+reason: Knowledge is about Payneham South only
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-7" id="document-97e1ad1e">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 3</p>
+            <p>判断理由: Lists some suburbs, not all.</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.
+[question]: Which suburbs in the area are missing?
+[answer]: I cannot answer this question.
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: Marryatville, South Australia
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+page: 0
+pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+recursion_depth: 3
+next_rag_thread_id: 4b3a8448-eb63-4830-97dc-752adcc01bd3
+score: 1
+reason: Lists some suburbs, not all.
+next_query: Which suburbs in the area are missing?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-8">
+            <div class="node-container level-8" id="query-e60b9638">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 4b3a8448-eb63-4830-97dc-752adcc01bd3)</div>
+        <p><strong>问题:</strong> Which suburbs in the area are missing?</p>
+        <p><strong>回答:</strong> I cannot answer this question.</p>
+    </div>
+    
+        <div class="children-container level-9">
+            <div class="node-container level-9" id="document-52b8b69c">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Early Abstractions is a collection of seven short animated films created by Harry Everett Smith betw...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 4</p>
+            <p>判断理由: Knowledge is about films, not suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Early Abstractions is a collection of seven short animated films created by Harry Everett Smith between 1939 and 1956. Each film is between two and six minutes long, and is named according to the chronological order in which it was made. The collection includes "Numbers 1–5", "7", and "10", while the missing "Numbers 8" and "9" are presumed to have been lost.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: 2648b787-7d39-4aa1-9410-e5135ec1fe41
+page: 0
+question: Are Harry Everett Smith and Vladimir Danilevich both from Russia?
+start_index: 0
+hotpotqa_id: 5ab5c8c5554299637185c60d
+dataset: HotpotQA
+source: HotpotQA_Early Abstractions_5ab5c8c5554299637185c60d
+title: Early Abstractions
+recursion_depth: 4
+next_rag_thread_id: 
+score: 0
+reason: Knowledge is about films, not suburbs.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-9" id="document-08ae3c49">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> , and Thaba-Tseka District in the south.</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 4</p>
+            <p>判断理由: Knowledge is unrelated to suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>, and Thaba-Tseka District in the south.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: 7e338a0c-5065-4816-b34b-b4ffb7593d32
+page: 0
+question: What is the river that Sangin is found in the valley of the primary watershed for?
+start_index: 491
+hotpotqa_id: 5a7a5ec855429941d65f25e4
+dataset: HotpotQA
+source: HotpotQA_Mokhotlong District_5a7a5ec855429941d65f25e4
+title: Mokhotlong District
+recursion_depth: 4
+next_rag_thread_id: 
+score: 0
+reason: Knowledge is unrelated to suburbs.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-9" id="document-b8a4f119">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> , without directly passing through any of the major cities of the "région". Throughout Picardy, the ...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 4</p>
+            <p>判断理由: Knowledge unrelated to suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>, without directly passing through any of the major cities of the "région". Throughout Picardy, the A1 runs parallel to the LGV Nord.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>pk: f3007a7a-6819-48a6-804d-feede200a80a
+page: 0
+question: The Roissy Airport connects to Paris and cities in what countries?
+start_index: 462
+hotpotqa_id: 5ab6b13b554299710c8d1f3f
+dataset: HotpotQA
+source: HotpotQA_A1 autoroute_5ab6b13b554299710c8d1f3f
+title: A1 autoroute
+recursion_depth: 4
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to suburbs.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-3" id="document-eff9489b">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbourin...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 1</p>
+            <p>判断理由: Knowledge unrelated to Dunstan suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Marryatville is a suburb to the east of Adelaide's central business district. Along with neighbouring Heathpool, it is part of the City of Norwood Payneham St Peters whereas all the suburbs around it, with the exception of Kensington are in Burnside City Council.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>page: 0
+source: HotpotQA_Marryatville, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+hotpotqa_id: 5ac3a47f554299391541386d
+title: Marryatville, South Australia
+start_index: 0
+dataset: HotpotQA
+pk: c2fa774f-b1d6-40e9-90d0-511f0069c0cc
+recursion_depth: 1
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to Dunstan suburbs.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-1" id="document-169b663b">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> College Park (previously "College Town") is a suburb of Adelaide, South Australia in the City of Nor...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 0</p>
+            <p>判断理由: Knowledge mentions suburb but not electoral district.</p>
+        </div>
+        <div class="document-content">
+            <pre>College Park (previously "College Town") is a suburb of Adelaide, South Australia in the City of Norwood Payneham St Peters.
+[question]: Which electoral district includes the suburb of College Park?
+[answer]: Dunstan
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>page: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+dataset: HotpotQA
+pk: 773be472-56cf-41de-8e7b-1adec91a7f77
+title: College Park, South Australia
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+source: HotpotQA_College Park, South Australia_5ac3a47f554299391541386d
+recursion_depth: 0
+next_rag_thread_id: 24e99ed2-a76b-44b7-a5b0-b2813519a40c
+score: 1
+reason: Knowledge mentions suburb but not electoral district.
+next_query: Which electoral district includes the suburb of College Park?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-2">
+            <div class="node-container level-2" id="query-1bf2aa47">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 24e99ed2-a76b-44b7-a5b0-b2813519a40c)</div>
+        <p><strong>问题:</strong> Which electoral district includes the suburb of College Park?</p>
+        <p><strong>回答:</strong> Dunstan</p>
+    </div>
+    
+        <div class="children-container level-3">
+            <div class="node-container level-3" id="document-2acca57b">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> College Park (previously "College Town") is a suburb of Adelaide, South Australia in the City of Nor...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 1</p>
+            <p>判断理由: Knowledge unrelated to electoral districts.</p>
+        </div>
+        <div class="document-content">
+            <pre>College Park (previously "College Town") is a suburb of Adelaide, South Australia in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>start_index: 0
+dataset: HotpotQA
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+pk: 773be472-56cf-41de-8e7b-1adec91a7f77
+hotpotqa_id: 5ac3a47f554299391541386d
+page: 0
+title: College Park, South Australia
+source: HotpotQA_College Park, South Australia_5ac3a47f554299391541386d
+recursion_depth: 1
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to electoral districts.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-3" id="document-1f65e986">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Dunstan is an electoral district of the House of Assembly in the Australian state of South Australia...</p>
+        <div class="metadata">
+            <p>得分: 2 | 深度: 1</p>
+            <p>判断理由: Knowledge directly answers the question.</p>
+        </div>
+        <div class="document-content">
+            <pre>Dunstan is an electoral district of the House of Assembly in the Australian state of South Australia, covering the inner eastern suburbs of Beulah Park, College Park, Evandale, Firle, Hackney, Joslin, Kensington, Kent Town, Marden, Maylands, Norwood, Payneham South, Royston Park, St Morris, St Peters, Stepney, Trinity Gardens and Vale Park and parts of Klemzig and Payneham.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>start_index: 0
+dataset: HotpotQA
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+pk: 5eea3750-0c89-400b-8f97-9bccde33cec1
+hotpotqa_id: 5ac3a47f554299391541386d
+page: 0
+title: Electoral district of Dunstan
+source: HotpotQA_Electoral district of Dunstan_5ac3a47f554299391541386d
+recursion_depth: 1
+next_rag_thread_id: 
+score: 2
+reason: Knowledge directly answers the question.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-3" id="document-a077ca98">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> The Division of McMillan is an Australian Electoral Division in the state of Victoria. It is located...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 1</p>
+            <p>判断理由: Knowledge unrelated to College Park.</p>
+        </div>
+        <div class="document-content">
+            <pre>The Division of McMillan is an Australian Electoral Division in the state of Victoria. It is located in the western part of the Gippsland region, which extends for the length of Victoria's eastern Bass Strait coastline. It includes the outer south-eastern Melbourne suburb of Pakenham, and also includes the towns of Warragul, Moe, Wonthaggi, Leongatha and Foster. It stretches from Mount Baw Baw and the Baw Baw National Park in the north to Wilsons Promontory</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>start_index: 0
+dataset: HotpotQA
+question: What Electoral Division in Victoria contained a suburb of Melbourne with a population of 25,147 at the 2016 Census?
+pk: ce34621c-cd27-4045-ac7c-0531d3355a5f
+hotpotqa_id: 5a89d48c554299515336132e
+page: 0
+title: Division of McMillan
+source: HotpotQA_Division of McMillan_5a89d48c554299515336132e
+recursion_depth: 1
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to College Park.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+    </div>
+    <script>
+        // 折叠/展开功能
+        function setupToggle() {
+            // 为查询节点添加切换功能
+            document.querySelectorAll('.query-node').forEach(node => {
+                // 添加切换图标
+                const title = node.querySelector('.node-title');
+                if (!title.querySelector('.toggle-icon')) {
+                    const toggleIcon = document.createElement('span');
+                    toggleIcon.className = 'toggle-icon';
+                    toggleIcon.textContent = '-';
+                    title.prepend(toggleIcon);
+                }
+
+                node.addEventListener('click', function() {
+                    const nodeContainer = this.closest('.node-container');
+                    nodeContainer.classList.toggle('collapsed');
+                    const toggleIcon = this.querySelector('.toggle-icon');
+                    if (nodeContainer.classList.contains('collapsed')) {
+                        toggleIcon.textContent = '+';
+                    } else {
+                        toggleIcon.textContent = '-';
+                    }
+                });
+            });
+
+            // 为文档节点添加切换功能
+            document.querySelectorAll('.document-node').forEach(node => {
+                node.addEventListener('click', function(e) {
+                    const nodeContainer = this.closest('.node-container');
+                    nodeContainer.classList.toggle('collapsed');
+                    const toggleIcon = this.querySelector('.toggle-icon');
+                    if (nodeContainer.classList.contains('collapsed')) {
+                        toggleIcon.textContent = '+';
+                    } else {
+                        toggleIcon.textContent = '-';
+                    }
+                    e.stopPropagation(); // 防止事件冒泡到父节点
+                });
+            });
+
+            // 初始化标签切换
+            setupTabs();
+
+            // 初始化全部折叠/展开按钮
+            setupCollapseExpandButtons();
+        }
+
+        // 标签切换功能
+        function setupTabs() {
+            document.querySelectorAll('.document-node').forEach(node => {
+                // 创建标签按钮
+                const tabContainer = document.createElement('div');
+                tabContainer.className = 'content-tabs';
+
+                const contentBtn = document.createElement('button');
+                contentBtn.className = 'tab-btn active';
+                contentBtn.textContent = '内容';
+                contentBtn.setAttribute('data-tab', 'content');
+
+                const metadataBtn = document.createElement('button');
+                metadataBtn.className = 'tab-btn';
+                metadataBtn.textContent = '元数据';
+                metadataBtn.setAttribute('data-tab', 'metadata');
+
+                tabContainer.appendChild(contentBtn);
+                tabContainer.appendChild(metadataBtn);
+
+                // 插入到文档节点中
+                const nodeContent = node.querySelector('.document-content');
+                if (nodeContent) {
+                    node.insertBefore(tabContainer, nodeContent);
+                }
+
+                // 添加标签切换事件
+                tabContainer.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        // 移除所有标签的active类
+                        tabContainer.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                        // 为当前标签添加active类
+                        this.classList.add('active');
+
+                        const tab = this.getAttribute('data-tab');
+                        // 隐藏所有内容
+                        node.querySelector('.document-content').style.display = 'none';
+                        node.querySelector('.metadata-content').style.display = 'none';
+                        // 显示选中的内容
+                        if (tab === 'content') {
+                            node.querySelector('.document-content').style.display = 'block';
+                        } else {
+                            node.querySelector('.metadata-content').style.display = 'block';
+                        }
+                    });
+                });
+            });
+        }
+
+        // 全部折叠/展开按钮功能
+        function setupCollapseExpandButtons() {
+            // 全部折叠按钮
+            document.getElementById('collapse-all').addEventListener('click', function() {
+                document.querySelectorAll('.node-container').forEach(container => {
+                    container.classList.add('collapsed');
+                    const toggleIcon = container.querySelector('.toggle-icon');
+                    if (toggleIcon) {
+                        toggleIcon.textContent = '+';
+                    }
+                });
+            });
+
+            // 全部展开按钮
+            document.getElementById('expand-all').addEventListener('click', function() {
+                document.querySelectorAll('.node-container').forEach(container => {
+                    container.classList.remove('collapsed');
+                    const toggleIcon = container.querySelector('.toggle-icon');
+                    if (toggleIcon) {
+                        toggleIcon.textContent = '-';
+                    }
+                });
+            });
+        }
+
+        // 初始设置
+        window.addEventListener('load', setupToggle);
+    </script>
+</body>
+</html>

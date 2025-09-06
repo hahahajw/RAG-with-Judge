@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索树可视化</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .controls {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .control-btn {
+            padding: 8px 16px;
+            background-color: #4682b4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .control-btn:hover {
+            background-color: #5a9bd5;
+        }
+        .tree {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+        }
+        .node-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px 0;
+            width: 100%;
+        }
+        /* 层级样式 */
+        .level-0 {
+            margin-left: 0;
+        }
+        .level-1 {
+            margin-left: 50px;
+        }
+        .level-2 {
+            margin-left: 100px;
+        }
+        .level-3 {
+            margin-left: 150px;
+        }
+        .level-4 {
+            margin-left: 200px;
+        }
+        .level-5 {
+            margin-left: 250px;
+        }
+        /* 更多层级可以根据需要添加 */
+        
+        .query-node {
+            background-color: #f0f8ff;
+            border: 2px solid #4682b4;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            min-width: 300px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .document-node {
+            background-color: #fff8e1;
+            border: 2px solid #ffa500;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            min-width: 250px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .content-tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            gap: 10px;
+        }
+        .tab-btn {
+            padding: 5px 10px;
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        .tab-btn.active {
+            background-color: #ffa500;
+            color: white;
+            border-color: #cc8400;
+        }
+        .children-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            margin-top: 30px;
+            width: 100%;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+        .document-children {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .query-node:hover, .document-node:hover {
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .document-content {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .metadata-content {
+            display: none;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .collapsed .document-content, .collapsed .metadata-content {
+            display: none;
+        }
+        .collapsed .children-container, .collapsed .document-children {
+            display: none;
+        }
+        .toggle-icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .relations-container {
+            display: none;
+        }
+        h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .node-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        .metadata {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>搜索树可视化</h1>
+    <div class="controls">
+        <button id="collapse-all" class="control-btn">全部折叠</button>
+        <button id="expand-all" class="control-btn">全部展开</button>
+    </div>
+    <div class="tree" id="tree-container">
+        <div class="node-container level-0" id="query-da1ba252">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 1)</div>
+        <p><strong>问题:</strong> Which suburb of Adelaide in the City of Norwood Payneham St Peters is included in the electoral district of Dunstan?</p>
+        <p><strong>回答:</strong> College Park</p>
+    </div>
+    
+        <div class="children-container level-1">
+            <div class="node-container level-1" id="document-36c9d45f">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: Which elect...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 0</p>
+            <p>判断理由: Knowledge lacks electoral district info.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.
+[question]: Which electoral district includes the suburb of St Peters?
+[answer]: City of Norwood Payneham St Peters
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+title: St Peters, South Australia
+page: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 0
+next_rag_thread_id: 05ea7221-5ce2-4bb0-9b5d-02782a69c709
+score: 1
+reason: Knowledge lacks electoral district info.
+next_query: Which electoral district includes the suburb of St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-2">
+            <div class="node-container level-2" id="query-ac347ccb">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 05ea7221-5ce2-4bb0-9b5d-02782a69c709)</div>
+        <p><strong>问题:</strong> Which electoral district includes the suburb of St Peters?</p>
+        <p><strong>回答:</strong> City of Norwood Payneham St Peters</p>
+    </div>
+    
+        <div class="children-container level-3">
+            <div class="node-container level-3" id="document-c6713f2f">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 1</p>
+            <p>判断理由: Knowledge unrelated to electoral districts.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: St Peters, South Australia
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+dataset: HotpotQA
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+hotpotqa_id: 5ac3a47f554299391541386d
+page: 0
+start_index: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 1
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to electoral districts.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-3" id="document-fb294d6d">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> , Southfield and Pontiac. He previously represented Michigan 's 9 congressional district from 2009 t...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 1</p>
+            <p>判断理由: Knowledge unrelated to St Peters suburb.</p>
+        </div>
+        <div class="document-content">
+            <pre>, Southfield and Pontiac. He previously represented Michigan 's 9 congressional district from 2009 to 2013. Following the redrawing of congressional district boundaries after the 2010 United States Census, Peters defeated fellow Congressman Hansen Clarke in the Democratic primary and won re-election in the newly redrawn 14th District.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: Gary Peters (politician)
+source: HotpotQA_Gary Peters (politician)_5adc7b855542994650320d1e
+dataset: HotpotQA
+pk: 3082d7a2-b3d6-4186-a11e-20fb8bf9155b
+hotpotqa_id: 5adc7b855542994650320d1e
+page: 0
+start_index: 383
+question: What county is the congressional district that Hansen Clarke was a U.S. Representative for in?
+recursion_depth: 1
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to St Peters suburb.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-3" id="document-2c1c7edd">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Joslin is a suburb of Adelaide in the City of Norwood Payneham St Peters. It is rectangular, stretch...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 1</p>
+            <p>判断理由: Knowledge unrelated to electoral districts.</p>
+        </div>
+        <div class="document-content">
+            <pre>Joslin is a suburb of Adelaide in the City of Norwood Payneham St Peters. It is rectangular, stretching from Payneham Road (southeast) to the River Torrens and Torrens Linear Park (northwest), but from Lambert Road on the northeast only about 350m along the numbered avenues towards the next cross street which is in St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: Joslin, South Australia
+source: HotpotQA_Joslin, South Australia_5ac3a47f554299391541386d
+dataset: HotpotQA
+pk: 52bdb48a-6c59-4e35-8153-e87d3f64aa70
+hotpotqa_id: 5ac3a47f554299391541386d
+page: 0
+start_index: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 1
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to electoral districts.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-1" id="document-355640bb">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Dunstan is an electoral district of the House of Assembly in the Australian state of South Australia...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 0</p>
+            <p>判断理由: Lists areas but doesn't specify one.</p>
+        </div>
+        <div class="document-content">
+            <pre>Dunstan is an electoral district of the House of Assembly in the Australian state of South Australia, covering the inner eastern suburbs of Beulah Park, College Park, Evandale, Firle, Hackney, Joslin, Kensington, Kent Town, Marden, Maylands, Norwood, Payneham South, Royston Park, St Morris, St Peters, Stepney, Trinity Gardens and Vale Park and parts of Klemzig and Payneham.
+[question]: Which specific suburb within City of Norwood Payneham St Peters is part of Dunstan?
+[answer]: College Park
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+source: HotpotQA_Electoral district of Dunstan_5ac3a47f554299391541386d
+pk: 5eea3750-0c89-400b-8f97-9bccde33cec1
+title: Electoral district of Dunstan
+page: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 0
+next_rag_thread_id: c3499b9e-f2f7-4776-b035-935128fc76ca
+score: 1
+reason: Lists areas but doesn't specify one.
+next_query: Which specific suburb within City of Norwood Payneham St Peters is part of Dunstan?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-2">
+            <div class="node-container level-2" id="query-ed8028dd">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: c3499b9e-f2f7-4776-b035-935128fc76ca)</div>
+        <p><strong>问题:</strong> Which specific suburb within City of Norwood Payneham St Peters is part of Dunstan?</p>
+        <p><strong>回答:</strong> College Park</p>
+    </div>
+    
+        <div class="children-container level-3">
+            <div class="node-container level-3" id="document-0792fbbf">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 1</p>
+            <p>判断理由: Knowledge unrelated to Dunstan.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>start_index: 0
+page: 0
+title: St Peters, South Australia
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+recursion_depth: 1
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to Dunstan.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-3" id="document-efacb9ae">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Dunstan is an electoral district of the House of Assembly in the Australian state of South Australia...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 1</p>
+            <p>判断理由: Lists suburbs but not specific to Norwood Payneham St Peters.</p>
+        </div>
+        <div class="document-content">
+            <pre>Dunstan is an electoral district of the House of Assembly in the Australian state of South Australia, covering the inner eastern suburbs of Beulah Park, College Park, Evandale, Firle, Hackney, Joslin, Kensington, Kent Town, Marden, Maylands, Norwood, Payneham South, Royston Park, St Morris, St Peters, Stepney, Trinity Gardens and Vale Park and parts of Klemzig and Payneham.
+[question]: Which suburbs in Dunstan overlap with City of Norwood Payneham St Peters?
+[answer]: Beulah Park, College Park, Evandale, Firle, Hackney, Joslin, Kensington, Kent Town, Marden, Maylands, Norwood, Payneham South, Royston Park, St Morris, St Peters, Stepney, Trinity Gardens, Vale Park, parts of Klemzig and Payneham.
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>start_index: 0
+page: 0
+title: Electoral district of Dunstan
+pk: 5eea3750-0c89-400b-8f97-9bccde33cec1
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+source: HotpotQA_Electoral district of Dunstan_5ac3a47f554299391541386d
+recursion_depth: 1
+next_rag_thread_id: a6aaf820-1122-446b-bbad-aeab66ce2b07
+score: 1
+reason: Lists suburbs but not specific to Norwood Payneham St Peters.
+next_query: Which suburbs in Dunstan overlap with City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-4">
+            <div class="node-container level-4" id="query-55194bed">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: a6aaf820-1122-446b-bbad-aeab66ce2b07)</div>
+        <p><strong>问题:</strong> Which suburbs in Dunstan overlap with City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> Beulah Park, College Park, Evandale, Firle, Hackney, Joslin, Kensington, Kent Town, Marden, Maylands, Norwood, Payneham South, Royston Park, St Morris, St Peters, Stepney, Trinity Gardens, Vale Park, parts of Klemzig and Payneham.</p>
+    </div>
+    
+        <div class="children-container level-5">
+            <div class="node-container level-5" id="document-aab81234">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Dunstan is an electoral district of the House of Assembly in the Australian state of South Australia...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 2</p>
+            <p>判断理由: Lists suburbs but does not specify overlap.</p>
+        </div>
+        <div class="document-content">
+            <pre>Dunstan is an electoral district of the House of Assembly in the Australian state of South Australia, covering the inner eastern suburbs of Beulah Park, College Park, Evandale, Firle, Hackney, Joslin, Kensington, Kent Town, Marden, Maylands, Norwood, Payneham South, Royston Park, St Morris, St Peters, Stepney, Trinity Gardens and Vale Park and parts of Klemzig and Payneham.
+[question]: Which suburbs are exclusively in City of Norwood Payneham St Peters?
+[answer]: St Peters, Payneham South, Payneham
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+source: HotpotQA_Electoral district of Dunstan_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+page: 0
+pk: 5eea3750-0c89-400b-8f97-9bccde33cec1
+title: Electoral district of Dunstan
+recursion_depth: 2
+next_rag_thread_id: 068883f6-94ad-4521-940f-7c9f7298cb17
+score: 1
+reason: Lists suburbs but does not specify overlap.
+next_query: Which suburbs are exclusively in City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-6">
+            <div class="node-container level-6" id="query-f97a157f">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 068883f6-94ad-4521-940f-7c9f7298cb17)</div>
+        <p><strong>问题:</strong> Which suburbs are exclusively in City of Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> St Peters, Payneham South, Payneham</p>
+    </div>
+    
+        <div class="children-container level-7">
+            <div class="node-container level-7" id="document-25466765">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 3</p>
+            <p>判断理由: Lists one suburb but not all.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: St Peters, South Australia
+page: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+dataset: HotpotQA
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+hotpotqa_id: 5ac3a47f554299391541386d
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+start_index: 0
+recursion_depth: 3
+next_rag_thread_id: 
+score: 1
+reason: Lists one suburb but not all.
+next_query: What are the other suburbs in City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-7" id="document-33fdccb7">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditional...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 3</p>
+            <p>判断理由: Only one suburb is mentioned.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham South is a suburb of Adelaide in the City of Norwood Payneham St Peters. It has traditionally been market gardens but is currently undergoing a building boom in which many smaller houses are being built.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: Payneham South, South Australia
+page: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+dataset: HotpotQA
+source: HotpotQA_Payneham South, South Australia_5ac3a47f554299391541386d
+hotpotqa_id: 5ac3a47f554299391541386d
+pk: 2e4425e0-45d6-41de-bd8d-cc12bd24cb81
+start_index: 0
+recursion_depth: 3
+next_rag_thread_id: 
+score: 1
+reason: Only one suburb is mentioned.
+next_query: Are there other suburbs within the City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-7" id="document-a7c8bfcb">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham is a northeastern suburb of Adelaide in the City of Norwood Payneham St Peters. It is part ...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 3</p>
+            <p>判断理由: Lists Payneham but not other suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham is a northeastern suburb of Adelaide in the City of Norwood Payneham St Peters. It is part of a string of suburbs in Adelaide's north-east with a high proportion of Adelaide's Italian-Australian and French-Australian residents, many of whom can be traced back to the large-scale migration following the Second World War.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>title: Payneham, South Australia
+page: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+dataset: HotpotQA
+source: HotpotQA_Payneham, South Australia_5ac3a47f554299391541386d
+hotpotqa_id: 5ac3a47f554299391541386d
+pk: 4d7e50b2-7048-43c7-8462-d53abf7f6d44
+start_index: 0
+recursion_depth: 3
+next_rag_thread_id: 
+score: 1
+reason: Lists Payneham but not other suburbs.
+next_query: Which other suburbs are part of City of Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-5" id="document-13600f34">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 2</p>
+            <p>判断理由: Knowledge unrelated to Dunstan suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+page: 0
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+title: St Peters, South Australia
+recursion_depth: 2
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to Dunstan suburbs.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-5" id="document-2923e882">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> , Mitcham, Norwood Payneham and St Peters and Unley. The city has an area of 27.53 km².
+[question]: ...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 2</p>
+            <p>判断理由: Lists suburbs but doesn't confirm overlap.</p>
+        </div>
+        <div class="document-content">
+            <pre>, Mitcham, Norwood Payneham and St Peters and Unley. The city has an area of 27.53 km².
+[question]: Which suburbs are shared between Dunstan and Norwood Payneham St Peters?
+[answer]: Beulah Park, College Park, Evandale, Firle, Hackney, Joslin, Kensington, Kent Town, Marden, Maylands, Norwood, Payneham South, Royston Park, St Morris, St Peters, Stepney, Trinity Gardens, Vale Park, parts of Klemzig and Payneham.
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>start_index: 429
+hotpotqa_id: 5ae7473f5542991bbc9761d2
+dataset: HotpotQA
+source: HotpotQA_City of Burnside_5ae7473f5542991bbc9761d2
+question: What is the estimated population of the city in which the suburb of Beaumont is located ?
+page: 0
+pk: 703981f1-528b-4ca1-8cd2-9836b2a51e45
+title: City of Burnside
+recursion_depth: 2
+next_rag_thread_id: 263d4f71-ef20-4e44-96e8-44edd1b2adf1
+score: 1
+reason: Lists suburbs but doesn't confirm overlap.
+next_query: Which suburbs are shared between Dunstan and Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-6">
+            <div class="node-container level-6" id="query-5d69f75f">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: 263d4f71-ef20-4e44-96e8-44edd1b2adf1)</div>
+        <p><strong>问题:</strong> Which suburbs are shared between Dunstan and Norwood Payneham St Peters?</p>
+        <p><strong>回答:</strong> Beulah Park, College Park, Evandale, Firle, Hackney, Joslin, Kensington, Kent Town, Marden, Maylands, Norwood, Payneham South, Royston Park, St Morris, St Peters, Stepney, Trinity Gardens, Vale Park, parts of Klemzig and Payneham.</p>
+    </div>
+    
+        <div class="children-container level-7">
+            <div class="node-container level-7" id="document-fa1d59f1">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Dunstan is an electoral district of the House of Assembly in the Australian state of South Australia...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 3</p>
+            <p>判断理由: Lists Dunstan suburbs, but not overlap with Norwood Payneham St Peters</p>
+        </div>
+        <div class="document-content">
+            <pre>Dunstan is an electoral district of the House of Assembly in the Australian state of South Australia, covering the inner eastern suburbs of Beulah Park, College Park, Evandale, Firle, Hackney, Joslin, Kensington, Kent Town, Marden, Maylands, Norwood, Payneham South, Royston Park, St Morris, St Peters, Stepney, Trinity Gardens and Vale Park and parts of Klemzig and Payneham.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>dataset: HotpotQA
+title: Electoral district of Dunstan
+page: 0
+pk: 5eea3750-0c89-400b-8f97-9bccde33cec1
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+source: HotpotQA_Electoral district of Dunstan_5ac3a47f554299391541386d
+recursion_depth: 3
+next_rag_thread_id: 
+score: 1
+reason: Lists Dunstan suburbs, but not overlap with Norwood Payneham St Peters
+next_query: Which suburbs are part of both Dunstan and Norwood Payneham St Peters?</pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-7" id="document-ac1323fa">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 3</p>
+            <p>判断理由: Knowledge unrelated to shared suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>St Peters is a suburb of Adelaide in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>dataset: HotpotQA
+title: St Peters, South Australia
+page: 0
+pk: e19443b4-ab54-43e3-8625-9bd657c178a3
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+source: HotpotQA_St Peters, South Australia_5ac3a47f554299391541386d
+recursion_depth: 3
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to shared suburbs.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-7" id="document-faa040bd">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Payneham is a northeastern suburb of Adelaide in the City of Norwood Payneham St Peters. It is part ...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 3</p>
+            <p>判断理由: Knowledge unrelated to shared suburbs.</p>
+        </div>
+        <div class="document-content">
+            <pre>Payneham is a northeastern suburb of Adelaide in the City of Norwood Payneham St Peters. It is part of a string of suburbs in Adelaide's north-east with a high proportion of Adelaide's Italian-Australian and French-Australian residents, many of whom can be traced back to the large-scale migration following the Second World War.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>dataset: HotpotQA
+title: Payneham, South Australia
+page: 0
+pk: 4d7e50b2-7048-43c7-8462-d53abf7f6d44
+start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+source: HotpotQA_Payneham, South Australia_5ac3a47f554299391541386d
+recursion_depth: 3
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to shared suburbs.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-3" id="document-cbfe9046">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> College Park (previously "College Town") is a suburb of Adelaide, South Australia in the City of Nor...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 1</p>
+            <p>判断理由: Knowledge unrelated to Dunstan.</p>
+        </div>
+        <div class="document-content">
+            <pre>College Park (previously "College Town") is a suburb of Adelaide, South Australia in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>start_index: 0
+page: 0
+title: College Park, South Australia
+pk: 773be472-56cf-41de-8e7b-1adec91a7f77
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+source: HotpotQA_College Park, South Australia_5ac3a47f554299391541386d
+recursion_depth: 1
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to Dunstan.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div><div class="node-container level-1" id="document-d9c7d659">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> College Park (previously "College Town") is a suburb of Adelaide, South Australia in the City of Nor...</p>
+        <div class="metadata">
+            <p>得分: 1 | 深度: 0</p>
+            <p>判断理由: Knowledge mentions suburb but not electoral district.</p>
+        </div>
+        <div class="document-content">
+            <pre>College Park (previously "College Town") is a suburb of Adelaide, South Australia in the City of Norwood Payneham St Peters.
+[question]: Which electoral district includes the suburb of College Park?
+[answer]: Dunstan
+</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>start_index: 0
+hotpotqa_id: 5ac3a47f554299391541386d
+dataset: HotpotQA
+source: HotpotQA_College Park, South Australia_5ac3a47f554299391541386d
+pk: 773be472-56cf-41de-8e7b-1adec91a7f77
+title: College Park, South Australia
+page: 0
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+recursion_depth: 0
+next_rag_thread_id: ab7c4e58-a0f9-4151-8437-b02319919846
+score: 1
+reason: Knowledge mentions suburb but not electoral district.
+next_query: Which electoral district includes the suburb of College Park?</pre>
+        </div>
+    </div>
+    
+        <div class="document-children level-2">
+            <div class="node-container level-2" id="query-3b76cdd9">
+    <div class="relations-container"></div>
+    <div class="query-node">
+        <div class="node-title"><span class="toggle-icon"></span>查询节点 (Thread ID: ab7c4e58-a0f9-4151-8437-b02319919846)</div>
+        <p><strong>问题:</strong> Which electoral district includes the suburb of College Park?</p>
+        <p><strong>回答:</strong> Dunstan</p>
+    </div>
+    
+        <div class="children-container level-3">
+            <div class="node-container level-3" id="document-910fa3f5">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> College Park (previously "College Town") is a suburb of Adelaide, South Australia in the City of Nor...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 1</p>
+            <p>判断理由: Knowledge unrelated to electoral districts.</p>
+        </div>
+        <div class="document-content">
+            <pre>College Park (previously "College Town") is a suburb of Adelaide, South Australia in the City of Norwood Payneham St Peters.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>hotpotqa_id: 5ac3a47f554299391541386d
+source: HotpotQA_College Park, South Australia_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: College Park, South Australia
+dataset: HotpotQA
+start_index: 0
+page: 0
+pk: 773be472-56cf-41de-8e7b-1adec91a7f77
+recursion_depth: 1
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to electoral districts.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-3" id="document-33fcf459">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> Dunstan is an electoral district of the House of Assembly in the Australian state of South Australia...</p>
+        <div class="metadata">
+            <p>得分: 2 | 深度: 1</p>
+            <p>判断理由: Knowledge directly answers the question.</p>
+        </div>
+        <div class="document-content">
+            <pre>Dunstan is an electoral district of the House of Assembly in the Australian state of South Australia, covering the inner eastern suburbs of Beulah Park, College Park, Evandale, Firle, Hackney, Joslin, Kensington, Kent Town, Marden, Maylands, Norwood, Payneham South, Royston Park, St Morris, St Peters, Stepney, Trinity Gardens and Vale Park and parts of Klemzig and Payneham.</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>hotpotqa_id: 5ac3a47f554299391541386d
+source: HotpotQA_Electoral district of Dunstan_5ac3a47f554299391541386d
+question: Dunstan is an electoral district that includes which suburb of Adelaide in the City of Norwood Payneham St Peters?
+title: Electoral district of Dunstan
+dataset: HotpotQA
+start_index: 0
+page: 0
+pk: 5eea3750-0c89-400b-8f97-9bccde33cec1
+recursion_depth: 1
+next_rag_thread_id: 
+score: 2
+reason: Knowledge directly answers the question.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div><div class="node-container level-3" id="document-947175c0">
+    <div class="relations-container"></div>
+    <div class="document-node">
+        <div class="toggle-icon">-</div>
+        <div class="node-title">文档节点</div>
+        <p><strong>预览:</strong> The Division of McMillan is an Australian Electoral Division in the state of Victoria. It is located...</p>
+        <div class="metadata">
+            <p>得分: 0 | 深度: 1</p>
+            <p>判断理由: Knowledge unrelated to College Park.</p>
+        </div>
+        <div class="document-content">
+            <pre>The Division of McMillan is an Australian Electoral Division in the state of Victoria. It is located in the western part of the Gippsland region, which extends for the length of Victoria's eastern Bass Strait coastline. It includes the outer south-eastern Melbourne suburb of Pakenham, and also includes the towns of Warragul, Moe, Wonthaggi, Leongatha and Foster. It stretches from Mount Baw Baw and the Baw Baw National Park in the north to Wilsons Promontory</pre>
+        </div>
+        <div class="metadata-content">
+            <pre>hotpotqa_id: 5a89d48c554299515336132e
+source: HotpotQA_Division of McMillan_5a89d48c554299515336132e
+question: What Electoral Division in Victoria contained a suburb of Melbourne with a population of 25,147 at the 2016 Census?
+title: Division of McMillan
+dataset: HotpotQA
+start_index: 0
+page: 0
+pk: ce34621c-cd27-4045-ac7c-0531d3355a5f
+recursion_depth: 1
+next_rag_thread_id: 
+score: 0
+reason: Knowledge unrelated to College Park.
+next_query: </pre>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+        </div>
+        
+</div>
+    </div>
+    <script>
+        // 折叠/展开功能
+        function setupToggle() {
+            // 为查询节点添加切换功能
+            document.querySelectorAll('.query-node').forEach(node => {
+                // 添加切换图标
+                const title = node.querySelector('.node-title');
+                if (!title.querySelector('.toggle-icon')) {
+                    const toggleIcon = document.createElement('span');
+                    toggleIcon.className = 'toggle-icon';
+                    toggleIcon.textContent = '-';
+                    title.prepend(toggleIcon);
+                }
+
+                node.addEventListener('click', function() {
+                    const nodeContainer = this.closest('.node-container');
+                    nodeContainer.classList.toggle('collapsed');
+                    const toggleIcon = this.querySelector('.toggle-icon');
+                    if (nodeContainer.classList.contains('collapsed')) {
+                        toggleIcon.textContent = '+';
+                    } else {
+                        toggleIcon.textContent = '-';
+                    }
+                });
+            });
+
+            // 为文档节点添加切换功能
+            document.querySelectorAll('.document-node').forEach(node => {
+                node.addEventListener('click', function(e) {
+                    const nodeContainer = this.closest('.node-container');
+                    nodeContainer.classList.toggle('collapsed');
+                    const toggleIcon = this.querySelector('.toggle-icon');
+                    if (nodeContainer.classList.contains('collapsed')) {
+                        toggleIcon.textContent = '+';
+                    } else {
+                        toggleIcon.textContent = '-';
+                    }
+                    e.stopPropagation(); // 防止事件冒泡到父节点
+                });
+            });
+
+            // 初始化标签切换
+            setupTabs();
+
+            // 初始化全部折叠/展开按钮
+            setupCollapseExpandButtons();
+        }
+
+        // 标签切换功能
+        function setupTabs() {
+            document.querySelectorAll('.document-node').forEach(node => {
+                // 创建标签按钮
+                const tabContainer = document.createElement('div');
+                tabContainer.className = 'content-tabs';
+
+                const contentBtn = document.createElement('button');
+                contentBtn.className = 'tab-btn active';
+                contentBtn.textContent = '内容';
+                contentBtn.setAttribute('data-tab', 'content');
+
+                const metadataBtn = document.createElement('button');
+                metadataBtn.className = 'tab-btn';
+                metadataBtn.textContent = '元数据';
+                metadataBtn.setAttribute('data-tab', 'metadata');
+
+                tabContainer.appendChild(contentBtn);
+                tabContainer.appendChild(metadataBtn);
+
+                // 插入到文档节点中
+                const nodeContent = node.querySelector('.document-content');
+                if (nodeContent) {
+                    node.insertBefore(tabContainer, nodeContent);
+                }
+
+                // 添加标签切换事件
+                tabContainer.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        // 移除所有标签的active类
+                        tabContainer.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                        // 为当前标签添加active类
+                        this.classList.add('active');
+
+                        const tab = this.getAttribute('data-tab');
+                        // 隐藏所有内容
+                        node.querySelector('.document-content').style.display = 'none';
+                        node.querySelector('.metadata-content').style.display = 'none';
+                        // 显示选中的内容
+                        if (tab === 'content') {
+                            node.querySelector('.document-content').style.display = 'block';
+                        } else {
+                            node.querySelector('.metadata-content').style.display = 'block';
+                        }
+                    });
+                });
+            });
+        }
+
+        // 全部折叠/展开按钮功能
+        function setupCollapseExpandButtons() {
+            // 全部折叠按钮
+            document.getElementById('collapse-all').addEventListener('click', function() {
+                document.querySelectorAll('.node-container').forEach(container => {
+                    container.classList.add('collapsed');
+                    const toggleIcon = container.querySelector('.toggle-icon');
+                    if (toggleIcon) {
+                        toggleIcon.textContent = '+';
+                    }
+                });
+            });
+
+            // 全部展开按钮
+            document.getElementById('expand-all').addEventListener('click', function() {
+                document.querySelectorAll('.node-container').forEach(container => {
+                    container.classList.remove('collapsed');
+                    const toggleIcon = container.querySelector('.toggle-icon');
+                    if (toggleIcon) {
+                        toggleIcon.textContent = '-';
+                    }
+                });
+            });
+        }
+
+        // 初始设置
+        window.addEventListener('load', setupToggle);
+    </script>
+</body>
+</html>
