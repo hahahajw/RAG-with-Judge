@@ -2,4 +2,8 @@
 
 ![image-20250527171449427](https://cdn.jsdelivr.net/gh/hahahajw/MyBlogImg@main/img/202509060948241.png)
 
+带有 Judge 模块的 RAG 是为了解决标准间的引用问题，对于一般的多跳问题也有一定的效果。在 HotpotQA 数据集上，EM 和 F1 指标分别为 52.40% 和 67.96%
+
+![image-20250906110919287](https://cdn.jsdelivr.net/gh/hahahajw/MyBlogImg@main/img/202509061109280.png)
+
 更多详细信息可以在[这里](https://github.com/hahahajw/RAG-with-Judge/blob/main/note.md)找到
