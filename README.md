@@ -2,4 +2,4 @@
 
 ![image-20250527171449427](https://cdn.jsdelivr.net/gh/hahahajw/MyBlogImg@main/img/202509060948241.png)
 
-更多详细信息可以在[这里]()找到
+更多详细信息可以在[这里](https://github.com/hahahajw/RAG-with-Judge/blob/main/note.md)找到
